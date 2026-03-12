@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Карусель с прокруткой</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        h1 {
+            color: white;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .carousel-container {
+            width: 80%;
+            max-width: 800px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            background: white;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            padding: 60px 20px;
+            box-sizing: border-box;
+            text-align: center;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .carousel-slide:nth-child(2) {
+            background: linear-gradient(45deg, #a8e6cf, #d4ed9e);
+        }
+
+        .carousel-slide:nth-child(3) {
+            background: linear-gradient(45deg, #ffd3b6, #ffaaa5);
+        }
+
+        .carousel-slide:nth-child(4) {
+            background: linear-gradient(45deg, #a2c2e0, #6c5b7b);
+        }
+
+        .carousel-slide:nth-child(5) {
+            background: linear-gradient(45deg, #f8a5c2, #f7d794);
+        }
+
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .indicator.active {
+            background: white;
+        }
+
+        .scroll-instruction {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            text-align: center;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0) translateX(-50%);}
+            40% {transform: translateY(-20px) translateX(-50%);}
+            60% {transform: translateY(-10px) translateX(-50%);}
+        }
+
+        .scroll-arrow {
+            font-size: 30px;
+            display: block;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Горизонтальная карусель</h1>
+        <h2 style="color: white; margin-bottom: 20px;">Прокрутите вниз для навигации</h2>
+        
+        <div class="carousel-container">
+            <div class="carousel-track" id="carouselTrack">
+                <div class="carousel-slide">Слайд 1 - Привет!</div>
+                <div class="carousel-slide">Слайд 2 - Как дела?</div>
+                <div class="carousel-slide">Слайд 3 - Отлично!</div>
+                <div class="carousel-slide">Слайд 4 - Круто!</div>
+                <div class="carousel-slide">Слайд 5 - Пока!</div>
+            </div>
+        </div>
+
+        <div class="carousel-indicators" id="indicators">
+            <div class="indicator active" onclick="goToSlide(0)"></div>
+            <div class="indicator" onclick="goToSlide(1)"></div>
+            <div class="indicator" onclick="goToSlide(2)"></div>
+            <div class="indicator" onclick="goToSlide(3)"></div>
+            <div class="indicator" onclick="goToSlide(4)"></div>
+        </div>
+
+        <div class="scroll-instruction">
+            Прокрутите вниз ↓
+            <span class="scroll-arrow">👇</span>
+        </div>
+    </div>
+
+    <script>
+        const track = document.getElementById('carouselTrack');
+        const slides = document.querySelectorAll('.carousel-slide');
+        const indicators = document.querySelectorAll('.indicator');
+        let currentIndex = 0;
+        const totalSlides = slides.length;
+
+        // Функция для обновления позиции карусели
+        function updateCarousel(index) {
+            if (index < 0) index = 0;
+            if (index >= totalSlides) index = totalSlides - 1;
+            
+            track.style.transform = `translateX(-${index * 100}%)`;
+            
+            // Обновление индикаторов
+            indicators.forEach((indicator, i) => {
+                indicator.classList.toggle('active', i === index);
+            });
+            
+            currentIndex = index;
+        }
+
+        // Функция для перехода к определенному слайду
+        function goToSlide(index) {
+            updateCarousel(index);
+        }
+
+        // Переменная для хранения последней позиции скролла
+        let lastScrollY = 0;
+        let isThrottled = false;
+
+        // Обработчик скролла
+        window.addEventListener('wheel', (e) => {
+            e.preventDefault(); // Предотвращаем обычную прокрутку страницы
+            
+            if (!isThrottled) {
+                if (e.deltaY > 0) {
+                    // Скролл вниз - следующий слайд
+                    if (currentIndex < totalSlides - 1) {
+                        updateCarousel(currentIndex + 1);
+                    }
+                } else {
+                    // Скролл вверх - предыдущий слайд
+                    if (currentIndex > 0) {
+                        updateCarousel(currentIndex - 1);
+                    }
+                }
+                
+                isThrottled = true;
+                setTimeout(() => {
+                    isThrottled = false;
+                }, 500); // Задержка между скроллами (500 мс)
+            }
+        });
+
+        // Также можно использовать touch события для мобильных устройств
+        let touchStartY = 0;
+        let touchEndY = 0;
+
+        window.addEventListener('touchstart', (e) => {
+            touchStartY = e.touches[0].clientY;
+        });
+
+        window.addEventListener('touchmove', (e) => {
+            e.preventDefault(); // Предотвращаем стандартную прокрутку
+        }, { passive: false });
+
+        window.addEventListener('touchend', (e) => {
+            touchEndY = e.changedTouches[0].clientY;
+            
+            if (touchStartY - touchEndY > 50) {
+                // Свайп вверх - следующий слайд
+                if (currentIndex < totalSlides - 1) {
+                    updateCarousel(currentIndex + 1);
+                }
+            } else if (touchEndY - touchStartY > 50) {
+                // Свайп вниз - предыдущий слайд
+                if (currentIndex > 0) {
+                    updateCarousel(currentIndex - 1);
+                }
+            }
+        });
+
+        // Дополнительно: поддержка клавиш вверх/вниз
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                if (currentIndex < totalSlides - 1) {
+                    updateCarousel(currentIndex + 1);
+                }
+            } else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                if (currentIndex > 0) {
+                    updateCarousel(currentIndex - 1);
+                }
+            }
+        });
+
+        // Инициализация карусели
+        updateCarousel(0);
+    </script>
+</body>
+</html>

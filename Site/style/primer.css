@@ -1,0 +1,84 @@
+.primer-redactor {
+    width: 100%;
+    min-height: 500px;
+    background-color: #e8e8e8;
+    border: #333333 5px solid;
+    border-radius: 1px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-flow: column;
+}
+
+.menu {
+    background-color:#c0c0c0;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+    height: 100px;
+    border-bottom: #524fff 1vmax solid;
+}
+
+.resistor {
+    background-image: url(/img/el\ \(2\).png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    width: 30px;
+    height: 30px;
+    align-self: center;
+}
+
+.capacitor {
+    background-image: url(/img/el\ \(3\).png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    width: 30px;
+    height: 30px;
+    align-self: center;
+}
+
+.inductor {
+    background-image: url(/img/el\ \(1\).png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    width: 30px;
+    height: 30px;
+    align-self: center;
+}
+
+.switch {
+    background-image: url(/img/ON.bmp);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    width: 50px;
+    height: 25px;
+    align-self: center;
+    transform: scale(1.5);
+}
+
+.redactor-windows {
+    background-color: #ffffff;
+    flex: 1;
+    display: flex;
+}
+
+.oscilloscope {
+    background-image: url(/img/oscilloscope.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    width: 115px;
+    height: 50px;
+    align-self: center;
+    right: 50px;
+    position: absolute;
+}
