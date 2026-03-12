@@ -8,17 +8,17 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy Site folder
+      - name: Deploy
         uses: appleboy/ssh-action@v1.2.0
         with:
           host: 45.12.236.5
           username: root
           password: ${{ secrets.SERVER_PASSWORD }}
           script: |
-            cd /var/www/html
-            rm -rf site
-            git clone https://github.com/engineering-wrench/EWR.git temp
-            mv temp/Site ./site
-            rm -rf temp
-            echo "Готово! Содержимое:"
-            ls -la site/
+            cd /tmp
+            git clone https://github.com/engineering-wrench/EWR.git
+            rm -rf /var/www/html/*
+            cp -rf EWR/Site/* /var/www/html/
+            rm -rf EWR
+            echo "✅ Деплой готов! Файлы в /var/www/html:"
+            ls -la /var/www/html/
