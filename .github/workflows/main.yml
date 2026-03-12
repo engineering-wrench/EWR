@@ -8,16 +8,47 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       
-      - name: Deploy to /var/www/html
-        uses: appleboy/ssh-action@v1.0.0
+      - name: Deploy site folder to /var/www/html/site
+        uses: appleboy/ssh-action@v1.2.0
         with:
           host: ${{ secrets.SERVER_HOST }}
           username: ${{ secrets.SERVER_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            cd /var/www/html
-            sudo git pull origin main
+            # Создаем временную папку
+            mkdir -p ~/temp-deploy
+            cd ~/temp-deploy
+            
+            # Клонируем репозиторий
+            git clone https://github.com/${{ github.repository }}.git .
+            
+            # Проверяем, существует ли папка site
+            if [ -d "site" ]; then
+              echo "Папка site найдена, копируем..."
+              
+              # Создаем целевую папку если её нет
+              sudo mkdir -p /var/www/html/site
+              
+              # Копируем всю папку site
+              sudo cp -rf site /var/www/html/
+              
+              echo "Папка site скопирована в /var/www/html/"
+            else
+              echo "Ошибка: папка site не найдена!"
+              ls -la
+              exit 1
+            fi
+            
+            # Настраиваем права
             sudo chown -R www-data:www-data /var/www/html
             sudo chmod -R 755 /var/www/html
+            
+            # Удаляем временные файлы
+            cd ~
+            rm -rf ~/temp-deploy
+            
+            echo "Деплой завершен!"
+            echo "Содержимое /var/www/html/site:"
+            ls -la /var/www/html/site/
