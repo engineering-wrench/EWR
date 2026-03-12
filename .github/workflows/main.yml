@@ -8,33 +8,17 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      
-      - name: Deploy with password
+      - name: Deploy Site folder
         uses: appleboy/ssh-action@v1.2.0
         with:
           host: 45.12.236.5
           username: root
           password: ${{ secrets.SERVER_PASSWORD }}
           script: |
-            mkdir -p ~/temp-deploy
-            cd ~/temp-deploy
-            
-            git clone https://github.com/engineering-wrench/EWR.git .
-            
-            # Проверяем папку site
-            if [ -d "Site" ]; then
-              
-              mkdir -p /var/www/html/site
-              cp -rf site/* /var/www/html/site/
-    
-            else
-              ls -la
-              exit 1
-            fi
-            
-            cd ~
-            rm -rf ~/temp-deploy
-            
-            echo "✅ Деплой завершен!"
-            ls -la /var/www/html/site/
+            cd /var/www/html
+            rm -rf site
+            git clone https://github.com/engineering-wrench/EWR.git temp
+            mv temp/Site ./site
+            rm -rf temp
+            echo "Готово! Содержимое:"
+            ls -la site/
