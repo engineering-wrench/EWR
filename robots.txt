@@ -1,0 +1,14 @@
+# robots.txt для ewbo1.duckdns.org
+# Привет поисковик
+User-agent: *
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Yandex
+Allow: /
+Crawl-delay: 2
+
+Sitemap: http://ewbo1.duckdns.org/sitemap.xml
