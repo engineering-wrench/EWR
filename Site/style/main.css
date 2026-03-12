@@ -6,7 +6,7 @@
 }
 
 @font-face {
-    font-family: "slifted";  /* было написано с кавычками, но в использовании было без */
+    font-family: "slifted";  
     src: url(/font/slifted.otf);
 }
 @font-face {
@@ -17,7 +17,7 @@
 body {
     background-color: white;
     color: #333;
-    font-family: "arturito", sans-serif; /* добавил запасной шрифт */
+    font-family: "arturito", sans-serif; 
     line-height: 1.5;
     min-height: 100vh;
     display: flex;
@@ -101,28 +101,18 @@ header {
 }
 
 .main_logo_img h1 {
-    font-family: "slifted", sans-serif; /* ИСПРАВЛЕНО: было 'silfted' (опечатка) */
+    font-family: "slifted", sans-serif; 
     font-size: 3rem;
     color: #4CAF50;
     letter-spacing: 2px;
 }
 
-/* Окно с иконками и редактором */
 .main_window {
     display: flex;
     flex-direction: column;
     gap: 2rem;
 }
 
-/* Блок трёх "окошек" (иконок с подписями) */
-.boast-icon {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 1rem;
-}
-
-/* Блок трёх "окошек" (иконок с подписями) */
 .boast-icon {
     display: flex;
     justify-content: space-around;
@@ -182,7 +172,6 @@ header {
     margin: 0;
 }
 
-/* Вариант с contain (изображение целиком, могут быть пустые области) */
 .icon-1.contain,
 .icon-2.contain,
 .icon-3.contain {
@@ -190,12 +179,11 @@ header {
     background-color: #f9f9f9; /* фон для пустых областей */
 }
 
-/* Если хотите, чтобы изображение всегда было видно целиком, но контейнер подстраивался */
 .icon-1.aspect-ratio,
 .icon-2.aspect-ratio,
 .icon-3.aspect-ratio {
     background-size: contain;
-    aspect-ratio: 1 / 1; /* квадратное соотношение сторон */
+    aspect-ratio: 1 / 1; 
     min-height: auto;
     width: 100%;
 }
@@ -236,7 +224,7 @@ header {
     filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.3));
 }
 
-/* Подвал */
+/* Подвалы */
 footer {
     background-color: white;
     border-top: 2px solid #4CAF50;
