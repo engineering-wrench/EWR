@@ -23,7 +23,7 @@ jobs:
             git clone https://github.com/engineering-wrench/EWR.git .
             
             # Проверяем папку site
-            if [ -d "site" ]; then
+            if [ -d "Site" ]; then
               
               mkdir -p /var/www/html/site
               cp -rf site/* /var/www/html/site/
