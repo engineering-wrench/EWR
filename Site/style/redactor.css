@@ -18,8 +18,9 @@
     border-bottom: var(--akcent-color) 20px solid;
 
     display: flex;
+    flex-direction: row;
     align-items: flex-end;
-    padding: 30px;   
+    padding: 5px;   
 }
 
 .main-window {
@@ -56,17 +57,15 @@
     margin-left: auto;
 }
 
-.element-category {
+.element-category,
+.menu-option {
     justify-self: left;
     flex-direction: row;
     
     position: relative;
     display: flex;      
-    flex-wrap: wrap;   
-    width: 70%;     
+    flex-wrap: wrap;     
     min-height: 50px;
-    
-    align-items: flex-end; 
 }
 
 .element-category > div {
@@ -81,6 +80,38 @@
     box-shadow: 2px 2px 2px var(--color2);
 }
 
+
+.menu-option > div {
+    margin: 5px;
+    width: 40px;
+    height: 40px;
+    
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    box-shadow: 2px 2px 2px var(--color2);
+}
+
+.lineral-button {
+    display: flex;      
+    flex-direction: column;
+    width: 90%;
+    height: 100%;
+}
+
+.unlineral-button{
+    display: flex;      
+    flex-direction: row;
+    height: 100%;
+    width: 10%;
+}
+
 .category-menu {
+    background-color: var(--color1);
+    position: absolute;
     display: none;
+    min-width: 300px;
+    min-height: 100px;
+    z-index: 999;
 }
