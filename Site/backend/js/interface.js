@@ -112,6 +112,5 @@ document.addEventListener('click', function(event) {
 
 el_container.addEventListener('click', function(event) {
     const target = event.target;
-    alert (target.id)
     open_catalog(target);
 });
