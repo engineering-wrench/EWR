@@ -7,6 +7,7 @@
 }
 
 :root {
+  --netural: #ffffff;
   --color1: #c5c2c5;
   --color2: #635e61;
   --akcent-color: #000083;
@@ -24,7 +25,7 @@
 }
 
 .main-window {
-    background-color: #ffffff;
+    background-color: var(--netural);
     height: 77vh;
     overflow: visible;
 }
@@ -68,7 +69,10 @@
     min-height: 50px;
 }
 
-.element-category > div {
+
+.menu-option > div, 
+.element-category > div,
+.category-menu > div {
     margin: 5px;
     width: 40px;
     height: 40px;
@@ -77,20 +81,7 @@
     background-repeat: no-repeat;
     background-position: center;
 
-    box-shadow: 2px 2px 2px var(--color2);
-}
-
-
-.menu-option > div {
-    margin: 5px;
-    width: 40px;
-    height: 40px;
-    
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-
-    box-shadow: 2px 2px 2px var(--color2);
+    box-shadow: 2px 2px var(--color2), -2px -2px var(--netural);
 }
 
 .lineral-button {
@@ -109,9 +100,15 @@
 
 .category-menu {
     background-color: var(--color1);
+    border: var(--color2) 5px solid;
+    border-top: var(--color2) 20px solid;
+
     position: absolute;
     display: none;
     min-width: 300px;
-    min-height: 100px;
+    min-height: 50px;
     z-index: 999;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 5px;
 }
