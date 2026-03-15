@@ -16,10 +16,6 @@ const idListMenuOption = [
     'new', 'open', 'save', 'print', 'analiz', 'curcius', 'theme', 'to_main', 'setting'
 ];
 
-const idListInstrument = [
-    'multimetr','generator','oscilograph','stenograhp','digital','???','???'
-];
-
 const state_list = [
     'none',
     'runing simulation',
@@ -37,7 +33,7 @@ async function display() {
         tileSize: 40,
         targetContainer: el_container,
         idList: idListCategoryEl,
-        skipLastTiles: 2
+        skipLastTiles: 4
     });
 
     await splitImage('/img/title/menu_option.bmp', {
@@ -69,10 +65,6 @@ function switch_click() {
     }
 }
 
-function back_to_main() {
-    window.location.href = '/index.html'
-}
-
 async function main () {
     await display ()
 }
@@ -82,31 +74,45 @@ main ()
 simulation_swicth.addEventListener('click', switch_click)
 
 async function open_catalog (target) {
-    if (target.id === 'instrument') {
-        category_menu.style.display = 'flex'
+    const idListComponent = [['multimetr','generator','oscilograph','stenograhp','digital','???','???'],[]]
+    category_menu.style.display = 'flex'
 
 
-        const rect = target.getBoundingClientRect();
+    const rect = target.getBoundingClientRect();
         
-        category_menu.style.left = rect.left - 100 + 'px';
-        category_menu.style.top = (rect.bottom + 25) + 'px';
+    category_menu.style.left = rect.left - 100 + 'px';
+    category_menu.style.top = (rect.bottom + 25) + 'px';
 
-        await splitImage('/img/title/instrument.bmp', {
+    await splitImage('/img/title/'+ target.id +'.bmp', {
         cutsize: 24,
         tileSize: 40,
         targetContainer: category_menu,
-        idList: idListInstrument,
+        idList: idListComponent[0],
         skipLastTiles: 0
     });
-    }
 }
 
 document.addEventListener('click', function(event) {
-    if (event.target.parentElement.id !== 'el_container') {
+    if (event.target.parentElement.id !== 'el_container' && event.target.parentElement.id !== 'category-menu') {
         category_menu.style.display = 'none';
     }  
     if (event.target.id === 'to_main') {
-        back_to_main ()
+        window.location.href = '/index.html'
+    }
+    if (event.target.id === 'setting') {
+        window.location.href = "/setting.html"; 
+    }
+    if (event.target.id === 'new') {
+        alert ('в прогрессе')
+    }
+    if (event.target.id === 'open') {
+        alert ('в прогрессе')
+    }
+    if (event.target.id === 'save') {
+        alert ('в прогрессе')
+    }
+    if (event.target.id === 'print') {
+        alert ('в прогрессе')
     }
 });
 
