@@ -1,4 +1,25 @@
 export async function splitImage(imageUrl, options = {}) {
+    // Cache system
+    const cache = new Map();
+    
+    // Cleanup function to remove old cache entries (can be called periodically)
+    const cleanupCache = (maxAge = 5 * 60 * 1000) => { // Default 5 minutes
+        const now = Date.now();
+        for (const [key, value] of cache.entries()) {
+            if (now - value.timestamp > maxAge) {
+                cache.delete(key);
+            }
+        }
+    };
+
+    // Check if image is already in cache
+    if (cache.has(imageUrl)) {
+        const cached = cache.get(imageUrl);
+        // Update timestamp to keep it fresh
+        cached.timestamp = Date.now();
+        return cached.data;
+    }
+
     return new Promise((resolve, reject) => {
         const {
             cutSize = 24,
@@ -54,10 +75,10 @@ export async function splitImage(imageUrl, options = {}) {
             }
             
             // Если указан контейнер - создаем DOM элементы с учетом фильтрации
-
-            targetContainer.innerHTML = '';
-
             if (targetContainer) {
+                // Clear container before adding new elements
+                targetContainer.innerHTML = '';
+                
                 tiles.forEach((tile, index) => {
                     // Проверяем, нужно ли пропустить последние N тайлов
                     const tilesToSkip = Math.min(skipLastTiles, totalTiles);
@@ -76,6 +97,7 @@ export async function splitImage(imageUrl, options = {}) {
                     div.style.backgroundImage = `url(${tile.dataUrl})`;
                     div.style.width = tileSize + 'px';
                     div.style.height = tileSize + 'px';
+                    div.style.backgroundSize = 'cover';
                     
                     // Добавляем ID из списка если есть
                     if (idList && idList[index]) {
@@ -87,7 +109,7 @@ export async function splitImage(imageUrl, options = {}) {
                 });
             }
             
-            resolve({
+            const result = {
                 originalWidth: img.width,
                 originalHeight: img.height,
                 cutSize: cutSize,
@@ -97,11 +119,71 @@ export async function splitImage(imageUrl, options = {}) {
                 tiles: tiles,
                 elements: elements,
                 container: targetContainer
+            };
+            
+            // Store in cache with timestamp
+            cache.set(imageUrl, {
+                data: result,
+                timestamp: Date.now()
             });
+            
+            // Optional: run cleanup after adding new item
+            cleanupCache();
+            
+            resolve(result);
         };
         
         img.onerror = (error) => {
-            reject(error);
+            // Clean up container on error
+            if (targetContainer) {
+                targetContainer.innerHTML = '';
+            }
+            
+            // Remove from cache if it was added
+            cache.delete(imageUrl);
+            
+            reject({
+                error: error,
+                message: 'Failed to load image',
+                imageUrl: imageUrl
+            });
         };
     });
 }
+
+// Advanced cache manager
+const ImageCacheManager = {
+    cache: new Map(),
+    maxAge: 5 * 60 * 1000, // 5 minutes default
+    
+    set(key, value) {
+        this.cache.set(key, {
+            data: value,
+            timestamp: Date.now()
+        });
+        this.cleanup();
+    },
+    
+    get(key) {
+        const entry = this.cache.get(key);
+        if (entry && Date.now() - entry.timestamp <= this.maxAge) {
+            entry.timestamp = Date.now(); // Refresh timestamp on access
+            return entry.data;
+        }
+        this.cache.delete(key);
+        return null;
+    },
+    
+    cleanup() {
+        const now = Date.now();
+        for (const [key, value] of this.cache.entries()) {
+            if (now - value.timestamp > this.maxAge) {
+                this.cache.delete(key);
+            }
+        }
+    },
+    
+    clear() {
+        this.cache.clear();
+    }
+};

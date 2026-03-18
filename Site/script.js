@@ -5,3 +5,5 @@ function logo_click() {
 }
 
 logo.addEventListener('click', logo_click)
+
+// TODO: функционал редактора

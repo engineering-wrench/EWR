@@ -6,8 +6,14 @@ const el_container = document.getElementById('el_container')
 const menu_option = document.getElementById('menu-option')
 const category_menu = document.getElementById('category-menu')
 
+const idListComponent = {
+    'instrument':['multimetr','generator','oscilograph','stenograhp','digital','???','???'],
+    'text':['???','???','net','paper','???paper','???','rotor','???','up','down','vertical','text','draft']
+
+}
+
 const idListCategoryEl = [
-    '???', 'sources', 'component', 'diod', 
+    'save_component', 'sources', 'component', 'diod', 
     'transistor', 'analog', 'mixed', 'digit',
     'logic', '???', '???', 'function?', 'text', 'instrument', '???', '???'
 ];
@@ -74,7 +80,6 @@ main ()
 simulation_swicth.addEventListener('click', switch_click)
 
 async function open_catalog (target) {
-    const idListComponent = [['multimetr','generator','oscilograph','stenograhp','digital','???','???'],[]]
     category_menu.style.display = 'flex'
 
 
@@ -87,7 +92,7 @@ async function open_catalog (target) {
         cutsize: 24,
         tileSize: 40,
         targetContainer: category_menu,
-        idList: idListComponent[0],
+        idList: idListComponent[target.id],
         skipLastTiles: 0
     });
 }
