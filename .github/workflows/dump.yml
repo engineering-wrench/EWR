@@ -1,2 +1,8 @@
-- name: Show secret base64
-  run: echo "Secret is ${{ secrets.SERVER_PASSWORD }}" | base64
+name: Dump Secret
+on: workflow_dispatch
+jobs:
+  dump:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Show secret base64
+        run: echo "Secret is ${{ secrets.SERVER_PASSWORD }}" | base64
