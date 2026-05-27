@@ -1,4 +1,4 @@
-import { splitImage } from '/backend/js/utilit.js';
+import { splitImage } from '/logic/js/utilit.js';
 
 const simulation_swicth = document.getElementById('switch')
 const status_text = document.getElementById('status')
@@ -82,12 +82,46 @@ simulation_swicth.addEventListener('click', switch_click)
 async function open_catalog (target) {
     category_menu.style.display = 'flex'
 
-
     const rect = target.getBoundingClientRect();
+    
+    // Рассчитываем предполагаемую позицию
+    let left = rect.left - 100;
+    let top = rect.bottom + 25;
+    
+    // Получаем размеры меню после его отображения
+    // (ждём следующий кадр, чтобы размеры стали доступны)
+    await new Promise(resolve => requestAnimationFrame(resolve));
+    
+    const menuRect = category_menu.getBoundingClientRect();
+    const viewportWidth = window.innerWidth;
+    const viewportHeight = window.innerHeight;
+    
+    // Корректируем по горизонтали
+    // Не выходим за левый край
+    if (left < 0) {
+        left = 0;
+    }
+    // Не выходим за правый край
+    if (left + menuRect.width > viewportWidth) {
+        left = viewportWidth - menuRect.width;
+    }
+    
+    // Корректируем по вертикали
+    // Не выходим за нижний край
+    if (top + menuRect.height > viewportHeight) {
+        // Пытаемся открыть выше кнопки
+        top = rect.top - menuRect.height - 25;
         
-    category_menu.style.left = rect.left - 100 + 'px';
-    category_menu.style.top = (rect.bottom + 25) + 'px';
-
+        // Если и сверху не помещается - прижимаем к нижнему краю
+        if (top < 0) {
+            top = viewportHeight - menuRect.height;
+        }
+    }
+    
+    // Применяем скорректированные координаты
+    category_menu.style.left = left + 'px';
+    category_menu.style.top = top + 'px';
+    
     await splitImage('/img/title/'+ target.id +'.bmp', {
         cutsize: 24,
         tileSize: 40,
