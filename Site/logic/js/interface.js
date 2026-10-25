@@ -1,4 +1,5 @@
 import { splitImage } from '/logic/js/utilit.js';
+import { preload } from '/logic/js/registry.js';
 
 const simulation_swicth = document.getElementById('switch')
 const status_text = document.getElementById('status')
@@ -7,8 +8,9 @@ const menu_option = document.getElementById('menu-option')
 const category_menu = document.getElementById('category-menu')
 
 const idListComponent = {
-    'instrument':['multimetr','generator','oscilograph','stenograhp','digital','???','???'],
-    'text':['???','???','net','paper','???paper','???','rotor','???','up','down','vertical','text','draft']
+    'instrument':['multimeter','generator','oscilograph','stenograhp','digital','???','???'],
+    'text':['???','???','net','paper','???paper','???','rotor','???','up','down','vertical','text','draft'],
+    'component':['point','resistor','capacitor','inductor','???','???','???','???','???','???','???','???','???','???','???','???','???','???','???','???','???']
 
 }
 
@@ -129,6 +131,17 @@ async function open_catalog (target) {
         idList: idListComponent[target.id],
         skipLastTiles: 0
     });
+
+    const ids = [];
+    for (const el of category_menu.children) {
+        if (el.id && el.id !== '???') {
+            el.dataset.component = el.id;
+            ids.push(el.id);
+        }
+    }
+    if (ids.length) {
+        preload([...new Set(ids)]);
+    }
 }
 
 document.addEventListener('click', function(event) {
@@ -140,15 +153,6 @@ document.addEventListener('click', function(event) {
     }
     if (event.target.id === 'setting') {
         window.location.href = "/setting.html"; 
-    }
-    if (event.target.id === 'new') {
-        alert ('в прогрессе')
-    }
-    if (event.target.id === 'open') {
-        alert ('в прогрессе')
-    }
-    if (event.target.id === 'save') {
-        alert ('в прогрессе')
     }
     if (event.target.id === 'print') {
         alert ('в прогрессе')

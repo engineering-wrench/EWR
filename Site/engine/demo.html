@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EWR — демо движка симуляции</title>
+    <style>
+        :root { color-scheme: light dark; }
+        body { font: 14px/1.5 system-ui, sans-serif; margin: 0; padding: 20px; background: #14161a; color: #e6e6e6; }
+        h1 { font-size: 18px; margin: 0 0 4px; }
+        .sub { color: #8b93a1; margin: 0 0 16px; }
+        .row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
+        button { background: #2a2f3a; color: #e6e6e6; border: 1px solid #3a4250; border-radius: 6px; padding: 8px 12px; cursor: pointer; }
+        button:hover { background: #343b48; }
+        .panel { border: 1px solid #2a2f3a; border-radius: 8px; padding: 12px; margin-bottom: 14px; background: #191c22; }
+        canvas { width: 100%; height: 220px; background: #101216; border-radius: 6px; display: block; }
+        table { border-collapse: collapse; }
+        td, th { border: 1px solid #2a2f3a; padding: 4px 10px; text-align: right; }
+        th { color: #9fb4ff; }
+        .mono { font-family: ui-monospace, monospace; }
+        .badge { font-size: 12px; color: #7ee787; }
+    </style>
+</head>
+<body>
+    <h1>EWR — демо движка симуляции <span class="badge" id="ver"></span></h1>
+    <p class="sub">Клиентский «бэкенд» (<code>/engine/</code>) подключён к фронтенду. Ниже — те же расчёты, что и в тестах.</p>
+
+    <div class="row">
+        <button id="btn-dc">Операционная точка (DC)</button>
+        <button id="btn-tran">Временной анализ (TRAN)</button>
+        <button id="btn-ac">Частотный анализ (AC)</button>
+    </div>
+
+    <div class="panel"><canvas id="scope" width="800" height="220"></canvas></div>
+    <div class="panel"><div id="readout">Нажмите кнопку анализа…</div></div>
+
+    <script type="module" src="/engine/demo.js"></script>
+</body>
+</html>

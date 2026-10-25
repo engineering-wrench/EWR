@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EWR — Редактор компонентов</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header id="toolbar">
+        <div class="tb-group" id="tool-group">
+            <button class="tool-btn active" data-tool="select" title="Выбрать / двигать (V)">▣ Выбрать</button>
+            <button class="tool-btn" data-tool="line" title="Линия (L)">∕ Линия</button>
+            <button class="tool-btn" data-tool="rect" title="Прямоугольник (R)">▭ Прямоугольник</button>
+            <button class="tool-btn" data-tool="circle" title="Эллипс (C)">◯ Эллипс</button>
+            <button class="tool-btn" data-tool="text" title="Текст (T)">T Текст</button>
+            <button class="tool-btn" data-tool="port" title="Точка подключения (P)">● Порт</button>
+        </div>
+        <div class="tb-group">
+            <label class="tb-label">Обводка</label>
+            <input type="color" id="prop-stroke" value="#111111" title="Цвет обводки">
+            <label class="tb-label">Заливка</label>
+            <input type="color" id="prop-fill" value="#ffffff" title="Цвет заливки">
+            <label class="tb-label">Толщина</label>
+            <input type="number" id="prop-width" value="2" min="0" max="40" class="tb-num">
+            <label class="tb-label">Шрифт</label>
+            <input type="number" id="prop-fontsize" value="16" min="4" max="200" class="tb-num">
+        </div>
+        <div class="tb-group">
+            <label class="tb-label">SVG</label>
+            <button class="tool-btn" id="btn-import" title="Загрузить готовый .svg как основу">Загрузить</button>
+            <input type="file" id="import-svg" accept=".svg,image/svg+xml" hidden>
+            <button class="tool-btn" id="btn-clear" title="Очистить холст">Очистить</button>
+        </div>
+    </header>
+
+    <main id="workbench">
+        <div id="canvas-wrap">
+            <svg id="editor-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
+                <defs>
+                    <pattern id="grid-pattern" width="20" height="20" patternUnits="userSpaceOnUse">
+                        <circle cx="1" cy="1" r="1" fill="#c8c8c8"/>
+                    </pattern>
+                    <mask id="crop-mask" maskUnits="userSpaceOnUse">
+                        <rect x="0" y="0" width="1000" height="1000" fill="#ffffff"/>
+                        <rect id="crop-mask-hole" fill="#000000"/>
+                    </mask>
+                </defs>
+                <g id="grid-layer">
+                    <rect x="0" y="0" width="1000" height="1000" fill="url(#grid-pattern)"/>
+                </g>
+                <g id="shapes-layer"></g>
+                <g id="ports-layer"></g>
+                <g id="crop-layer">
+                    <rect id="crop-dim" x="0" y="0" width="1000" height="1000" fill="rgba(31,34,39,0.45)" mask="url(#crop-mask)"></rect>
+                    <rect id="crop-rect" fill="none" stroke="#000083" stroke-width="2" stroke-dasharray="8 5"></rect>
+                    <g id="crop-handles">
+                        <rect class="crop-handle" data-handle="nw" width="10" height="10"></rect>
+                        <rect class="crop-handle" data-handle="ne" width="10" height="10"></rect>
+                        <rect class="crop-handle" data-handle="sw" width="10" height="10"></rect>
+                        <rect class="crop-handle" data-handle="se" width="10" height="10"></rect>
+                    </g>
+                    <text id="crop-size-label" font-size="13" font-weight="bold" fill="#000083" stroke="#ffffff" stroke-width="4" paint-order="stroke"></text>
+                </g>
+                <g id="selection-ui" style="display:none">
+                    <rect id="sel-box" fill="none" stroke="#000083" stroke-width="1" stroke-dasharray="4 3" rx="2"></rect>
+                </g>
+            </svg>
+            <div id="canvas-hint">
+                Перетаскивание — рисование/движение · рамка обрезки 800×800 — двигать за границу, тянуть за углы ·
+                Delete — удалить выбранное
+            </div>
+        </div>
+
+        <aside id="side-panel">
+            <div class="sp-tabs">
+                <button class="sp-tab active" data-tab="ports">Порты</button>
+                <button class="sp-tab" data-tab="props">Свойства</button>
+                <button class="sp-tab" data-tab="bg">Фон</button>
+                <button class="sp-tab" data-tab="export">Экспорт</button>
+            </div>
+
+            <div class="sp-body">
+                <section id="tab-ports" class="sp-section active">
+                    <p class="sp-hint">Инструмент «Порт», клик по холсту — добавить точку.<br>
+                        Точку можно перетаскивать мышью. Роль и подписи — в списке.</p>
+                    <div id="port-list"></div>
+                    <p class="sp-empty" id="ports-empty">Нет точек подключения</p>
+                </section>
+
+                <section id="tab-props" class="sp-section">
+                    <p class="sp-hint">Свойства выбранного элемента.</p>
+                    <div id="prop-form"></div>
+                    <p class="sp-empty" id="props-empty">Ничего не выбрано</p>
+                </section>
+
+                <section id="tab-bg" class="sp-section">
+                    <p class="sp-hint">Растровая подложка-референс (png/jpg). Прозрачность, масштаб, перемещение.</p>
+                    <button class="tool-btn wide" id="btn-bg-load">Выбрать изображение…</button>
+                    <input type="file" id="bg-file" accept="image/png,image/jpeg,.png,.jpg,.jpeg" hidden>
+                    <div class="bg-controls" id="bg-controls" style="display:none">
+                        <label class="row"><span>Прозрачность</span><input type="range" id="bg-opacity" min="0" max="100" value="50"></label>
+                        <label class="row"><span>Масштаб</span><input type="range" id="bg-scale" min="10" max="300" value="100"></label>
+                        <label class="row"><span>Видимость</span><input type="checkbox" id="bg-visible" checked></label>
+                        <button class="tool-btn wide danger" id="btn-bg-remove">Убрать подложку</button>
+                    </div>
+                </section>
+
+                <section id="tab-export" class="sp-section">
+                    <p class="sp-hint">Компонент экспортируется как папка:<br>
+                        <code>Site/components/&lt;id&gt;/</code> — <code>symbol.svg</code> + <code>manifest.json</code>.</p>
+                    <label class="row"><span>id</span><input id="exp-id" value="component"></label>
+                    <label class="row"><span>Имя</span><input id="exp-name" value="Компонент"></label>
+                    <label class="row"><span>Категория</span><input id="exp-category" value="component"></label>
+
+                    <fieldset class="fset">
+                        <legend>Область обрезки (viewBox экспорта)</legend>
+                        <label class="row crop-row"><span>X</span><input type="number" id="crop-x" value="100" min="0"></label>
+                        <label class="row crop-row"><span>Y</span><input type="number" id="crop-y" value="100" min="0"></label>
+                        <label class="row crop-row"><span>Ширина</span><input type="number" id="crop-w" value="800" min="20"></label>
+                        <label class="row crop-row"><span>Высота</span><input type="number" id="crop-h" value="800" min="20"></label>
+                        <button class="tool-btn wide" id="btn-crop-apply">Применить</button>
+                        <button class="tool-btn wide" id="btn-crop-content">По содержимому</button>
+                        <button class="tool-btn wide" id="btn-crop-reset">Сбросить 800×800 в центре</button>
+                        <p class="sp-hint">Экспортируется только отмеченная область. На холсте её можно двигать за границу и тянуть за углы.</p>
+                    </fieldset>
+
+                    <fieldset class="fset">
+                        <legend>Параметры (data-slot)</legend>
+                        <div id="exp-slots"></div>
+                        <button class="tool-btn wide" id="btn-add-slot">+ параметр</button>
+                        <button class="tool-btn wide" id="btn-collect-slots">Собрать из текста</button>
+                    </fieldset>
+
+                    <fieldset class="fset">
+                        <legend>Точки подключения</legend>
+                        <div id="exp-port-summary"></div>
+                    </fieldset>
+
+                    <button class="tool-btn wide primary" id="btn-export">Экспорт компонента</button>
+                </section>
+            </div>
+        </aside>
+    </main>
+
+    <footer id="statusbar">
+        <span id="status-text">Готово · холст 1000×1000 · область обрезки 800×800 в центре</span>
+    </footer>
+
+    <script src="js/editor.js"></script>
+    <script src="js/tools.js"></script>
+    <script src="js/ports.js"></script>
+    <script src="js/background.js"></script>
+    <script src="js/crop.js"></script>
+    <script src="js/export.js"></script>
+</body>
+</html>

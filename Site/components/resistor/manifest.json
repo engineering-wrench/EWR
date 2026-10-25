@@ -1,0 +1,36 @@
+{
+    "id": "resistor",
+    "name": "резистор",
+    "category": "component",
+    "size": {
+        "w": 800,
+        "h": 600
+    },
+    "symbol": "symbol.svg",
+    "parameters": {
+        "resistanse": {
+            "label": "Сопротивление",
+            "unit": "Ом",
+            "slot": "resistanse",
+            "default": "10"
+        }
+    },
+    "ports": [
+        {
+            "id": "p1",
+            "label": "",
+            "role": "inout",
+            "dir": "left",
+            "x": 339,
+            "y": 308
+        },
+        {
+            "id": "p2",
+            "label": "",
+            "role": "inout",
+            "dir": "right",
+            "x": 405,
+            "y": 306
+        }
+    ]
+}

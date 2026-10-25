@@ -1,0 +1,11 @@
+{
+  "_comment": "RC-цепочка с DC-источником: OP (конденсатор заряжен из рабочей точки).",
+  "elements": [
+    { "name": "V1", "dev": "Vsource", "nodes": ["in", "0"], "params": { "dc": 5 } },
+    { "name": "R1", "dev": "Resistor", "nodes": ["in", "out"], "params": { "resistance": 1000 } },
+    { "name": "C1", "dev": "Capacitor", "nodes": ["out", "0"], "params": { "capacitance": 1e-6 } }
+  ],
+  "analyses": [
+    { "type": "OP", "name": "op1" }
+  ]
+}

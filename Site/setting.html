@@ -3,10 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <link rel="icon" href="/img/logo.png" type="image/png">
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EWR - О нас</title>
+    <title>EWR - Настройки</title>
     <link rel="stylesheet" href="style/main.css">
+    <style>
+        .settings-note { font-size: 0.95rem; margin-bottom: 1.5rem; color: #555; }
+        .settings-list { display: flex; flex-direction: column; gap: 0.9rem; }
+        .settings-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: 0.7rem 1rem;
+            border: 1px solid #dcdcdc;
+            border-radius: 10px;
+            background: #fafafa;
+            cursor: pointer;
+        }
+        .settings-row span { color: #333; }
+        .settings-row input[type="number"] {
+            width: 90px;
+            padding: 4px 8px;
+            border: 1px solid #bbb;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+        .settings-row--check input { width: 20px; height: 20px; }
+        .settings-actions { display: flex; gap: 1rem; margin-top: 1.5rem; }
+        .settings-actions button {
+            padding: 8px 18px;
+            border-radius: 8px;
+            border: 2px solid #4CAF50;
+            background: #fff;
+            color: #4CAF50;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+        }
+        .settings-actions button:hover { background: #4CAF50; color: #fff; }
+        .settings-status { margin-top: 1rem; font-weight: bold; color: #333; }
+    </style>
 </head>
 <body>
     <header>
@@ -18,11 +55,11 @@
         </div>
     </header>
     <main class="main-container">
-        <!-- Карточка с информацией о проекте -->
         <div class="about-card">
             <h1 class="about-title">Настройки</h1>
-            
             <div class="about-content">
+                <h2 style="color:#4CAF50; margin-bottom:0.5rem;">Маршрутизация проводов</h2>
+                <div id="settings-form"></div>
             </div>
         </div>
     </main>
@@ -34,5 +71,6 @@
     <!-- Чип NE555 (друн) -->
     <div class="chip-drun"></div>
     <script src="/script.js"></script>
+    <script type="module" src="/logic/js/wire-settings.js"></script>
 </body>
 </html>

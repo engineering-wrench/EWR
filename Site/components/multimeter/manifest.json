@@ -1,0 +1,19 @@
+{
+    "id": "multimeter",
+    "name": "Мультиметр",
+    "category": "instrument",
+    "size": { "w": 96, "h": 48 },
+    "symbol": "symbol.svg",
+    "parameters": {
+        "value": {
+            "label": "Значение",
+            "unit": "В",
+            "slot": "value",
+            "default": "--"
+        }
+    },
+    "ports": [
+        { "id": "p_in",  "label": "+", "role": "in",  "dir": "down", "x": 8, "y": 48 },
+        { "id": "p_out", "label": "-", "role": "out", "dir": "down", "x": 24, "y": 48 }
+    ]
+}

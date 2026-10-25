@@ -1,0 +1,11 @@
+{
+  "_comment": "Делитель напряжения: OP. Оракульный корпус — ручная дека через IFsimulator.",
+  "elements": [
+    { "name": "V1", "dev": "Vsource", "nodes": ["in", "0"], "params": { "dc": 5 } },
+    { "name": "R1", "dev": "Resistor", "nodes": ["in", "mid"], "params": { "resistance": 1000 } },
+    { "name": "R2", "dev": "Resistor", "nodes": ["mid", "0"], "params": { "resistance": 1000 } }
+  ],
+  "analyses": [
+    { "type": "OP", "name": "op1" }
+  ]
+}

@@ -1,0 +1,130 @@
+{
+ "dll": "XSPICE32.DLL",
+ "simulator": "XSPICE",
+ "description": "XSPICE circuit level simulation program",
+ "version": "3f4",
+ "doAnalyses_rc": 0,
+ "elements": [
+  {
+   "name": "V1",
+   "dev": "vsource"
+  },
+  {
+   "name": "R1",
+   "dev": "resistor"
+  },
+  {
+   "name": "R2",
+   "dev": "resistor"
+  }
+ ],
+ "errors": [],
+ "plots": [
+  {
+   "id": 1,
+   "name": "op1",
+   "refName": null,
+   "refType": 4,
+   "dataType": 4,
+   "names": [
+    "in",
+    "mid",
+    "V1"
+   ],
+   "points": [
+    {
+     "ref": 0,
+     "values": [
+      5,
+      2.5,
+      -0.0025
+     ]
+    }
+   ],
+   "ended": true
+  }
+ ],
+ "steps": [
+  "plot#1 op1 names=3 refType=4 dataType=4"
+ ],
+ "ewbCalls": [
+  {
+   "cb": 1,
+   "args": []
+  },
+  {
+   "cb": 2,
+   "args": [
+    0,
+    0
+   ]
+  },
+  {
+   "cb": 2,
+   "args": [
+    0,
+    0
+   ]
+  },
+  {
+   "cb": 5,
+   "args": []
+  },
+  {
+   "cb": 2,
+   "args": [
+    0,
+    0
+   ]
+  },
+  {
+   "cb": 5,
+   "args": []
+  },
+  {
+   "cb": 2,
+   "args": [
+    0,
+    0
+   ]
+  },
+  {
+   "cb": 2,
+   "args": [
+    0,
+    0
+   ]
+  },
+  {
+   "cb": 5,
+   "args": []
+  },
+  {
+   "cb": 2,
+   "args": [
+    0,
+    0
+   ]
+  },
+  {
+   "cb": 5,
+   "args": []
+  },
+  {
+   "cb": 2,
+   "args": [
+    0,
+    0
+   ]
+  }
+ ],
+ "ewbCounts": [
+  1,
+  7,
+  0,
+  0,
+  4,
+  0,
+  0
+ ]
+}

@@ -1,0 +1,37 @@
+{
+    "id": "generator",
+    "name": "Генератор",
+    "category": "instrument",
+    "size": {
+        "w": 199,
+        "h": 133
+    },
+    "symbol": "symbol.svg",
+    "parameters": {},
+    "ports": [
+        {
+            "id": "p1",
+            "label": "",
+            "role": "inout",
+            "dir": "down",
+            "x": 50,
+            "y": 98
+        },
+        {
+            "id": "p2",
+            "label": "",
+            "role": "inout",
+            "dir": "down",
+            "x": 102,
+            "y": 99
+        },
+        {
+            "id": "p3",
+            "label": "",
+            "role": "inout",
+            "dir": "down",
+            "x": 155,
+            "y": 95
+        }
+    ]
+}
