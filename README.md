@@ -3,8 +3,8 @@
 Clean-room среда моделирования электронных схем, совместимая с
 **Electronics Workbench 5.12**.
 
-- **Веб-версия:** https://engineering-wrench.github.io/EWR/
-- **Редактор схем:** [EWR.html](https://engineering-wrench.github.io/EWR/EWR.html)
+- **Веб-версия:** https://engineering-wrench.github.io/EWR/index.html
+- **Редактор схем:** [EWR.html](https://engineering-wrench.github.io/EWR/Site/EWR.html)
 - **Документация:** [`docs/engine/PLAN.md`](docs/engine/PLAN.md),
   [`docs/re/`](docs/re/), [`docs/engine/plans/`](docs/engine/plans/)
 - **Правила для разработки/агентов:** [`AGENTS.md`](AGENTS.md)
