@@ -1,6 +1,6 @@
-import { getComponent, loadComponent, buildComponentNode, buildDragCursor } from '/logic/js/registry.js';
-import ComponentMenu from '/logic/js/component-menu.js';
-import WireSystem from '/logic/js/wires.js';
+import { getComponent, loadComponent, buildComponentNode, buildDragCursor } from './registry.js';
+import ComponentMenu from './component-menu.js';
+import WireSystem from './wires.js';
 
 const category_menu = document.getElementById('category-menu')
 const main_windows = document.getElementById('main-windows')

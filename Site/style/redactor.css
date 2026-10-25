@@ -60,7 +60,7 @@ body {
 
 /* Переключатель */
 .switch {
-    background-image: url(/img/OFF.bmp);
+    background-image: url(../img/OFF.bmp);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;

@@ -8,7 +8,7 @@
 // Координаты записываются в системе координат #main-windows (canvas-координаты),
 // как их видит маршрутизатор проводов (wires.js).
 
-import { loadWireSettings } from '/logic/js/wire-settings.js';
+import { loadWireSettings } from './wire-settings.js';
 
 const DebugTool = (() => {
     const DEBUG = /[?&]debug=1/.test(window.location ? window.location.search : '');

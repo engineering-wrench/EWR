@@ -8,12 +8,12 @@
 // Зависит от ядра (/engine/*) и от реестра/проводов редактора. DOM-код защищён,
 // чтобы ломать редактор при любых ошибках файла он не мог.
 
-import { decode, encodeType1 } from '/engine/ewb-codec.js';
-import { toSpec } from '/engine/parser.js';
-import { serializeNetlist, groupTerminals } from '/engine/ewb-text.js';
-import { buildComponentNode, buildPlaceholderNode } from '/logic/js/registry.js';
-import WireSystem from '/logic/js/wires.js';
-import { assignNets, mapComponentType } from '/logic/js/sim.js';
+import { decode, encodeType1 } from '../../engine/ewb-codec.js';
+import { toSpec } from '../../engine/parser.js';
+import { serializeNetlist, groupTerminals } from '../../engine/ewb-text.js';
+import { buildComponentNode, buildPlaceholderNode } from './registry.js';
+import WireSystem from './wires.js';
+import { assignNets, mapComponentType } from './sim.js';
 
 // Какие движковые типы имеют «настоящий» символ в редакторе. Остальные — плейсхолдер.
 const EDITOR_MAP = { resistor: 'resistor' };

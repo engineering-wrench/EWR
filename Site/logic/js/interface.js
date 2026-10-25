@@ -1,5 +1,5 @@
-import { splitImage } from '/logic/js/utilit.js';
-import { preload } from '/logic/js/registry.js';
+import { splitImage } from './utilit.js';
+import { preload } from './registry.js';
 
 const simulation_swicth = document.getElementById('switch')
 const status_text = document.getElementById('status')
@@ -36,7 +36,7 @@ let simulation_state = false
 let state = state_list[0]
 
 async function display() {
-    await splitImage('/img/title/main_el.bmp', {
+    await splitImage('img/title/main_el.bmp', {
         cutsize: 24,
         tileSize: 40,
         targetContainer: el_container,
@@ -44,7 +44,7 @@ async function display() {
         skipLastTiles: 4
     });
 
-    await splitImage('/img/title/menu_option.bmp', {
+    await splitImage('img/title/menu_option.bmp', {
         cutsize: 24,
         tileSize: 40,
         targetContainer: menu_option,
@@ -65,10 +65,10 @@ setInterval(function(){
 
 function switch_click() {
     if (simulation_state == true) {
-        simulation_swicth.style.backgroundImage = 'url(/img/OFF.bmp)';
+        simulation_swicth.style.backgroundImage = 'url(img/OFF.bmp)';
         simulation_state = false
     } else {
-        simulation_swicth.style.backgroundImage = 'url(/img/ON.bmp)';
+        simulation_swicth.style.backgroundImage = 'url(img/ON.bmp)';
         simulation_state = true
     }
 }
@@ -124,7 +124,7 @@ async function open_catalog (target) {
     category_menu.style.left = left + 'px';
     category_menu.style.top = top + 'px';
     
-    await splitImage('/img/title/'+ target.id +'.bmp', {
+    await splitImage('img/title/'+ target.id +'.bmp', {
         cutsize: 24,
         tileSize: 40,
         targetContainer: category_menu,
@@ -149,7 +149,7 @@ document.addEventListener('click', function(event) {
         category_menu.style.display = 'none';
     }  
     if (event.target.id === 'to_main') {
-        window.location.href = '/index.html'
+        window.location.href = 'index.html'
     }
     if (event.target.id === 'setting') {
         window.location.href = "/setting.html"; 

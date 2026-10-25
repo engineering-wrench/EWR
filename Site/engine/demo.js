@@ -4,7 +4,7 @@
 //   AC — АЧХ в дБ (лог-ось частоты).
 // Открыть: Site/engine/demo.html через Live Server (root = Site/, порт :5502).
 
-import { simulate, ENGINE_VERSION } from '/engine/index.js';
+import { simulate, ENGINE_VERSION } from './index.js';
 
 const $ = (s) => document.querySelector(s);
 document.getElementById('ver').textContent = 'v' + ENGINE_VERSION;

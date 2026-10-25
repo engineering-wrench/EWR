@@ -20,7 +20,7 @@
 }
 
 .resistor {
-    background-image: url(/img/el\ \(2\).png);
+    background-image: url(../img/el\ \(2\).png);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -31,7 +31,7 @@
 }
 
 .capacitor {
-    background-image: url(/img/el\ \(3\).png);
+    background-image: url(../img/el\ \(3\).png);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -42,7 +42,7 @@
 }
 
 .inductor {
-    background-image: url(/img/el\ \(1\).png);
+    background-image: url(../img/el\ \(1\).png);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -53,7 +53,7 @@
 }
 
 .switch {
-    background-image: url(/img/ON.bmp);
+    background-image: url(../img/ON.bmp);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -71,7 +71,7 @@
 }
 
 .oscilloscope {
-    background-image: url(/img/oscilloscope.png);
+    background-image: url(../img/oscilloscope.png);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;

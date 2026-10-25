@@ -4,7 +4,7 @@
 // каждое изменение значения тут же обновляет текст внутри SVG компонента
 // (setComponentValue -> fillSlots).
 
-import { setComponentValue } from '/logic/js/registry.js';
+import { setComponentValue } from './registry.js';
 
 const ComponentMenu = (() => {
     let menu;

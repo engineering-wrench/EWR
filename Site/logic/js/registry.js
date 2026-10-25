@@ -2,7 +2,7 @@
 // Каждый компонент — папка /components/<id>/ с manifest.json и symbol.svg.
 // Манифест описывает размер, параметры (data-slot) и точки подключения (порты).
 
-const COMPONENTS_ROOT = '/components/';
+const COMPONENTS_ROOT = 'components/';
 
 const manifestCache = new Map();
 const symbolCache = new Map();

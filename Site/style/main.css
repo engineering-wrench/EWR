@@ -7,11 +7,11 @@
 
 @font-face {
     font-family: "slifted";  
-    src: url(/font/slifted.otf);
+    src: url(../font/slifted.otf);
 }
 @font-face {
     font-family: "arturito";
-    src: url(/font/arturito.ttf);
+    src: url(../font/arturito.ttf);
 }
 
 body {

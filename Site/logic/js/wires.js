@@ -12,7 +12,7 @@
 //     не перетрассировываются при обновлении размера окна/настроек.
 // Клик по проводу выделяет, Delete/Backspace удаляет, Escape — снять выделение.
 
-import { loadWireSettings, WIRE_SETTINGS_KEY } from '/logic/js/wire-settings.js';
+import { loadWireSettings, WIRE_SETTINGS_KEY } from './wire-settings.js';
 
 const WireSystem = (() => {
     const main = document.getElementById('main-windows');
