@@ -52,7 +52,7 @@ header {
 .logo .logo-img {
     width: 50px;
     height: 50px;
-    background-image: url('/img/logo.png');
+    background-image: url('../img/logo.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -94,7 +94,7 @@ header {
 .main_logo_img .logo-img {
     width: 80px;
     height: 80px;
-    background-image: url('/img/logo.png');
+    background-image: url('../img/logo.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -144,15 +144,15 @@ header {
 
 /* Индивидуальные фоны для каждого окошка */
 .icon-1 {
-    background-image: url('/img/old.png');
+    background-image: url('../img/old.png');
 }
 
 .icon-2 {
-    background-image: url('/img/open.png');
+    background-image: url('../img/open.png');
 }
 
 .icon-3 {
-    background-image: url('/img/adu.png');
+    background-image: url('../img/adu.png');
 }
 
 .boast-icon > div {
@@ -199,7 +199,7 @@ header {
 .chip-drun {
     width: 80px;
     height: 80px;
-    background-image: url('/img/NE555.png');
+    background-image: url('../img/NE555.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -219,7 +219,7 @@ header {
 }
 
 .chip-drun:hover {
-    background-image: url('/img/NE555\ \(act\)\ .png');
+    background-image: url('../img/NE555\ \(act\)\ .png');
     transform: scale(1.1);
     filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.3));
 }

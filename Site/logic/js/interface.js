@@ -152,7 +152,7 @@ document.addEventListener('click', function(event) {
         window.location.href = 'index.html'
     }
     if (event.target.id === 'setting') {
-        window.location.href = "/setting.html"; 
+        window.location.href = "setting.html"; 
     }
     if (event.target.id === 'print') {
         alert ('в прогрессе')

@@ -1,8 +1,6 @@
-# --- Референс оригинала: read-only, не коммитим (AGENTS.md, правило 3) ---
+# --- Референс оригинала: read-only (AGENTS.md, правило 3) ---
 EWB512/
 extracted_assets/
-# Ассеты, извлечённые из EWB 5.12 (BITMAP*, иконки меню и т.п.)
-Site/img/
 
 # --- Исходники предка (скачиваются tools/fetch-vendor.mjs); README держим в git ---
 vendor/*

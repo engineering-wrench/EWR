@@ -39,6 +39,6 @@ npm test   # node --test, без зависимостей
 
 ## Лицензия и правовая часть
 
-Код — MIT (см. [`LICENSE`](LICENSE)). Оригинальные бинарники и ассеты EWB
-(`EWB512/`, `extracted_assets/`, `Site/img/`) в репозиторий не входят и в `.gitignore`;
-подробности — [`DISCLAIMER.md`](DISCLAIMER.md).
+Код — MIT (см. [`LICENSE`](LICENSE)). Оригинальные ассеты EWB (`Site/img/`)
+включены в репозиторий по решению владельца; `EWB512/` и `extracted_assets/`
+остаются read-only референсом и в git не входят. Подробности — [`DISCLAIMER.md`](DISCLAIMER.md).
