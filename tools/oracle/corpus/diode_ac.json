@@ -1,0 +1,21 @@
+{
+  "_comment": "Диод под DC-смещением: OP + AC с cjo. Проверяет комплексную нагрузку (gd + jω·ccap).",
+  "elements": [
+    { "name": "V1", "dev": "Vsource", "nodes": ["in", "0"], "params": { "dc": 0.65, "acmag": 1 } },
+    { "name": "R1", "dev": "Resistor", "nodes": ["in", "out"], "params": { "resistance": 1000 } },
+    {
+      "name": "D1",
+      "dev": "Diode",
+      "nodes": ["out", "0"],
+      "modelParams": { "is": 1e-14, "n": 1, "cjo": 2e-12, "tt": 5e-9 }
+    }
+  ],
+  "analyses": [
+    { "type": "OP", "name": "op1" },
+    {
+      "type": "AC",
+      "name": "ac1",
+      "params": { "start": 1000, "stop": 1e8, "numsteps": 10, "lin": 1 }
+    }
+  ]
+}

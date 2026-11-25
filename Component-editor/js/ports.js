@@ -8,6 +8,27 @@ window.App = window.App || {};
             this.renderList();
         },
 
+        /** Заменяет список портов портами из manifest.json. */
+        loadPorts(list) {
+            A.refs.ports.innerHTML = '';
+            A.state.ports = [];
+            (Array.isArray(list) ? list : []).forEach((p, i) => {
+                const port = {
+                    id: p.id || ('p' + (i + 1)),
+                    label: p.label || '',
+                    role: p.role || 'inout',
+                    dir: p.dir || 'auto',
+                    x: Number(p.x) || 0,
+                    y: Number(p.y) || 0,
+                    el: null,
+                };
+                port.el = this._buildEl(port);
+                A.refs.ports.appendChild(port.el);
+                A.state.ports.push(port);
+            });
+            this.renderList();
+        },
+
         addPort(pt) {
             const id = 'p' + (A.state.ports.length + 1);
             const port = { id, label: '', role: 'inout', dir: 'auto', x: Math.round(pt.x), y: Math.round(pt.y), el: null };

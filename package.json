@@ -5,7 +5,8 @@
     "type": "module",
     "description": "EWR — clean-room среда моделирования электронных схем (совместимость с Electronics Workbench 5.12).",
     "scripts": {
-        "test": "node --test"
+        "test": "node --test",
+        "studio": "node Component-editor/tools/serve.mjs"
     },
     "engines": {
         "node": ">=18"

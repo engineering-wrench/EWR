@@ -2,7 +2,10 @@
     "id": "multimeter",
     "name": "Мультиметр",
     "category": "instrument",
-    "size": { "w": 96, "h": 48 },
+    "size": {
+        "w": 96,
+        "h": 48
+    },
     "symbol": "symbol.svg",
     "parameters": {
         "value": {
@@ -13,7 +16,29 @@
         }
     },
     "ports": [
-        { "id": "p_in",  "label": "+", "role": "in",  "dir": "down", "x": 8, "y": 48 },
-        { "id": "p_out", "label": "-", "role": "out", "dir": "down", "x": 24, "y": 48 }
-    ]
+        {
+            "id": "p_in",
+            "label": "+",
+            "role": "in",
+            "dir": "down",
+            "x": 8,
+            "y": 48
+        },
+        {
+            "id": "p_out",
+            "label": "-",
+            "role": "out",
+            "dir": "down",
+            "x": 24,
+            "y": 48
+        }
+    ],
+    "ewb": {
+        "partNum": null,
+        "ext": null,
+        "model": null,
+        "device": "unknown",
+        "confidence": "confirmed"
+    },
+    "source": "ewb-3013-01"
 }

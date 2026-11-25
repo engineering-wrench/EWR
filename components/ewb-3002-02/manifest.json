@@ -1,0 +1,32 @@
+{
+    "id": "ewb-3002-02",
+    "name": "Резистор",
+    "category": "component",
+    "description": "Резистор",
+    "source": "ewb-3002-02",
+    "size": {
+        "w": 342,
+        "h": 133
+    },
+    "icon": "icon.png",
+    "symbol": "symbol.svg",
+    "parameters": {},
+    "ports": [
+        {
+            "id": "p1",
+            "label": "",
+            "role": "inout",
+            "dir": "left",
+            "x": 20,
+            "y": 63
+        },
+        {
+            "id": "p2",
+            "label": "",
+            "role": "inout",
+            "dir": "right",
+            "x": 322,
+            "y": 66
+        }
+    ]
+}

@@ -1,0 +1,24 @@
+{
+    "id": "ewb-3001-01",
+    "name": "Земля",
+    "category": "component",
+    "description": "Земля, один вход",
+    "source": "ewb-3001-01",
+    "size": {
+        "w": 353,
+        "h": 178
+    },
+    "icon": "icon.png",
+    "symbol": "symbol.svg",
+    "parameters": {},
+    "ports": [
+        {
+            "id": "p1",
+            "label": "",
+            "role": "in",
+            "dir": "up",
+            "x": 179,
+            "y": 20
+        }
+    ]
+}

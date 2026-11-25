@@ -1,0 +1,39 @@
+{
+    "id": "voltmeter",
+    "name": "Вольтметр",
+    "category": "component",
+    "description": "Вольтметр (Voltmeter); источник EWB: ewb-3010-01",
+    "source": "ewb-3010-01",
+    "status": "placeholder",
+    "size": {
+        "w": 100,
+        "h": 40
+    },
+    "symbol": "symbol.svg",
+    "parameters": {},
+    "ports": [
+        {
+            "id": "p1",
+            "label": "",
+            "role": "inout",
+            "dir": "left",
+            "x": 0,
+            "y": 20
+        },
+        {
+            "id": "p2",
+            "label": "",
+            "role": "inout",
+            "dir": "right",
+            "x": 100,
+            "y": 20
+        }
+    ],
+    "ewb": {
+        "partNum": 13,
+        "ext": null,
+        "model": null,
+        "device": "meter",
+        "confidence": "confirmed"
+    }
+}

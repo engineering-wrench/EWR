@@ -1,0 +1,202 @@
+{
+ "dll": "XSPICE32.DLL",
+ "simulator": "XSPICE",
+ "description": "XSPICE circuit level simulation program",
+ "version": "3f4",
+ "doAnalyses_rc": 0,
+ "elements": [
+  {
+   "name": "V1",
+   "dev": "vsource"
+  },
+  {
+   "name": "R1",
+   "dev": "resistor"
+  },
+  {
+   "name": "D1",
+   "dev": "diode"
+  }
+ ],
+ "errors": [],
+ "plots": [
+  {
+   "id": 1,
+   "name": "op1",
+   "refName": null,
+   "refType": 4,
+   "dataType": 4,
+   "names": [
+    "in",
+    "a",
+    "D1",
+    "V1"
+   ],
+   "points": [
+    {
+     "ref": 0,
+     "values": [
+      1,
+      0.9555945259394862,
+      0.9511539785334349,
+      -0.00044405474060513764
+     ]
+    }
+   ],
+   "ended": true
+  }
+ ],
+ "steps": [
+  "plot#1 op1 names=4 refType=4 dataType=4"
+ ],
+ "ewbCalls": [
+  {
+   "cb": 1,
+   "args": []
+  },
+  {
+   "cb": 2,
+   "args": [
+    0,
+    0
+   ]
+  },
+  {
+   "cb": 2,
+   "args": [
+    0,
+    0
+   ]
+  },
+  {
+   "cb": 2,
+   "args": [
+    0,
+    0
+   ]
+  },
+  {
+   "cb": 2,
+   "args": [
+    0,
+    0
+   ]
+  },
+  {
+   "cb": 2,
+   "args": [
+    0,
+    0
+   ]
+  },
+  {
+   "cb": 2,
+   "args": [
+    0,
+    0
+   ]
+  },
+  {
+   "cb": 2,
+   "args": [
+    0,
+    0
+   ]
+  },
+  {
+   "cb": 5,
+   "args": []
+  },
+  {
+   "cb": 2,
+   "args": [
+    0,
+    0
+   ]
+  },
+  {
+   "cb": 5,
+   "args": []
+  },
+  {
+   "cb": 2,
+   "args": [
+    0,
+    0
+   ]
+  },
+  {
+   "cb": 2,
+   "args": [
+    0,
+    0
+   ]
+  },
+  {
+   "cb": 2,
+   "args": [
+    0,
+    0
+   ]
+  },
+  {
+   "cb": 2,
+   "args": [
+    0,
+    0
+   ]
+  },
+  {
+   "cb": 2,
+   "args": [
+    0,
+    0
+   ]
+  },
+  {
+   "cb": 2,
+   "args": [
+    0,
+    0
+   ]
+  },
+  {
+   "cb": 2,
+   "args": [
+    0,
+    0
+   ]
+  },
+  {
+   "cb": 5,
+   "args": []
+  },
+  {
+   "cb": 2,
+   "args": [
+    0,
+    0
+   ]
+  },
+  {
+   "cb": 5,
+   "args": []
+  },
+  {
+   "cb": 2,
+   "args": [
+    0,
+    0
+   ]
+  }
+ ],
+ "ewbCounts": [
+  1,
+  17,
+  0,
+  0,
+  4,
+  0,
+  0
+ ]
+}

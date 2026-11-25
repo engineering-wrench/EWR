@@ -1,9 +1,30 @@
 import { getComponent, loadComponent, buildComponentNode, buildDragCursor } from './registry.js';
 import ComponentMenu from './component-menu.js';
 import WireSystem from './wires.js';
+import V from './viewport.js';
 
 const category_menu = document.getElementById('category-menu')
 const main_windows = document.getElementById('main-windows')
+
+// Бесконечное поле, в котором живут компоненты и провода.
+const world = V.world;
+
+function host() {
+    return world || main_windows;
+}
+
+// Прямоугольник компонента в мировых координатах (не зависит от масштаба).
+function nodeRectWorld(node) {
+    const left = parseFloat(node.style.left);
+    const top = parseFloat(node.style.top);
+    const width = parseFloat(node.style.width);
+    const height = parseFloat(node.style.height);
+    const x0 = Number.isFinite(left) ? left : node.offsetLeft;
+    const y0 = Number.isFinite(top) ? top : node.offsetTop;
+    const w = Number.isFinite(width) ? width : node.offsetWidth;
+    const h = Number.isFinite(height) ? height : node.offsetHeight;
+    return { x0, y0, x1: x0 + w, y1: y0 + h };
+}
 
 let draggedElement = null;
 let cloneElement = null;
@@ -85,28 +106,23 @@ function copySelectedComponents() {
 async function pasteClipboard() {
     if (!clipboard.length) return;
     clearSelection();
-    const parentRect = main_windows.getBoundingClientRect();
 
     for (const item of clipboard) {
         const node = await buildComponentNode(item.id, item.values);
         if (!node) continue;
         node.style.position = 'absolute';
 
-        const w = parseFloat(node.style.width) || 0;
-        const h = parseFloat(node.style.height) || 0;
         let x = item.x + clipboardOffset;
         let y = item.y + clipboardOffset;
-        x = Math.max(0, Math.min(x, parentRect.width - w));
-        y = Math.max(0, Math.min(y, parentRect.height - h));
 
-        main_windows.appendChild(node);
+        host().appendChild(node);
         node.style.left = x + 'px';
         node.style.top = y + 'px';
 
         let tries = 0;
         while (tries++ < 12 && collidesWithPlaced(node)) {
-            x = Math.max(0, Math.min(x + 40, parentRect.width - w));
-            y = Math.max(0, Math.min(y + 40, parentRect.height - h));
+            x += 40;
+            y += 40;
             node.style.left = x + 'px';
             node.style.top = y + 'px';
         }
@@ -177,8 +193,12 @@ async function onMouseUp(e) {
                               e.clientY <= rect.bottom;
 
     if (main_windows && isOverMainWindows) {
-        const relativeX = e.clientX - rect.left - offsetX;
-        const relativeY = e.clientY - rect.top - offsetY;
+        // Экран → мировые координаты: точка под курсором, смещённая на
+        // «схваченный» угол плитки (смещение тоже переводим в мировые px).
+        const scaleNow = V.getState().scale;
+        const p = V.screenToWorld(e.clientX, e.clientY);
+        const relativeX = p.x - offsetX / scaleNow;
+        const relativeY = p.y - offsetY / scaleNow;
 
         const id = draggedElement.dataset.component || draggedElement.id;
         let component = getComponent(id);
@@ -194,7 +214,7 @@ async function onMouseUp(e) {
             newElement.style.left = relativeX + 'px';
             newElement.style.top = relativeY + 'px';
             newElement.style.cursor = 'move';
-            main_windows.appendChild(newElement);
+            host().appendChild(newElement);
             if (collidesWithPlaced(newElement)) {
                 newElement.remove();
                 setStatus('Нельзя разместить: пересечение с другим компонентом');
@@ -218,17 +238,14 @@ function setStatus(text) {
 }
 
 function collidesWithPlaced(node, ignore) {
-    const mainRect = main_windows.getBoundingClientRect();
-    const nr = node.getBoundingClientRect();
-    const nx = nr.left - mainRect.left, ny = nr.top - mainRect.top;
-    const n = { x0: nx, y0: ny, x1: nx + nr.width, y1: ny + nr.height };
-    for (const el of main_windows.children) {
+    const nr = nodeRectWorld(node);
+    const n = { x0: nr.x0, y0: nr.y0, x1: nr.x1, y1: nr.y1 };
+    for (const el of host().children) {
         if (el === node) continue;
         if (ignore && ignore.has(el)) continue;
         if (el.classList && (el.classList.contains('wire-layer') || el.classList.contains('debug-overlay'))) continue;
-        const r = el.getBoundingClientRect();
-        const ox = r.left - mainRect.left, oy = r.top - mainRect.top;
-        const o = { x0: ox, y0: oy, x1: ox + r.width, y1: oy + r.height };
+        if (!el.classList || !el.classList.contains('component-svg')) continue;
+        const o = nodeRectWorld(el);
         if (n.x1 >= o.x0 && n.x0 <= o.x1 && n.y1 >= o.y0 && n.y0 <= o.y1) return true;
     }
     return false;
@@ -237,10 +254,11 @@ function collidesWithPlaced(node, ignore) {
 async function placeComponent(id, x, y) {
     const node = await buildComponentNode(id);
     if (!node) return;
+    // Поле бесконечное: не прижимаем к краям вьюпорта.
     node.style.position = 'absolute';
     node.style.left = x + 'px';
     node.style.top = y + 'px';
-    main_windows.appendChild(node);
+    host().appendChild(node);
 
     if (collidesWithPlaced(node)) {
         node.remove();
@@ -273,17 +291,17 @@ function updateMarquee() {
 }
 
 function beginMarquee(e) {
-    const rect = main_windows.getBoundingClientRect();
+    const p = V.screenToWorld(e.clientX, e.clientY);
     marqueeState = {
-        x0: e.clientX - rect.left,
-        y0: e.clientY - rect.top,
-        x1: e.clientX - rect.left,
-        y1: e.clientY - rect.top,
+        x0: p.x,
+        y0: p.y,
+        x1: p.x,
+        y1: p.y,
         moved: false
     };
     marqueeBox = document.createElement('div');
     marqueeBox.className = 'selection-box';
-    main_windows.appendChild(marqueeBox);
+    host().appendChild(marqueeBox);
     updateMarquee();
 
     const move = (ev) => moveMarquee(ev);
@@ -299,10 +317,10 @@ function beginMarquee(e) {
 
 function moveMarquee(e) {
     if (!marqueeState) return;
-    const rect = main_windows.getBoundingClientRect();
-    marqueeState.x1 = e.clientX - rect.left;
-    marqueeState.y1 = e.clientY - rect.top;
-    if (Math.hypot(marqueeState.x1 - marqueeState.x0, marqueeState.y1 - marqueeState.y0) > CLICK_THRESHOLD) {
+    const p = V.screenToWorld(e.clientX, e.clientY);
+    marqueeState.x1 = p.x;
+    marqueeState.y1 = p.y;
+    if (Math.hypot(marqueeState.x1 - marqueeState.x0, marqueeState.y1 - marqueeState.y0) > CLICK_THRESHOLD / V.getState().scale) {
         marqueeState.moved = true;
     }
     updateMarquee();
@@ -323,19 +341,12 @@ function endMarquee(e) {
 
     if (!additive) clearSelection();
 
-    const mainRect = main_windows.getBoundingClientRect();
     const x0 = Math.min(st.x0, st.x1), y0 = Math.min(st.y0, st.y1);
     const x1 = Math.max(st.x0, st.x1), y1 = Math.max(st.y0, st.y1);
     const box = { x0, y0, x1, y1 };
 
-    main_windows.querySelectorAll('.component-svg').forEach(n => {
-        const r = n.getBoundingClientRect();
-        const nr = {
-            x0: r.left - mainRect.left,
-            y0: r.top - mainRect.top,
-            x1: r.right - mainRect.left,
-            y1: r.bottom - mainRect.top
-        };
+    host().querySelectorAll('.component-svg').forEach(n => {
+        const nr = nodeRectWorld(n);
         if (nr.x1 >= box.x0 && nr.x0 <= box.x1 && nr.y1 >= box.y0 && nr.y0 <= box.y1) {
             addNodeSelection(n);
         }
@@ -344,8 +355,9 @@ function endMarquee(e) {
 }
 
 main_windows.addEventListener('mousedown', function(e) {
-    if (e.button !== 0) return;
+    if (e.button !== 0) return; // ПКМ/СКМ — панорама (viewport.js)
     const t = e.target;
+    if (t.closest && t.closest('.zoom-controls')) return;
     if (t.closest('.component-svg') || t.closest('.port') || t.closest('.wire-path')) return;
     if (t.closest && (t.closest('.wire-layer') || t.closest('.debug-overlay'))) return;
     beginMarquee(e);
@@ -356,11 +368,14 @@ function makeDraggable(element) {
     let isDragging = false;
     let didMove = false;
     let startX, startY;
+    let startWorld = null;
     let startPositions = new Map();
     let dragModifier = false;
     let dragAlreadySelected = false;
 
     element.addEventListener('mousedown', function(e) {
+        // ПКМ/СКМ — панорама поля (viewport.js), не перетаскивание компонента.
+        if (e.button !== 0) return;
         if (element.contains(e.target)) {
             dragModifier = e.ctrlKey || e.metaKey || e.shiftKey;
             dragAlreadySelected = isNodeSelected(element);
@@ -375,6 +390,7 @@ function makeDraggable(element) {
             didMove = false;
             startX = e.clientX;
             startY = e.clientY;
+            startWorld = V.screenToWorld(e.clientX, e.clientY);
 
             startPositions.clear();
             for (const n of selectedNodes) {
@@ -391,25 +407,23 @@ function makeDraggable(element) {
     document.addEventListener('mousemove', function(e) {
         if (!isDragging) return;
 
-        const deltaX = e.clientX - startX;
-        const deltaY = e.clientY - startY;
-
-        if (!didMove && Math.hypot(deltaX, deltaY) > CLICK_THRESHOLD) {
+        if (!didMove && Math.hypot(e.clientX - startX, e.clientY - startY) > CLICK_THRESHOLD) {
             didMove = true;
         }
 
-        const parentRect = main_windows.getBoundingClientRect();
+        // Дельта в мировых координатах — при любом масштабе курсор и элемент
+        // движутся синхронно (без «убегания» на zoom ≠ 100 %).
+        const cur = V.screenToWorld(e.clientX, e.clientY);
+        const deltaX = cur.x - startWorld.x;
+        const deltaY = cur.y - startWorld.y;
         const multi = selectedNodes.size > 1;
 
         for (const n of selectedNodes) {
             const base = startPositions.get(n);
             if (!base) continue;
-            const rect = n.getBoundingClientRect();
 
-            let newX = base.x + deltaX;
-            let newY = base.y + deltaY;
-            newX = Math.max(0, Math.min(newX, parentRect.width - rect.width));
-            newY = Math.max(0, Math.min(newY, parentRect.height - rect.height));
+            const newX = base.x + deltaX;
+            const newY = base.y + deltaY;
 
             const prevLeft = n.style.left;
             const prevTop = n.style.top;

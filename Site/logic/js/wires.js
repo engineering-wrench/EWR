@@ -13,11 +13,14 @@
 // Клик по проводу выделяет, Delete/Backspace удаляет, Escape — снять выделение.
 
 import { loadWireSettings, WIRE_SETTINGS_KEY } from './wire-settings.js';
+import V from './viewport.js';
 
 const WireSystem = (() => {
     const main = document.getElementById('main-windows');
     if (!main) return { init() {}, refreshNode() {}, refreshAll() {} };
 
+    // Бесконечное поле: все координаты проводов — мировые.
+    const world = V.world;
     const NS = 'http://www.w3.org/2000/svg';
 
     let SET = loadWireSettings();
@@ -85,7 +88,7 @@ const WireSystem = (() => {
         if (layer) return layer;
         layer = document.createElementNS(NS, 'svg');
         layer.classList.add('wire-layer');
-        main.appendChild(layer);
+        (world || main).appendChild(layer);
         return layer;
     }
 
@@ -94,11 +97,37 @@ const WireSystem = (() => {
     }
 
     function toCanvasCoords(x, y) {
-        const r = main.getBoundingClientRect();
-        return { x: x - r.left, y: y - r.top };
+        return V.screenToWorld(x, y);
     }
 
+    // Точный прямоугольник компонента в мировых координатах: берём заданные
+    // style left/top/width/height (дробные), чтобы порты и провода совпадали
+    // без ошибки округления offset*.
+    function nodeBox(node) {
+        const left = parseFloat(node.style.left);
+        const top = parseFloat(node.style.top);
+        const width = parseFloat(node.style.width);
+        const height = parseFloat(node.style.height);
+        const x0 = Number.isFinite(left) ? left : node.offsetLeft;
+        const y0 = Number.isFinite(top) ? top : node.offsetTop;
+        const w = Number.isFinite(width) ? width : node.offsetWidth;
+        const h = Number.isFinite(height) ? height : node.offsetHeight;
+        return { x0, y0, x1: x0 + w, y1: y0 + h, w, h };
+    }
+
+    // Центр порта в мировых координатах. Считаем по геометрии компонента,
+    // а не по getBoundingClientRect: так результат не зависит от масштаба/панорамы.
     function portCenter(port) {
+        const node = port.closest ? port.closest('.component-svg') : null;
+        if (node) {
+            const box = nodeBox(node);
+            const lx = (parseFloat(port.style.left) || 0) / 100;
+            const ly = (parseFloat(port.style.top) || 0) / 100;
+            return {
+                x: box.x0 + box.w * lx,
+                y: box.y0 + box.h * ly
+            };
+        }
         const r = port.getBoundingClientRect();
         return toCanvasCoords(r.left + r.width / 2, r.top + r.height / 2);
     }
@@ -112,17 +141,10 @@ const WireSystem = (() => {
 
     function componentRects() {
         const list = [];
-        const nodes = main.querySelectorAll('.component-svg');
-        const mRect = main.getBoundingClientRect();
+        const nodes = (world || main).querySelectorAll('.component-svg');
         for (let n = 0; n < nodes.length; n++) {
-            const r = nodes[n].getBoundingClientRect();
-            list.push({
-                node: nodes[n],
-                x0: r.left - mRect.left,
-                y0: r.top - mRect.top,
-                x1: r.right - mRect.left,
-                y1: r.bottom - mRect.top
-            });
+            const box = nodeBox(nodes[n]);
+            list.push({ node: nodes[n], x0: box.x0, y0: box.y0, x1: box.x1, y1: box.y1 });
         }
         return list;
     }
@@ -453,27 +475,50 @@ const WireSystem = (() => {
         return routeCore(a, b, portA, portB, SET);
     }
 
-    function routeCore(a, b, portA, portB, OPT) {
+    function routeCore(aW, bW, portA, portB, OPT) {
         const G = Math.max(2, OPT.gridSize);
-        const rects = componentRects();
+        const worldRects = componentRects();
+
+        // Границы сетки покрывают все компоненты и оба конца провода.
+        // Поле бесконечное, поэтому начало сетки может быть отрицательным —
+        // переводим всё во локальные координаты (origin = левый верхний угол).
+        let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
+        const grow = (x, y) => {
+            if (x < x0) x0 = x;
+            if (y < y0) y0 = y;
+            if (x > x1) x1 = x;
+            if (y > y1) y1 = y;
+        };
+        for (let i = 0; i < worldRects.length; i++) {
+            const r = worldRects[i];
+            grow(r.x0, r.y0); grow(r.x1, r.y1);
+        }
+        grow(aW.x, aW.y); grow(bW.x, bW.y);
+        if (!Number.isFinite(x0)) { x0 = 0; y0 = 0; x1 = 120; y1 = 120; }
+
+        const margin = Math.max(2 * G, 24);
+        const originX = x0 - margin;
+        const originY = y0 - margin;
+        const toLocal = (p) => ({ x: p.x - originX, y: p.y - originY });
+
+        const rects = worldRects.map((r) => ({
+            node: r.node,
+            x0: r.x0 - originX,
+            y0: r.y0 - originY,
+            x1: r.x1 - originX,
+            y1: r.y1 - originY
+        }));
+        const a = toLocal(aW);
+        const b = toLocal(bW);
+        const bounds = { x: 0, y: 0, x1: (x1 + margin) - originX, y1: (y1 + margin) - originY };
+        const w = Math.max(1, Math.ceil(bounds.x1 / G));
+        const h = Math.max(1, Math.ceil(bounds.y1 / G));
+
         const rectA = rects.find(r => r.node === (portA.closest ? portA.closest('.component-svg') : null));
         const rectB = rects.find(r => r.node === (portB.closest ? portB.closest('.component-svg') : null));
 
         const dirA = portDir(portA, a, rectA);
         const dirB = portDir(portB, b, rectB);
-
-        // Границы сетки покрывают все компоненты (в т.ч. у краёв/за краем окна).
-        const mRect = main.getBoundingClientRect();
-        let gx1 = mRect.width, gy1 = mRect.height;
-        for (let i = 0; i < rects.length; i++) {
-            const r = rects[i];
-            if (r.x1 > gx1) gx1 = r.x1;
-            if (r.y1 > gy1) gy1 = r.y1;
-        }
-        const margin = Math.max(2 * G, 24);
-        const bounds = { x: 0, y: 0, x1: gx1 + margin, y1: gy1 + margin };
-        const w = Math.max(1, Math.ceil(bounds.x1 / G));
-        const h = Math.max(1, Math.ceil(bounds.y1 / G));
 
         const blocked = new Uint8Array(w * h);
         for (let i = 0; i < rects.length; i++) fillRectCells(blocked, w, h, inflate(rects[i], OPT.pad), G);
@@ -532,10 +577,22 @@ const WireSystem = (() => {
 
         relaxPath(pts, obstacles);
         ensureOrthogonal(pts, obstacles);
-        const res = simplify(pts);
+        const local = simplify(pts);
+        const res = local.map((p) => ({ x: p.x + originX, y: p.y + originY }));
 
         if (DEBUG) {
-            debugCapture({ a, b, portA, portB, rects, bounds, corrA, corrB, diag, mid, fallbackType, pts: res });
+            // Для оверлея переводим внутренности трассировки обратно в мировые координаты.
+            const shift = (p) => ({ x: p.x + originX, y: p.y + originY });
+            debugCapture({
+                a: aW, b: bW, portA, portB,
+                rects: worldRects,
+                bounds: { x: bounds.x + originX, y: bounds.y + originY, x1: bounds.x1 + originX, y1: bounds.y1 + originY },
+                corrA: { points: corrA.points.map(shift), exit: shift(corrA.exit) },
+                corrB: { points: corrB.points.map(shift), exit: shift(corrB.exit) },
+                diag, mid: mid ? mid.map(shift) : mid,
+                fallbackType,
+                pts: res
+            });
         }
 
         return res;
@@ -653,6 +710,7 @@ const WireSystem = (() => {
 
     // --- выделение / клавиатура ---
     function onWireMouseDown(e) {
+        if (e.button !== 0) return; // ПКМ — панорама поля
         const wireEl = e.target.closest('.wire-path');
         if (!wireEl) return;
         const w = wireEl._wire || null;
@@ -759,9 +817,8 @@ const WireSystem = (() => {
         const m = toCanvasCoords(e.clientX, e.clientY);
         const d = wireDrag.horiz ? m.y - wireDrag.start.y : m.x - wireDrag.start.x;
         const G = Math.max(2, SET.gridSize);
-        const mRect = main.getBoundingClientRect();
-        const limit = wireDrag.horiz ? mRect.height : mRect.width;
-        const val = gridCenter(clamp(wireDrag.axisVal + d, 0, limit), G);
+        // Поле бесконечное — не ограничиваем сдвиг видимой областью.
+        const val = gridCenter(wireDrag.axisVal + d, G);
         const before = pointsToStr(wireDrag.wire.points);
         wireDrag.idx = moveSegmentPerp(wireDrag.wire, wireDrag.idx, wireDrag.horiz, val);
         if (pointsToStr(wireDrag.wire.points) !== before) wireDrag.moved = true;
@@ -846,6 +903,7 @@ const WireSystem = (() => {
     }
 
     function onPortMouseDown(e) {
+        if (e.button !== 0) return; // ПКМ — панорама поля, а не рисование провода
         const port = e.target.closest('.port');
         if (!port) return;
         const node = port.closest('.component-svg');
@@ -889,22 +947,21 @@ const WireSystem = (() => {
         for (let i = 0; i < wires.length; i++) routeWire(wires[i], true);
     }
 
-    // Снимок состояния для диагностики (положения элементов в canvas-координатах).
+    // Снимок состояния для диагностики (положения элементов в мировых координатах).
     function dump() {
-        const mRect = main.getBoundingClientRect();
         const components = [];
-        main.querySelectorAll('.component-svg').forEach(n => {
-            const r = n.getBoundingClientRect();
+        (world || main).querySelectorAll('.component-svg').forEach(n => {
+            const b = nodeBox(n);
             components.push({
                 id: n.dataset ? n.dataset.component : null,
-                x0: Math.round(r.left - mRect.left),
-                y0: Math.round(r.top - mRect.top),
-                x1: Math.round(r.right - mRect.left),
-                y1: Math.round(r.bottom - mRect.top)
+                x0: Math.round(b.x0),
+                y0: Math.round(b.y0),
+                x1: Math.round(b.x1),
+                y1: Math.round(b.y1)
             });
         });
         const ports = [];
-        main.querySelectorAll('.port').forEach(p => {
+        (world || main).querySelectorAll('.port').forEach(p => {
             const c = portCenter(p);
             ports.push({ id: p.dataset.port, dir: p.dataset.dir, x: Math.round(c.x), y: Math.round(c.y) });
         });
@@ -916,7 +973,8 @@ const WireSystem = (() => {
         }));
         return {
             settings: SET,
-            canvas: { width: Math.round(mRect.width), height: Math.round(mRect.height) },
+            zoom: V.getState(),
+            canvas: main ? { width: main.clientWidth, height: main.clientHeight } : { width: 0, height: 0 },
             components,
             ports,
             wires: wiresOut,
@@ -925,19 +983,19 @@ const WireSystem = (() => {
     }
 
     // Снимок сцены для СОХРАНЕНИЯ: компоненты + связи (inst:port -> inst:port).
+    // Координаты — мировые (не зависят от текущего масштаба/панорамы).
     function scene() {
-        const mRect = main.getBoundingClientRect();
         const components = [];
-        main.querySelectorAll('.component-svg').forEach((n) => {
-            const r = n.getBoundingClientRect();
+        (world || main).querySelectorAll('.component-svg').forEach((n) => {
             const slot = n.querySelector('svg [data-slot]');
+            const b = nodeBox(n);
             components.push({
                 inst: n.dataset.inst,
                 editorId: n.dataset.component,
                 etype: n.dataset.etype || null,
                 value: n.dataset.compvalue || (slot ? slot.textContent : null),
-                x: Math.round(r.left - mRect.left),
-                y: Math.round(r.top - mRect.top),
+                x: b.x0,
+                y: b.y0,
                 ports: [...n.querySelectorAll('.port')].map((p) => p.dataset.port),
             });
         });

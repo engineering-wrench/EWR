@@ -7,7 +7,7 @@
 ## Запуск тестов
 
 ```bash
-npm test   # golden-тесты кодекa + движка: linalg, netlist, DC, TRAN, AC, мост
+npm test   # кодек + движок: linalg, netlist, DC, TRAN, AC, мост, sparse (C↔JS), CKT, NI, устройства, анализы OP/TRAN
 ```
 
 ## Публичный API (`index.js`)
@@ -43,7 +43,8 @@ const r = simulate(spec, { analysis: 'op' | 'dc' | 'tran' | 'ac', ...opts });
 ### Типы устройств
 
 `resistor`, `capacitor`, `inductor`, `vsource` (DC/PWL/pulse + `ac`),
-`isource`, `diode` (Шокли), `ground`.
+`isource`, `diode` (Шокли: `is`, `n`, `rs`, `cjo`, `tt`, площадь, температура,
+пробой `bv`/`ibv`), `ground`.
 
 ### Анализы
 
@@ -68,6 +69,13 @@ const r = simulate(spec, { analysis: 'op' | 'dc' | 'tran' | 'ac', ...opts });
 | `ewb-codec.js` | декодер `.ewb` (Type 1/2) в браузере + энкодер Type-1 (сохранение) |
 | `ewb-text.js` | сериализатор spec → текст EWB + `groupTerminals` (сборка сцены) |
 | `analysis.js` | штамповка, Ньютон, `solveDC/dcOp/transient/ac/analyze/simulate` |
+| `spice/sparse.js` | порт разреженного решателя SPICE3F4 (P1.1): `spalloc/spbuild/spfactor/spsolve/spsmp` |
+| `spice/ckt.js` | порт CKT (P1.2–P1.3): узлы/элементы/модели/задачи, диспетчер анализов, `cktLoad`/`cktConvTest`/`cktTrunc` |
+| `spice/ni.js` | порт NI (P1.2–P1.3): матрица/RHS (`niInit/niReinit/niDestroy`), Ньютон (`niIter`/`niConvTest`), интеграция (`niComCof`/`niIntegrate`) |
+| `spice/catalog.js` | генерируемый каталог устройств/анализов (индексы `type` из DLL; параметры `instanceParms`/`modelParms`; см. `tools/gen-spice-catalog.mjs`) |
+| `spice/devices/` | порт устройств (P1.4–P2.1): `resistor.js`, `capacitor.js`, `inductor.js` (+`mutual`), `vsource.js`, `isource.js`, `switch.js` (SW/CSW), `diode.js` (полный SPICE3: внутренний `rs`, temp, пробой, AC/TRAN), `common.js`, `index.js` |
+| `spice/analyses/` | порт анализов (P1.5–P2.7): `cktop.js` (gmin/source stepping), `op.js` (`DCop`), `tran.js` (`TRANinit`/`DCtran` по XSPICE), `ac.js` (`ACan`/`CKTacDump`), `index.js` (установка в `ANALYSES`) |
+| `ewb-facade.js` | мост GUI (I1): сцена редактора → дека CKT → OP/TRAN/AC; узлы, токи, показания приборов, ряды для осциллографа |
 | `index.js` | публичный API |
 | `smoke.mjs` | ручной прогон: `node Site/engine/smoke.mjs` |
 
@@ -76,10 +84,10 @@ const r = simulate(spec, { analysis: 'op' | 'dc' | 'tran' | 'ac', ...opts });
 - **`demo.html`** — живое демо (DC/TRAN/AC + график на канвасе). Открыть через
   Live Server (root=`Site/`, порт :5502): `http://localhost:5502/engine/demo.html`.
 - **`logic/js/sim.js`** — мост с редактором: `window.EWR_SIM = { simulate,
-  buildNetlist, assignNets, mapComponentType, selfTest }`. Кнопка «Run» (#switch)
-  при включении прогоняет `selfTest()` и пишет результат в `#status`.
-  `assignNets()` — чистая сборка нетлиста из графа соединений (готова к
-  полной привязке сцены, когда у размещаемых компонентов будут уникальные id).
+  simulateScene, runEditorScene, buildNetlist, assignNets, mapComponentType,
+  selfTest }`. Кнопка «Run» (#switch) собирает `WireSystem.scene()`, гоняет её
+  через `ewb-facade.js` (новый движок-клон) и обновляет приборы и `#status`.
+  `assignNets()` — чистая сборка нетлиста для сохранения `.ewb` (legacy-путь).
 
 ## Парсер `.ewb` → нетлист (`parser.js`)
 
@@ -114,7 +122,22 @@ const res = simulate(spec, { analysis: 'op' });
 - ✅ DC (линейные + диод), TRAN (R/L/C, PWL/pulse, UIC), AC (линейные), **парсер `.ewb` → нетлист**,
   **браузерный кодек** (декод Type1/2 + энкодер Type-1), **сериализация**, **открыть/сохранить
   в редакторе с плейсхолдерами**, мост к UI (`sim.js`), демо-страница.
+- ✅ Клон предка (XSPICE32): **P1.1** — `spice/sparse.js` (bit-exact C↔JS через
+  `tools/sparse-golden/`); **P1.2** — `spice/ckt.js` + каркас `spice/ni.js` +
+  `spice/catalog.js` (84 устройства / 10 анализов), тесты `Site/engine/test/ckt.test.mjs`;
+  **P1.3** — полный NI (`niIter`/`niConvTest`/`niComCof`/`niIntegrate`) и
+  `cktLoad`/`cktConvTest`/`cktTrunc` (XSPICE-редакция), тесты `Site/engine/test/ni.test.mjs` (19);
+  **P1.4** — устройства `spice/devices/` (R/C/L/mutual/V/I/SW/CSW) с параметрами
+  каталога и автоустановкой в `DEVICES`, тесты `Site/engine/test/devices.test.mjs` (12);
+  **P1.5** — точки останова источников (`CKTbreaks`/`cktAccept`), **P1.6** — `spice/analyses/`
+  (`DCop`, `DCtran`, `CKTop`) и паритет с оракулом (OP бит-в-бит, TRAN `tran_rc` 180/180,
+  сетка `timeRel=1e-9` — Q-F01), тесты `Site/engine/test/analyses.test.mjs` (4);
+  **P2.7 (частично)** — AC (`ACan`/`niAcIter`), корпус `ac_rc` (комплексные значения,
+  10 точек; Q-A02), те же тесты (6); **P2.1** — полный диод (XSPICE-редакция:
+  внутренний `rs`, temp/пробой, Q-D05 `NOBYPASS`, Q-D06 `NEWCONV`), корпус
+  `diode_{fwd,rs,rev,rect,ac}`, `analyses.test.mjs` (11) + `devices.test.mjs` (18).
 - ⛔ Следующие шаги — `docs/engine/PLAN-CLONE.md` и планы подпунктов
-  (`docs/engine/plans/`): расширение устройств (BJT/MOSFET/оп-ампы/логика/555),
+  (`docs/engine/plans/`): **P2.2** — BJT (Gummel-Poon), затем
+  JFET/MOSFET/оп-ампы/логика/555 и полный AC с нелинейными устройствами,
   сохранение в Type-2 (сжатие) для бинарной совместимости с оригиналом, уникальные id
   компонентов редактора + полная привязка сцены (кнопка Run).

@@ -1,0 +1,39 @@
+{
+    "id": "fuse",
+    "name": "Предохранитель",
+    "category": "component",
+    "description": "Предохранитель (Fuse); источник EWB: ewb-3010-07",
+    "source": "ewb-3010-07",
+    "status": "placeholder",
+    "size": {
+        "w": 100,
+        "h": 40
+    },
+    "symbol": "symbol.svg",
+    "parameters": {},
+    "ports": [
+        {
+            "id": "p1",
+            "label": "",
+            "role": "inout",
+            "dir": "left",
+            "x": 0,
+            "y": 20
+        },
+        {
+            "id": "p2",
+            "label": "",
+            "role": "inout",
+            "dir": "right",
+            "x": 100,
+            "y": 20
+        }
+    ],
+    "ewb": {
+        "partNum": 19,
+        "ext": null,
+        "model": null,
+        "device": "unknown",
+        "confidence": "confirmed"
+    }
+}

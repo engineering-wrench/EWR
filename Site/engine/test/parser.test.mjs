@@ -25,7 +25,8 @@ test('deviceType: сопоставление RefID/PartNum', () => {
     assert(deviceType('CONN3', 9) === 'connector');
     assert(deviceType('M2', 13) === 'meter');
     assert(deviceType('T1', 14) === 'transformer');
-    assert(deviceType('D5', 3) === 'diode');
+    assert(deviceType('D5', 4) === 'diode');       // PN 4 = Diode (WEWBMSG.RES)
+    assert(deviceType('C1', 3) === 'capacitor');   // PN 3 = Capacitor, тип важнее RefID
 });
 
 test('parser: синтетический decoded-текст -> корректный spec', () => {

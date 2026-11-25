@@ -1,0 +1,39 @@
+{
+    "id": "fsk-source",
+    "name": "Источник с частотной манипуляцией",
+    "category": "component",
+    "description": "Источник с частотной манипуляцией (FSK Source); источник EWB: ewb-3001-21",
+    "source": "ewb-3001-21",
+    "status": "placeholder",
+    "size": {
+        "w": 100,
+        "h": 40
+    },
+    "symbol": "symbol.svg",
+    "parameters": {},
+    "ports": [
+        {
+            "id": "p1",
+            "label": "",
+            "role": "inout",
+            "dir": "left",
+            "x": 0,
+            "y": 20
+        },
+        {
+            "id": "p2",
+            "label": "",
+            "role": "inout",
+            "dir": "right",
+            "x": 100,
+            "y": 20
+        }
+    ],
+    "ewb": {
+        "partNum": null,
+        "ext": "fsk",
+        "model": "fsk.par",
+        "device": "unknown",
+        "confidence": "confirmed"
+    }
+}

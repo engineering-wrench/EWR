@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 40" width="100" height="40">
+  <!-- Плейсхолдер EWR: символ ещё не перенесён из EWB (план I2). -->
+  <rect x="1" y="1" width="98" height="38" rx="4" fill="none" stroke="#635e61" stroke-dasharray="4 3"/>
+  <text x="50" y="18" text-anchor="middle" dominant-baseline="middle" font-size="10" fill="#635e61">3008-16</text>
+  <text x="50" y="32" text-anchor="middle" dominant-baseline="middle" font-size="7" fill="#9a949a">template-xor</text>
+</svg>

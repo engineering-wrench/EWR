@@ -1,0 +1,32 @@
+{
+    "id": "ewb-3001-05",
+    "name": "генератор синусоидального сигнала",
+    "category": "component",
+    "description": "управляемый напряжением генератор синусоидального сигнала",
+    "source": "ewb-3001-05",
+    "size": {
+        "w": 342,
+        "h": 400
+    },
+    "icon": "icon.png",
+    "symbol": "symbol.svg",
+    "parameters": {},
+    "ports": [
+        {
+            "id": "p1",
+            "label": "",
+            "role": "inout",
+            "dir": "down",
+            "x": 178,
+            "y": 377
+        },
+        {
+            "id": "p2",
+            "label": "",
+            "role": "inout",
+            "dir": "up",
+            "x": 178,
+            "y": 20
+        }
+    ]
+}

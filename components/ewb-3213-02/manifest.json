@@ -1,0 +1,40 @@
+{
+    "id": "ewb-3213-02",
+    "name": "Элемент 3213 №2",
+    "category": "component",
+    "description": "генератор сигналов",
+    "source": "ewb-3213-02",
+    "size": {
+        "w": 272,
+        "h": 220
+    },
+    "icon": "icon.png",
+    "symbol": "symbol.svg",
+    "parameters": {},
+    "ports": [
+        {
+            "id": "p1",
+            "label": "минус",
+            "role": "inout",
+            "dir": "down",
+            "x": 54,
+            "y": 158
+        },
+        {
+            "id": "p2",
+            "label": "земля",
+            "role": "inout",
+            "dir": "down",
+            "x": 132,
+            "y": 158
+        },
+        {
+            "id": "p3",
+            "label": "плюс",
+            "role": "inout",
+            "dir": "down",
+            "x": 209,
+            "y": 156
+        }
+    ]
+}

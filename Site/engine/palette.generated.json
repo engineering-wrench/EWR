@@ -1,0 +1,8206 @@
+{
+  "format": "ewr-ewb-palette",
+  "version": 1,
+  "generator": "tools/palette-extract.mjs",
+  "sources": {
+    "exe": {
+      "file": "EWB512/WEWB32.EXE",
+      "sha256": "ded94c4527499e19e80822d6919c5307bc68ecb8044bb88038e1ba1f3800475f",
+      "bytes": 2185248
+    },
+    "compdat": {
+      "file": "EWB512/COMPDAT.DLL",
+      "sha256": "dcd417859bc4a683398d4de026d28027bbfa6e64d7d74562d8b3fb513bef81a9",
+      "bytes": 105504
+    },
+    "res": {
+      "file": "EWB512/WEWB.RES",
+      "sha256": "eaa944cb42e81e6d2e49c91ea95f63a1d1b2d4f8e50741ff0d8855d09ea90a6c",
+      "bytes": 426925
+    },
+    "msg": {
+      "file": "EWB512/WEWBMSG.RES",
+      "sha256": "7ec6f566fd336c1a0b452772bee9cb777c4ba430b9686abd72d0781bb34708a7",
+      "bytes": 79865
+    }
+  },
+  "locations": {
+    "partsBinFileOffset": 1435192,
+    "styleRegistryFileOffset": 88996,
+    "resCatalogFileOffset": 426222,
+    "ewbaLa": {
+      "offset": 4412,
+      "size": 2396
+    },
+    "ewbdLd": {
+      "offset": 6810,
+      "size": 484
+    }
+  },
+  "categories": [
+    {
+      "index": 1,
+      "id": "strip-3001",
+      "name": "Sources",
+      "role": "palette-tab",
+      "strip": 3001,
+      "strips": {
+        "icon": 3101,
+        "ansi": 3001,
+        "toolbar": 3301,
+        "din": 3201
+      },
+      "tiles": 23,
+      "flags": [
+        4335888,
+        0,
+        3,
+        0
+      ],
+      "stripTiles": 23,
+      "tilesMatch": true
+    },
+    {
+      "index": 2,
+      "id": "strip-3002",
+      "name": "Basic",
+      "role": "palette-tab",
+      "strip": 3002,
+      "strips": {
+        "icon": 3102,
+        "ansi": 3002,
+        "toolbar": 3302,
+        "din": 3202
+      },
+      "tiles": 20,
+      "flags": [
+        566800,
+        0,
+        3,
+        0
+      ],
+      "stripTiles": 20,
+      "tilesMatch": true
+    },
+    {
+      "index": 3,
+      "id": "strip-3003",
+      "name": "Diodes",
+      "role": "palette-tab",
+      "strip": 3003,
+      "strips": {
+        "icon": 3103,
+        "ansi": 3003,
+        "toolbar": 3303,
+        "din": 3203
+      },
+      "tiles": 8,
+      "flags": [
+        136,
+        0,
+        2,
+        0
+      ],
+      "stripTiles": 8,
+      "tilesMatch": true
+    },
+    {
+      "index": 4,
+      "id": "strip-3004",
+      "name": "Transistors",
+      "role": "palette-tab",
+      "strip": 3004,
+      "strips": {
+        "icon": 3104,
+        "ansi": 3004,
+        "toolbar": 3304,
+        "din": 3204
+      },
+      "tiles": 14,
+      "flags": [
+        10378,
+        0,
+        3,
+        0
+      ],
+      "stripTiles": 14,
+      "tilesMatch": true
+    },
+    {
+      "index": 5,
+      "id": "strip-3005",
+      "name": "Analog ICs",
+      "role": "palette-tab",
+      "strip": 3005,
+      "strips": {
+        "icon": 3105,
+        "ansi": 3005,
+        "toolbar": 3305,
+        "din": 3205
+      },
+      "tiles": 6,
+      "flags": [
+        32,
+        0,
+        1,
+        0
+      ],
+      "stripTiles": 6,
+      "tilesMatch": true
+    },
+    {
+      "index": 6,
+      "id": "strip-3006",
+      "name": "Mixed ICs",
+      "role": "palette-tab",
+      "strip": 3006,
+      "strips": {
+        "icon": 3106,
+        "ansi": 3006,
+        "toolbar": 3306,
+        "din": 3206
+      },
+      "tiles": 5,
+      "flags": [
+        16,
+        0,
+        1,
+        0
+      ],
+      "stripTiles": 5,
+      "tilesMatch": true
+    },
+    {
+      "index": 7,
+      "id": "strip-3007",
+      "name": "Digital ICs",
+      "role": "palette-tab",
+      "strip": 3007,
+      "strips": {
+        "icon": 3107,
+        "ansi": 3007,
+        "toolbar": 3307,
+        "din": 3207
+      },
+      "tiles": 6,
+      "flags": [
+        32,
+        0,
+        1,
+        0
+      ],
+      "stripTiles": 6,
+      "tilesMatch": true
+    },
+    {
+      "index": 8,
+      "id": "strip-3008",
+      "name": "Logic Gates",
+      "role": "palette-tab",
+      "strip": 3008,
+      "strips": {
+        "icon": 3108,
+        "ansi": 3008,
+        "toolbar": 3308,
+        "din": 3208
+      },
+      "tiles": 18,
+      "flags": [
+        131584,
+        0,
+        1,
+        0
+      ],
+      "stripTiles": 18,
+      "tilesMatch": true
+    },
+    {
+      "index": 9,
+      "id": "strip-3009",
+      "name": "Digital",
+      "role": "palette-tab",
+      "strip": 3009,
+      "strips": {
+        "icon": 3109,
+        "ansi": 3009,
+        "toolbar": 3309,
+        "din": 3209
+      },
+      "tiles": 14,
+      "flags": [
+        8256,
+        0,
+        1,
+        0
+      ],
+      "stripTiles": 14,
+      "tilesMatch": true
+    },
+    {
+      "index": 10,
+      "id": "strip-3010",
+      "name": "Indicators",
+      "role": "palette-tab",
+      "strip": 3010,
+      "strips": {
+        "icon": 3110,
+        "ansi": 3010,
+        "toolbar": 3310,
+        "din": 3210
+      },
+      "tiles": 9,
+      "flags": [
+        258,
+        0,
+        2,
+        0
+      ],
+      "stripTiles": 9,
+      "tilesMatch": true
+    },
+    {
+      "index": 11,
+      "id": "strip-3011",
+      "name": "Controls",
+      "role": "palette-tab",
+      "strip": 3011,
+      "strips": {
+        "icon": 3111,
+        "ansi": 3011,
+        "toolbar": 3311,
+        "din": 3211
+      },
+      "tiles": 12,
+      "flags": [
+        2632,
+        0,
+        4,
+        0
+      ],
+      "stripTiles": 12,
+      "tilesMatch": true
+    },
+    {
+      "index": 12,
+      "id": "strip-3012",
+      "name": "Miscellaneous",
+      "role": "palette-tab",
+      "strip": 3012,
+      "strips": {
+        "icon": 3112,
+        "ansi": 3012,
+        "toolbar": 3312,
+        "din": 3212
+      },
+      "tiles": 13,
+      "flags": [
+        4240,
+        4,
+        3,
+        0
+      ],
+      "stripTiles": 13,
+      "tilesMatch": true
+    },
+    {
+      "index": 13,
+      "id": "strip-3013",
+      "name": "Instruments",
+      "role": "palette-tab",
+      "strip": 3013,
+      "strips": {
+        "icon": 3113,
+        "ansi": 3013,
+        "toolbar": 3313,
+        "din": 3213
+      },
+      "tiles": 7,
+      "flags": [
+        64,
+        0,
+        1,
+        0
+      ],
+      "stripTiles": 7,
+      "tilesMatch": true
+    },
+    {
+      "index": 14,
+      "id": "strip-3014",
+      "name": null,
+      "role": "library-icons",
+      "strip": 3014,
+      "strips": {
+        "icon": 3114,
+        "ansi": 3014,
+        "toolbar": 3314,
+        "din": 3214
+      },
+      "tiles": 20,
+      "flags": [
+        512,
+        0,
+        1,
+        0
+      ],
+      "stripTiles": 10,
+      "tilesMatch": false
+    },
+    {
+      "index": 15,
+      "id": "strip-3015",
+      "name": null,
+      "role": "library-icons",
+      "strip": 3015,
+      "strips": {
+        "icon": 3115,
+        "ansi": 3015,
+        "toolbar": 3315,
+        "din": 3215
+      },
+      "tiles": 20,
+      "flags": [
+        2048,
+        0,
+        1,
+        0
+      ],
+      "stripTiles": 12,
+      "tilesMatch": false
+    },
+    {
+      "index": 16,
+      "id": "strip-3016",
+      "name": null,
+      "role": "library-icons",
+      "strip": 3016,
+      "strips": {
+        "icon": 3116,
+        "ansi": 3016,
+        "toolbar": 3316,
+        "din": 3216
+      },
+      "tiles": 50,
+      "flags": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "stripTiles": 10,
+      "tilesMatch": false
+    },
+    {
+      "index": 17,
+      "id": "strip-3017",
+      "name": null,
+      "role": "library-icons",
+      "strip": 3017,
+      "strips": {
+        "icon": 3117,
+        "ansi": 3017,
+        "toolbar": 3317,
+        "din": 3217
+      },
+      "tiles": 50,
+      "flags": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "stripTiles": 10,
+      "tilesMatch": false
+    }
+  ],
+  "categoryNames": [
+    "Favorites",
+    "Sources",
+    "Basic",
+    "Diodes",
+    "Transistors",
+    "Analog ICs",
+    "Mixed ICs",
+    "Digital ICs",
+    "Logic Gates",
+    "Digital",
+    "Indicators",
+    "Controls",
+    "Miscellaneous",
+    "Instruments"
+  ],
+  "strips": {
+    "3001": {
+      "file": "extracted_assets/BITMAP3001_1.bmp",
+      "width": 552,
+      "height": 24,
+      "bpp": 4,
+      "headerSize": 40,
+      "tileWidth": 24,
+      "tiles": [
+        {
+          "tile": 1,
+          "x": 0,
+          "width": 24,
+          "md5": "4e355690dc92f4f54a8271a72b105b86"
+        },
+        {
+          "tile": 2,
+          "x": 24,
+          "width": 24,
+          "md5": "d8aa33b93937fd5dd5e4a229b1ded5f4"
+        },
+        {
+          "tile": 3,
+          "x": 48,
+          "width": 24,
+          "md5": "56c28288421ac8d710c10a772179e933"
+        },
+        {
+          "tile": 4,
+          "x": 72,
+          "width": 24,
+          "md5": "9b7416617d9996bacb2632687307937b"
+        },
+        {
+          "tile": 5,
+          "x": 96,
+          "width": 24,
+          "md5": "f7f891f6b2801b2f1b269a3945acdda9"
+        },
+        {
+          "tile": 6,
+          "x": 120,
+          "width": 24,
+          "md5": "e27f8bc50e6f492dfb6cdd8b90ac79b1"
+        },
+        {
+          "tile": 7,
+          "x": 144,
+          "width": 24,
+          "md5": "c12aa3afdceae774b619e3a49e21b0e3"
+        },
+        {
+          "tile": 8,
+          "x": 168,
+          "width": 24,
+          "md5": "ae7a02942fdfa5e8f27ba9cf28cc613b"
+        },
+        {
+          "tile": 9,
+          "x": 192,
+          "width": 24,
+          "md5": "bffeea66bd3a0bf23b979208ae424af9"
+        },
+        {
+          "tile": 10,
+          "x": 216,
+          "width": 24,
+          "md5": "3a48fa4cf78dedcc2ea798e00ecd34df"
+        },
+        {
+          "tile": 11,
+          "x": 240,
+          "width": 24,
+          "md5": "81f97d66c1d3150fb87697c20ed95d52"
+        },
+        {
+          "tile": 12,
+          "x": 264,
+          "width": 24,
+          "md5": "58ff6520ac890a1a908de53e578213f1"
+        },
+        {
+          "tile": 13,
+          "x": 288,
+          "width": 24,
+          "md5": "726c8606249df5e4efeb95cf9f329d1b"
+        },
+        {
+          "tile": 14,
+          "x": 312,
+          "width": 24,
+          "md5": "4c80bf13c9a37ffc6134e8815ebc5589"
+        },
+        {
+          "tile": 15,
+          "x": 336,
+          "width": 24,
+          "md5": "989b84bcb0ff9982fae8d13d625e68ca"
+        },
+        {
+          "tile": 16,
+          "x": 360,
+          "width": 24,
+          "md5": "2aba0f76daf9f7033f7ba9b27d55a342"
+        },
+        {
+          "tile": 17,
+          "x": 384,
+          "width": 24,
+          "md5": "6500f29372bcc5fd28a74f50a728feb0"
+        },
+        {
+          "tile": 18,
+          "x": 408,
+          "width": 24,
+          "md5": "38b81d72619440da2f5555eb96575c31"
+        },
+        {
+          "tile": 19,
+          "x": 432,
+          "width": 24,
+          "md5": "7b04d9a913dcbfc52ddfa85b64817dd9"
+        },
+        {
+          "tile": 20,
+          "x": 456,
+          "width": 24,
+          "md5": "1adab9977f5af08cbc060ca5b584898b"
+        },
+        {
+          "tile": 21,
+          "x": 480,
+          "width": 24,
+          "md5": "051efa3d89563b192523d15e6bd43e4c"
+        },
+        {
+          "tile": 22,
+          "x": 504,
+          "width": 24,
+          "md5": "81da202dc2a9d91ae36366e52b3bfc20"
+        },
+        {
+          "tile": 23,
+          "x": 528,
+          "width": 24,
+          "md5": "d3b71ad870e04713088cdc8c4c62eb66"
+        }
+      ]
+    },
+    "3002": {
+      "file": "extracted_assets/BITMAP3002_1.bmp",
+      "width": 480,
+      "height": 24,
+      "bpp": 4,
+      "headerSize": 40,
+      "tileWidth": 24,
+      "tiles": [
+        {
+          "tile": 1,
+          "x": 0,
+          "width": 24,
+          "md5": "140e2d34db7b31874b24c179dc69c046"
+        },
+        {
+          "tile": 2,
+          "x": 24,
+          "width": 24,
+          "md5": "d16721933c432a579ffcea7ca1575a7f"
+        },
+        {
+          "tile": 3,
+          "x": 48,
+          "width": 24,
+          "md5": "aa9d7f5d37c7c7d6e32f62c52cea8557"
+        },
+        {
+          "tile": 4,
+          "x": 72,
+          "width": 24,
+          "md5": "f28264df0c03e98674f97537cf27a774"
+        },
+        {
+          "tile": 5,
+          "x": 96,
+          "width": 24,
+          "md5": "7852163cc6b3f1f973e278c40ba51504"
+        },
+        {
+          "tile": 6,
+          "x": 120,
+          "width": 24,
+          "md5": "4d7906eb15e785d9512e83c1ffd15a08"
+        },
+        {
+          "tile": 7,
+          "x": 144,
+          "width": 24,
+          "md5": "d34b26fb316008a01756c02ff73279c1"
+        },
+        {
+          "tile": 8,
+          "x": 168,
+          "width": 24,
+          "md5": "04887d52ee33c4ff0b80653ddda7cbdc"
+        },
+        {
+          "tile": 9,
+          "x": 192,
+          "width": 24,
+          "md5": "4f83dbc4c24400d81664bbb9c89ab36f"
+        },
+        {
+          "tile": 10,
+          "x": 216,
+          "width": 24,
+          "md5": "a3e8361de8564b9ef7746856a0c23190"
+        },
+        {
+          "tile": 11,
+          "x": 240,
+          "width": 24,
+          "md5": "d56e0ce2fe33006ed532a030afc45cae"
+        },
+        {
+          "tile": 12,
+          "x": 264,
+          "width": 24,
+          "md5": "9e94339ea684b7621fc9c60022f88204"
+        },
+        {
+          "tile": 13,
+          "x": 288,
+          "width": 24,
+          "md5": "6c7c8499ff27e3bc7468343b6fa5948d"
+        },
+        {
+          "tile": 14,
+          "x": 312,
+          "width": 24,
+          "md5": "52c18873f9107fdb86a8a15360dd21c4"
+        },
+        {
+          "tile": 15,
+          "x": 336,
+          "width": 24,
+          "md5": "6d28f5619d38ac9e9ff5b0bb7c8829b3"
+        },
+        {
+          "tile": 16,
+          "x": 360,
+          "width": 24,
+          "md5": "5ab8311ff7ed810709111857a90adb48"
+        },
+        {
+          "tile": 17,
+          "x": 384,
+          "width": 24,
+          "md5": "2a0601e333af8cfa297111dcb95e1d98"
+        },
+        {
+          "tile": 18,
+          "x": 408,
+          "width": 24,
+          "md5": "36648a32bb667190bc5d2669b354a4b1"
+        },
+        {
+          "tile": 19,
+          "x": 432,
+          "width": 24,
+          "md5": "3061bd61c012f3a19aed6a3d84794876"
+        },
+        {
+          "tile": 20,
+          "x": 456,
+          "width": 24,
+          "md5": "87d71b431bb384fb39f141cf535913d1"
+        }
+      ]
+    },
+    "3003": {
+      "file": "extracted_assets/BITMAP3003_1.bmp",
+      "width": 192,
+      "height": 24,
+      "bpp": 4,
+      "headerSize": 40,
+      "tileWidth": 24,
+      "tiles": [
+        {
+          "tile": 1,
+          "x": 0,
+          "width": 24,
+          "md5": "4cd8e901fc2416a355e43d17fa3a26e8"
+        },
+        {
+          "tile": 2,
+          "x": 24,
+          "width": 24,
+          "md5": "246f1cb15583f1c9064cafa8bcd714a9"
+        },
+        {
+          "tile": 3,
+          "x": 48,
+          "width": 24,
+          "md5": "fe9ff6b4f3a6b48fa2c6090a75d6a4d7"
+        },
+        {
+          "tile": 4,
+          "x": 72,
+          "width": 24,
+          "md5": "15e5c999157337b5eea4ba095e36ed0b"
+        },
+        {
+          "tile": 5,
+          "x": 96,
+          "width": 24,
+          "md5": "d623312db70496dea5c3b64a63864342"
+        },
+        {
+          "tile": 6,
+          "x": 120,
+          "width": 24,
+          "md5": "f4ce571895217963d8b4287302623630"
+        },
+        {
+          "tile": 7,
+          "x": 144,
+          "width": 24,
+          "md5": "b6bea2a602bd0af8e590ee7609484654"
+        },
+        {
+          "tile": 8,
+          "x": 168,
+          "width": 24,
+          "md5": "1951dbcc93c2550c61915b803c9e93d2"
+        }
+      ]
+    },
+    "3004": {
+      "file": "extracted_assets/BITMAP3004_1.bmp",
+      "width": 336,
+      "height": 24,
+      "bpp": 4,
+      "headerSize": 40,
+      "tileWidth": 24,
+      "tiles": [
+        {
+          "tile": 1,
+          "x": 0,
+          "width": 24,
+          "md5": "1d329f78fac46244a880fe51d9a984f9"
+        },
+        {
+          "tile": 2,
+          "x": 24,
+          "width": 24,
+          "md5": "b42bc3bffe0bc96e2c0da9944cbf1c2b"
+        },
+        {
+          "tile": 3,
+          "x": 48,
+          "width": 24,
+          "md5": "c6c8968f6511d6f8037c6f7a68023d8f"
+        },
+        {
+          "tile": 4,
+          "x": 72,
+          "width": 24,
+          "md5": "5ae4cd0370d31ee30a05017b670ec0e2"
+        },
+        {
+          "tile": 5,
+          "x": 96,
+          "width": 24,
+          "md5": "56b8e98a48f94ca67a2233fb0f23c3ed"
+        },
+        {
+          "tile": 6,
+          "x": 120,
+          "width": 24,
+          "md5": "c0be701e3269e2659a5fd10564e107e9"
+        },
+        {
+          "tile": 7,
+          "x": 144,
+          "width": 24,
+          "md5": "d05c20490cb3600a0ed8f91297ab7073"
+        },
+        {
+          "tile": 8,
+          "x": 168,
+          "width": 24,
+          "md5": "3326ff49b178f25eba775b4ba461a865"
+        },
+        {
+          "tile": 9,
+          "x": 192,
+          "width": 24,
+          "md5": "0551f358bc283f0a13facbba50fbbd4d"
+        },
+        {
+          "tile": 10,
+          "x": 216,
+          "width": 24,
+          "md5": "2aa0624970c723963e6f1cf69e70592d"
+        },
+        {
+          "tile": 11,
+          "x": 240,
+          "width": 24,
+          "md5": "1ba867f7f973a2e397b05bd6d80d2e56"
+        },
+        {
+          "tile": 12,
+          "x": 264,
+          "width": 24,
+          "md5": "919c549e2053239308105f7b2e9bc0fc"
+        },
+        {
+          "tile": 13,
+          "x": 288,
+          "width": 24,
+          "md5": "348e9aca8853d9b9356c985f59c321c0"
+        },
+        {
+          "tile": 14,
+          "x": 312,
+          "width": 24,
+          "md5": "67a93d2a06dd5b8db9085a57fd7d40e7"
+        }
+      ]
+    },
+    "3005": {
+      "file": "extracted_assets/BITMAP3005_1.bmp",
+      "width": 144,
+      "height": 24,
+      "bpp": 4,
+      "headerSize": 40,
+      "tileWidth": 24,
+      "tiles": [
+        {
+          "tile": 1,
+          "x": 0,
+          "width": 24,
+          "md5": "a5d15e94e104d5cce0c392bc971fc673"
+        },
+        {
+          "tile": 2,
+          "x": 24,
+          "width": 24,
+          "md5": "e29414aaf2618e444352e5e0089e065c"
+        },
+        {
+          "tile": 3,
+          "x": 48,
+          "width": 24,
+          "md5": "f7a3967c31bebb549c8598a6e2c7dd8d"
+        },
+        {
+          "tile": 4,
+          "x": 72,
+          "width": 24,
+          "md5": "5f1ed0e2d4d7fc661ed497497e8c19c6"
+        },
+        {
+          "tile": 5,
+          "x": 96,
+          "width": 24,
+          "md5": "0a2c17333de90e7c796e41f4ae61e2f4"
+        },
+        {
+          "tile": 6,
+          "x": 120,
+          "width": 24,
+          "md5": "4f4b465c63aee8435441b13e55998e23"
+        }
+      ]
+    },
+    "3006": {
+      "file": "extracted_assets/BITMAP3006_1.bmp",
+      "width": 120,
+      "height": 24,
+      "bpp": 4,
+      "headerSize": 40,
+      "tileWidth": 24,
+      "tiles": [
+        {
+          "tile": 1,
+          "x": 0,
+          "width": 24,
+          "md5": "c47d73310f61d5098181820c3d6b2415"
+        },
+        {
+          "tile": 2,
+          "x": 24,
+          "width": 24,
+          "md5": "aac59f5b13a63588ad4fdc55148acb70"
+        },
+        {
+          "tile": 3,
+          "x": 48,
+          "width": 24,
+          "md5": "e824bdedf977e997d54c86b3d6116b5e"
+        },
+        {
+          "tile": 4,
+          "x": 72,
+          "width": 24,
+          "md5": "fe2a8083c2ef89ab3db4dc03faad8491"
+        },
+        {
+          "tile": 5,
+          "x": 96,
+          "width": 24,
+          "md5": "faa774e7f16410c77458d8c92dfdc16f"
+        }
+      ]
+    },
+    "3007": {
+      "file": "extracted_assets/BITMAP3007_1.bmp",
+      "width": 144,
+      "height": 24,
+      "bpp": 4,
+      "headerSize": 40,
+      "tileWidth": 24,
+      "tiles": [
+        {
+          "tile": 1,
+          "x": 0,
+          "width": 24,
+          "md5": "d0e8ce84b1081d46669f4ca73fc70878"
+        },
+        {
+          "tile": 2,
+          "x": 24,
+          "width": 24,
+          "md5": "46d379e2cefdc164ba7ea657bb8654d6"
+        },
+        {
+          "tile": 3,
+          "x": 48,
+          "width": 24,
+          "md5": "4a47c0236214331c2969e8f3795ee0e8"
+        },
+        {
+          "tile": 4,
+          "x": 72,
+          "width": 24,
+          "md5": "01514e7712f5191cc95a5c075ba4b068"
+        },
+        {
+          "tile": 5,
+          "x": 96,
+          "width": 24,
+          "md5": "22bd9d26cc3be60b52cfb44b79746ea8"
+        },
+        {
+          "tile": 6,
+          "x": 120,
+          "width": 24,
+          "md5": "95b333e727af11216e8a5efe8ed69b66"
+        }
+      ]
+    },
+    "3008": {
+      "file": "extracted_assets/BITMAP3008_1.bmp",
+      "width": 432,
+      "height": 24,
+      "bpp": 4,
+      "headerSize": 40,
+      "tileWidth": 24,
+      "tiles": [
+        {
+          "tile": 1,
+          "x": 0,
+          "width": 24,
+          "md5": "b3c07b21302ef7ee540054c7962365e7"
+        },
+        {
+          "tile": 2,
+          "x": 24,
+          "width": 24,
+          "md5": "52a7da1a1b2507da9b295ce11aa70040"
+        },
+        {
+          "tile": 3,
+          "x": 48,
+          "width": 24,
+          "md5": "ce88e3b2f142156731bb5e14b3e4b28f"
+        },
+        {
+          "tile": 4,
+          "x": 72,
+          "width": 24,
+          "md5": "68860888ca83aaa0427e900ee2af202f"
+        },
+        {
+          "tile": 5,
+          "x": 96,
+          "width": 24,
+          "md5": "0dd0696a2dfe56e1cd889a9d70748472"
+        },
+        {
+          "tile": 6,
+          "x": 120,
+          "width": 24,
+          "md5": "13d07cd9b61e3254d0f99783e51694ed"
+        },
+        {
+          "tile": 7,
+          "x": 144,
+          "width": 24,
+          "md5": "7937f88cb19180957ac28acab5cee0da"
+        },
+        {
+          "tile": 8,
+          "x": 168,
+          "width": 24,
+          "md5": "3883ec3bc5f088d6c737a92556b7ea74"
+        },
+        {
+          "tile": 9,
+          "x": 192,
+          "width": 24,
+          "md5": "3671e375d2cb563bebdc26e9632577de"
+        },
+        {
+          "tile": 10,
+          "x": 216,
+          "width": 24,
+          "md5": "a762613e0dcdc9266f07e35885ac6978"
+        },
+        {
+          "tile": 11,
+          "x": 240,
+          "width": 24,
+          "md5": "46b8883cd516fc9e29531a76dc409bc7"
+        },
+        {
+          "tile": 12,
+          "x": 264,
+          "width": 24,
+          "md5": "78129c8a4fe89a31195a258f5d1c5f43"
+        },
+        {
+          "tile": 13,
+          "x": 288,
+          "width": 24,
+          "md5": "fbd468dd71fa3fa51c48e8b16ea51d3a"
+        },
+        {
+          "tile": 14,
+          "x": 312,
+          "width": 24,
+          "md5": "8484679c8718eb2f23673dc2e3ad16a4"
+        },
+        {
+          "tile": 15,
+          "x": 336,
+          "width": 24,
+          "md5": "61219c98042240a0a8084c721d3353a3"
+        },
+        {
+          "tile": 16,
+          "x": 360,
+          "width": 24,
+          "md5": "f3e513dbee0a02dbc25416da10fb1a86"
+        },
+        {
+          "tile": 17,
+          "x": 384,
+          "width": 24,
+          "md5": "09bb8a7aafa55ccc68b09ad0df0890c6"
+        },
+        {
+          "tile": 18,
+          "x": 408,
+          "width": 24,
+          "md5": "f072628133a74c54c4daf3b5df6c00ff"
+        }
+      ]
+    },
+    "3009": {
+      "file": "extracted_assets/BITMAP3009_1.bmp",
+      "width": 336,
+      "height": 24,
+      "bpp": 4,
+      "headerSize": 40,
+      "tileWidth": 24,
+      "tiles": [
+        {
+          "tile": 1,
+          "x": 0,
+          "width": 24,
+          "md5": "b1f63093d5ad015873e6a3cf341e7aff"
+        },
+        {
+          "tile": 2,
+          "x": 24,
+          "width": 24,
+          "md5": "26d9d09fb596765ec3e7600d615e8def"
+        },
+        {
+          "tile": 3,
+          "x": 48,
+          "width": 24,
+          "md5": "a2e184a7cfd17c77f6a33136178aeb99"
+        },
+        {
+          "tile": 4,
+          "x": 72,
+          "width": 24,
+          "md5": "2354b7dbc707e2a1607d92ceafb62882"
+        },
+        {
+          "tile": 5,
+          "x": 96,
+          "width": 24,
+          "md5": "4f75955967d7563935a9e12c404371c9"
+        },
+        {
+          "tile": 6,
+          "x": 120,
+          "width": 24,
+          "md5": "40a6b0f65800bea1268e723bd9f9322d"
+        },
+        {
+          "tile": 7,
+          "x": 144,
+          "width": 24,
+          "md5": "693ba1aa2c129ab6c430d8cdfa3546b0"
+        },
+        {
+          "tile": 8,
+          "x": 168,
+          "width": 24,
+          "md5": "e296eee56be1759886a2eaf2fdf694d4"
+        },
+        {
+          "tile": 9,
+          "x": 192,
+          "width": 24,
+          "md5": "2d3dea72addd7c8475b029348680844a"
+        },
+        {
+          "tile": 10,
+          "x": 216,
+          "width": 24,
+          "md5": "5162732e597993f89f7d7d42be9f2424"
+        },
+        {
+          "tile": 11,
+          "x": 240,
+          "width": 24,
+          "md5": "31ad839df97f67c4556a11a400d5da73"
+        },
+        {
+          "tile": 12,
+          "x": 264,
+          "width": 24,
+          "md5": "1f517ff4f359aa60307a111080f15b7f"
+        },
+        {
+          "tile": 13,
+          "x": 288,
+          "width": 24,
+          "md5": "bea213543da9ad8d80f59501503421cc"
+        },
+        {
+          "tile": 14,
+          "x": 312,
+          "width": 24,
+          "md5": "a8aee03ed0a8af24d963b1c88f11e2cd"
+        }
+      ]
+    },
+    "3010": {
+      "file": "extracted_assets/BITMAP3010_1.bmp",
+      "width": 216,
+      "height": 24,
+      "bpp": 4,
+      "headerSize": 40,
+      "tileWidth": 24,
+      "tiles": [
+        {
+          "tile": 1,
+          "x": 0,
+          "width": 24,
+          "md5": "b492c8027927258625699c4de47e016d"
+        },
+        {
+          "tile": 2,
+          "x": 24,
+          "width": 24,
+          "md5": "5059f9c8709f1cd3d116c6f51983ba0f"
+        },
+        {
+          "tile": 3,
+          "x": 48,
+          "width": 24,
+          "md5": "4ff81f23b27fdc61d840c25fc2ce07a4"
+        },
+        {
+          "tile": 4,
+          "x": 72,
+          "width": 24,
+          "md5": "1e42a70415f6687485a7a8328ca879b0"
+        },
+        {
+          "tile": 5,
+          "x": 96,
+          "width": 24,
+          "md5": "0953b1114131f6ff5a3d299ce1086c89"
+        },
+        {
+          "tile": 6,
+          "x": 120,
+          "width": 24,
+          "md5": "6f8fa3138470536f8be0f788df9d928f"
+        },
+        {
+          "tile": 7,
+          "x": 144,
+          "width": 24,
+          "md5": "e9a3725a7b8c6c99106341b711afa4a0"
+        },
+        {
+          "tile": 8,
+          "x": 168,
+          "width": 24,
+          "md5": "c64adbe752b8625e48c3df03a360599a"
+        },
+        {
+          "tile": 9,
+          "x": 192,
+          "width": 24,
+          "md5": "7d0c6a270343ca8f1322c2762279197e"
+        }
+      ]
+    },
+    "3011": {
+      "file": "extracted_assets/BITMAP3011_1.bmp",
+      "width": 288,
+      "height": 24,
+      "bpp": 4,
+      "headerSize": 40,
+      "tileWidth": 24,
+      "tiles": [
+        {
+          "tile": 1,
+          "x": 0,
+          "width": 24,
+          "md5": "e9068b985c5705db962b7c3629178cb4"
+        },
+        {
+          "tile": 2,
+          "x": 24,
+          "width": 24,
+          "md5": "7933e02ae442a68fac7034e90a374e01"
+        },
+        {
+          "tile": 3,
+          "x": 48,
+          "width": 24,
+          "md5": "3f235dc94782df545cf843133abf8a23"
+        },
+        {
+          "tile": 4,
+          "x": 72,
+          "width": 24,
+          "md5": "5a5932efecdc2f9f94d6492635f053f5"
+        },
+        {
+          "tile": 5,
+          "x": 96,
+          "width": 24,
+          "md5": "78a9ef2d44048b20af6870983eafbb5e"
+        },
+        {
+          "tile": 6,
+          "x": 120,
+          "width": 24,
+          "md5": "80e86db3ea9a55a9d973a7b24ef227b8"
+        },
+        {
+          "tile": 7,
+          "x": 144,
+          "width": 24,
+          "md5": "21b31d793e66b94cb34bb7d990b70239"
+        },
+        {
+          "tile": 8,
+          "x": 168,
+          "width": 24,
+          "md5": "04b457024407b5187af7f3b91050db6f"
+        },
+        {
+          "tile": 9,
+          "x": 192,
+          "width": 24,
+          "md5": "a01f3b934187302c0a33ed48525d17dd"
+        },
+        {
+          "tile": 10,
+          "x": 216,
+          "width": 24,
+          "md5": "5ac9bdf0558697cfe3c6f4506e9d874b"
+        },
+        {
+          "tile": 11,
+          "x": 240,
+          "width": 24,
+          "md5": "b132c8b132137a88db82ddff39c3a151"
+        },
+        {
+          "tile": 12,
+          "x": 264,
+          "width": 24,
+          "md5": "44be37dfc47a2c7f0a4bf3ec6f7a920f"
+        }
+      ]
+    },
+    "3012": {
+      "file": "extracted_assets/BITMAP3012_1.bmp",
+      "width": 313,
+      "height": 24,
+      "bpp": 4,
+      "headerSize": 40,
+      "tileWidth": 24.076923076923077,
+      "tiles": [
+        {
+          "tile": 1,
+          "x": 0,
+          "width": 24,
+          "md5": "3361c4eff06806df994b764978f614ae"
+        },
+        {
+          "tile": 2,
+          "x": 24,
+          "width": 24,
+          "md5": "8f95c22a0a1389cb8c8317b1cee2b4df"
+        },
+        {
+          "tile": 3,
+          "x": 48,
+          "width": 24,
+          "md5": "47cec6f2a798ed85f152a5040de29c30"
+        },
+        {
+          "tile": 4,
+          "x": 72,
+          "width": 24,
+          "md5": "92eb2a9c1e1fa8439d2a914c12653525"
+        },
+        {
+          "tile": 5,
+          "x": 96,
+          "width": 24,
+          "md5": "be1dd504b88af93de83a9cf1eea7c4c2"
+        },
+        {
+          "tile": 6,
+          "x": 120,
+          "width": 24,
+          "md5": "452f9f16d215f65fc6011176dca23138"
+        },
+        {
+          "tile": 7,
+          "x": 144,
+          "width": 25,
+          "md5": "6b39ddfcca7ae7ceb7332724bf030b8e"
+        },
+        {
+          "tile": 8,
+          "x": 169,
+          "width": 24,
+          "md5": "6f4871eed1d00a62c2339c5eb40e697d"
+        },
+        {
+          "tile": 9,
+          "x": 193,
+          "width": 24,
+          "md5": "48d4232bf8b9de6ef9ee6c2db2820162"
+        },
+        {
+          "tile": 10,
+          "x": 217,
+          "width": 24,
+          "md5": "2c46b97d4c18f5e1873fce5fc7f0c87f"
+        },
+        {
+          "tile": 11,
+          "x": 241,
+          "width": 24,
+          "md5": "23d5fbfc9b58cf17d890b994aa23971e"
+        },
+        {
+          "tile": 12,
+          "x": 265,
+          "width": 24,
+          "md5": "820b8f537ef81ae567ba99493a7b24fe"
+        },
+        {
+          "tile": 13,
+          "x": 289,
+          "width": 24,
+          "md5": "28eecfc3d100f119ae59bf85b9ceb5e9"
+        }
+      ]
+    },
+    "3013": {
+      "file": "extracted_assets/BITMAP3013_1.bmp",
+      "width": 168,
+      "height": 24,
+      "bpp": 4,
+      "headerSize": 40,
+      "tileWidth": 24,
+      "tiles": [
+        {
+          "tile": 1,
+          "x": 0,
+          "width": 24,
+          "md5": "4910043941f650e302c7f9d95101e33b"
+        },
+        {
+          "tile": 2,
+          "x": 24,
+          "width": 24,
+          "md5": "e58d7496ea8806536a497809151f9fa6"
+        },
+        {
+          "tile": 3,
+          "x": 48,
+          "width": 24,
+          "md5": "c9555a50e6dcaa76abc16a225766fa43"
+        },
+        {
+          "tile": 4,
+          "x": 72,
+          "width": 24,
+          "md5": "0201e8e52b35a07fbaa30bed56b4409f"
+        },
+        {
+          "tile": 5,
+          "x": 96,
+          "width": 24,
+          "md5": "fb00b5853a6c6591e854eb3a21992fbe"
+        },
+        {
+          "tile": 6,
+          "x": 120,
+          "width": 24,
+          "md5": "79a671610ecbadfd4a8c23c60fcf4852"
+        },
+        {
+          "tile": 7,
+          "x": 144,
+          "width": 24,
+          "md5": "53cc8a2be2c8ad9483851e5df42184de"
+        }
+      ]
+    },
+    "3014": {
+      "file": "extracted_assets/BITMAP3014_1.bmp",
+      "width": 240,
+      "height": 24,
+      "bpp": 8,
+      "headerSize": 40,
+      "tileWidth": 24,
+      "tiles": [
+        {
+          "tile": 1,
+          "x": 0,
+          "width": 24,
+          "md5": "65fe32db5784ce4080e8843df9d8c4f0"
+        },
+        {
+          "tile": 2,
+          "x": 24,
+          "width": 24,
+          "md5": "e8abfd028034cac8d1a56c97a702af1d"
+        },
+        {
+          "tile": 3,
+          "x": 48,
+          "width": 24,
+          "md5": "07f0c0b5ac6d41cd0d0321381cb25653"
+        },
+        {
+          "tile": 4,
+          "x": 72,
+          "width": 24,
+          "md5": "efc1deb4f67f3c730b49e5e5bd9063a7"
+        },
+        {
+          "tile": 5,
+          "x": 96,
+          "width": 24,
+          "md5": "e8dab65606bd91ac117eec3671dd7615"
+        },
+        {
+          "tile": 6,
+          "x": 120,
+          "width": 24,
+          "md5": "ef673903431cf2c50787df9dd2511162"
+        },
+        {
+          "tile": 7,
+          "x": 144,
+          "width": 24,
+          "md5": "409fc8994f9e4287e561c0b0d053f039"
+        },
+        {
+          "tile": 8,
+          "x": 168,
+          "width": 24,
+          "md5": "e3f452c11648a9cfd5c3cd7b39fc15ed"
+        },
+        {
+          "tile": 9,
+          "x": 192,
+          "width": 24,
+          "md5": "80d198a60b7aa91629789376f0140e8e"
+        },
+        {
+          "tile": 10,
+          "x": 216,
+          "width": 24,
+          "md5": "b37fa0ecff701402af5588d2f863919c"
+        }
+      ]
+    },
+    "3015": {
+      "file": "extracted_assets/BITMAP3015_1.bmp",
+      "width": 288,
+      "height": 24,
+      "bpp": 8,
+      "headerSize": 40,
+      "tileWidth": 24,
+      "tiles": [
+        {
+          "tile": 1,
+          "x": 0,
+          "width": 24,
+          "md5": "9e66047206ff23376f224ae9f4dd04d9"
+        },
+        {
+          "tile": 2,
+          "x": 24,
+          "width": 24,
+          "md5": "47911b207c8e7ee840e73629218c5f10"
+        },
+        {
+          "tile": 3,
+          "x": 48,
+          "width": 24,
+          "md5": "bb79c069b24317de1f49206a0b0a0257"
+        },
+        {
+          "tile": 4,
+          "x": 72,
+          "width": 24,
+          "md5": "7a58cb5209646c92ae3cde924e1bf14b"
+        },
+        {
+          "tile": 5,
+          "x": 96,
+          "width": 24,
+          "md5": "5009bee1827099bcbee932b7d158763d"
+        },
+        {
+          "tile": 6,
+          "x": 120,
+          "width": 24,
+          "md5": "1c1e206749666f0b223f8f7e7bf58014"
+        },
+        {
+          "tile": 7,
+          "x": 144,
+          "width": 24,
+          "md5": "b8d218f2853c2e8ac5d3d2129f1c8af1"
+        },
+        {
+          "tile": 8,
+          "x": 168,
+          "width": 24,
+          "md5": "3b11f552c25d818fbcb16bf86d3e3f7d"
+        },
+        {
+          "tile": 9,
+          "x": 192,
+          "width": 24,
+          "md5": "c661caa9cf759d92c2d021c063a45663"
+        },
+        {
+          "tile": 10,
+          "x": 216,
+          "width": 24,
+          "md5": "6ad2a73aa2ff1fc6bb356a1e4105e07c"
+        },
+        {
+          "tile": 11,
+          "x": 240,
+          "width": 24,
+          "md5": "420a8af358c90a8ce774b5cd36d29752"
+        },
+        {
+          "tile": 12,
+          "x": 264,
+          "width": 24,
+          "md5": "2b330ce780b34f23829e97972ee6614a"
+        }
+      ]
+    },
+    "3016": {
+      "file": "extracted_assets/BITMAP3016_1.bmp",
+      "width": 240,
+      "height": 24,
+      "bpp": 8,
+      "headerSize": 40,
+      "tileWidth": 24,
+      "tiles": [
+        {
+          "tile": 1,
+          "x": 0,
+          "width": 24,
+          "md5": "65fe32db5784ce4080e8843df9d8c4f0"
+        },
+        {
+          "tile": 2,
+          "x": 24,
+          "width": 24,
+          "md5": "e8abfd028034cac8d1a56c97a702af1d"
+        },
+        {
+          "tile": 3,
+          "x": 48,
+          "width": 24,
+          "md5": "a499627c8d527414fc4231bccb1f5e03"
+        },
+        {
+          "tile": 4,
+          "x": 72,
+          "width": 24,
+          "md5": "c50e8ae8ca6d62b1431bea0580c2d9cc"
+        },
+        {
+          "tile": 5,
+          "x": 96,
+          "width": 24,
+          "md5": "e8dab65606bd91ac117eec3671dd7615"
+        },
+        {
+          "tile": 6,
+          "x": 120,
+          "width": 24,
+          "md5": "ec69c9b5ce7f7f3f4ec9471d6fe6eadd"
+        },
+        {
+          "tile": 7,
+          "x": 144,
+          "width": 24,
+          "md5": "409fc8994f9e4287e561c0b0d053f039"
+        },
+        {
+          "tile": 8,
+          "x": 168,
+          "width": 24,
+          "md5": "e3f452c11648a9cfd5c3cd7b39fc15ed"
+        },
+        {
+          "tile": 9,
+          "x": 192,
+          "width": 24,
+          "md5": "80d198a60b7aa91629789376f0140e8e"
+        },
+        {
+          "tile": 10,
+          "x": 216,
+          "width": 24,
+          "md5": "b37fa0ecff701402af5588d2f863919c"
+        }
+      ]
+    },
+    "3017": {
+      "file": "extracted_assets/BITMAP3017_1.bmp",
+      "width": 240,
+      "height": 24,
+      "bpp": 8,
+      "headerSize": 40,
+      "tileWidth": 24,
+      "tiles": [
+        {
+          "tile": 1,
+          "x": 0,
+          "width": 24,
+          "md5": "65fe32db5784ce4080e8843df9d8c4f0"
+        },
+        {
+          "tile": 2,
+          "x": 24,
+          "width": 24,
+          "md5": "e8abfd028034cac8d1a56c97a702af1d"
+        },
+        {
+          "tile": 3,
+          "x": 48,
+          "width": 24,
+          "md5": "a499627c8d527414fc4231bccb1f5e03"
+        },
+        {
+          "tile": 4,
+          "x": 72,
+          "width": 24,
+          "md5": "c50e8ae8ca6d62b1431bea0580c2d9cc"
+        },
+        {
+          "tile": 5,
+          "x": 96,
+          "width": 24,
+          "md5": "e8dab65606bd91ac117eec3671dd7615"
+        },
+        {
+          "tile": 6,
+          "x": 120,
+          "width": 24,
+          "md5": "ec69c9b5ce7f7f3f4ec9471d6fe6eadd"
+        },
+        {
+          "tile": 7,
+          "x": 144,
+          "width": 24,
+          "md5": "409fc8994f9e4287e561c0b0d053f039"
+        },
+        {
+          "tile": 8,
+          "x": 168,
+          "width": 24,
+          "md5": "e3f452c11648a9cfd5c3cd7b39fc15ed"
+        },
+        {
+          "tile": 9,
+          "x": 192,
+          "width": 24,
+          "md5": "80d198a60b7aa91629789376f0140e8e"
+        },
+        {
+          "tile": 10,
+          "x": 216,
+          "width": 24,
+          "md5": "b37fa0ecff701402af5588d2f863919c"
+        }
+      ]
+    },
+    "3101": {
+      "file": "extracted_assets/BITMAP3101_1.bmp",
+      "width": 368,
+      "height": 16,
+      "bpp": 4,
+      "headerSize": 40,
+      "tileWidth": 24.533333333333335,
+      "tiles": [
+        {
+          "tile": 1,
+          "x": 0,
+          "width": 25,
+          "md5": "f6897c824ee8f45a97cda05b07f5758e"
+        },
+        {
+          "tile": 2,
+          "x": 25,
+          "width": 24,
+          "md5": "e53c5c7ee4ba94cefbf52b0307c34760"
+        },
+        {
+          "tile": 3,
+          "x": 49,
+          "width": 25,
+          "md5": "c3d65fcf01f99f368bd42323281f4428"
+        },
+        {
+          "tile": 4,
+          "x": 74,
+          "width": 24,
+          "md5": "5c5bae565836a4d15b442e088996eac8"
+        },
+        {
+          "tile": 5,
+          "x": 98,
+          "width": 25,
+          "md5": "10e6077380e80716349251a630e0386c"
+        },
+        {
+          "tile": 6,
+          "x": 123,
+          "width": 24,
+          "md5": "338f204fd70c409831d601579da88541"
+        },
+        {
+          "tile": 7,
+          "x": 147,
+          "width": 25,
+          "md5": "bd6a943013b5cf0742137bbe4055c861"
+        },
+        {
+          "tile": 8,
+          "x": 172,
+          "width": 24,
+          "md5": "929090e043afb2061a94bc468acc363f"
+        },
+        {
+          "tile": 9,
+          "x": 196,
+          "width": 25,
+          "md5": "07f165588cc5c097d47d3693ae608259"
+        },
+        {
+          "tile": 10,
+          "x": 221,
+          "width": 24,
+          "md5": "ee7ac8b1ef968c4f07ecb80914b95471"
+        },
+        {
+          "tile": 11,
+          "x": 245,
+          "width": 25,
+          "md5": "80e09eb9eb50c36546a05485d13217c7"
+        },
+        {
+          "tile": 12,
+          "x": 270,
+          "width": 24,
+          "md5": "7099ce23e26cd0783f315e5c65c24e13"
+        },
+        {
+          "tile": 13,
+          "x": 294,
+          "width": 25,
+          "md5": "5bf15cd1b6339a439c6744a9567ab82c"
+        },
+        {
+          "tile": 14,
+          "x": 319,
+          "width": 24,
+          "md5": "3f17df40b4e404de0c30aa8e00339d78"
+        },
+        {
+          "tile": 15,
+          "x": 343,
+          "width": 25,
+          "md5": "697238d8dfac384562237b8749370801"
+        }
+      ]
+    },
+    "3102": {
+      "file": "extracted_assets/BITMAP3102_1.bmp",
+      "width": 320,
+      "height": 16,
+      "bpp": 4,
+      "headerSize": 40,
+      "tileWidth": 24.615384615384617,
+      "tiles": [
+        {
+          "tile": 1,
+          "x": 0,
+          "width": 25,
+          "md5": "2db28afdbaf094cd799c50824f7b0073"
+        },
+        {
+          "tile": 2,
+          "x": 25,
+          "width": 24,
+          "md5": "3425d8d1d17eb580847bf11bb15e1787"
+        },
+        {
+          "tile": 3,
+          "x": 49,
+          "width": 25,
+          "md5": "0f56e82102396914957cd7e31ff24896"
+        },
+        {
+          "tile": 4,
+          "x": 74,
+          "width": 24,
+          "md5": "26678647ee57a8913aa05d5500670906"
+        },
+        {
+          "tile": 5,
+          "x": 98,
+          "width": 25,
+          "md5": "14c67a23847ea583fc09655e1757a608"
+        },
+        {
+          "tile": 6,
+          "x": 123,
+          "width": 25,
+          "md5": "e1258d6ed7707ce15db09319b68bea00"
+        },
+        {
+          "tile": 7,
+          "x": 148,
+          "width": 24,
+          "md5": "1c7a3b1d2ce4161022688b7538d9528b"
+        },
+        {
+          "tile": 8,
+          "x": 172,
+          "width": 25,
+          "md5": "b0a9dd929dcd50ca8788caae31dd787b"
+        },
+        {
+          "tile": 9,
+          "x": 197,
+          "width": 25,
+          "md5": "4907445e502cf865df68e89d50561156"
+        },
+        {
+          "tile": 10,
+          "x": 222,
+          "width": 24,
+          "md5": "a4dadea62ff96c5613314a85d9f47aa2"
+        },
+        {
+          "tile": 11,
+          "x": 246,
+          "width": 25,
+          "md5": "3311b21f52d9be6a4d3d9077d82c56c2"
+        },
+        {
+          "tile": 12,
+          "x": 271,
+          "width": 24,
+          "md5": "6c6d3b371d5e893bae63e16cd10222d5"
+        },
+        {
+          "tile": 13,
+          "x": 295,
+          "width": 25,
+          "md5": "3936bec02215d034127818277a3c01c5"
+        }
+      ]
+    },
+    "3103": {
+      "file": "extracted_assets/BITMAP3103_1.bmp",
+      "width": 128,
+      "height": 15,
+      "bpp": 4,
+      "headerSize": 40,
+      "tileWidth": 25.6,
+      "tiles": [
+        {
+          "tile": 1,
+          "x": 0,
+          "width": 26,
+          "md5": "da4907d68173461b30ee964fa5e827a8"
+        },
+        {
+          "tile": 2,
+          "x": 26,
+          "width": 25,
+          "md5": "14f14b814d8bc3c5cce5d577b91890d2"
+        },
+        {
+          "tile": 3,
+          "x": 51,
+          "width": 26,
+          "md5": "81df8ea2510ea8fec9d23b5fb18e0ce5"
+        },
+        {
+          "tile": 4,
+          "x": 77,
+          "width": 25,
+          "md5": "5f750d1e928f2e20b03978b57338d2b6"
+        },
+        {
+          "tile": 5,
+          "x": 102,
+          "width": 26,
+          "md5": "c5f15d2514df575c75d474ea89ecb743"
+        }
+      ]
+    },
+    "3104": {
+      "file": "extracted_assets/BITMAP3104_1.bmp",
+      "width": 224,
+      "height": 16,
+      "bpp": 4,
+      "headerSize": 40,
+      "tileWidth": 24.88888888888889,
+      "tiles": [
+        {
+          "tile": 1,
+          "x": 0,
+          "width": 25,
+          "md5": "5e23cf314a7c2ab873dd274b3ce12665"
+        },
+        {
+          "tile": 2,
+          "x": 25,
+          "width": 25,
+          "md5": "d18105126908e11bd25141480a43ced9"
+        },
+        {
+          "tile": 3,
+          "x": 50,
+          "width": 25,
+          "md5": "11b50d3c350074f37d3a3df1ea959aca"
+        },
+        {
+          "tile": 4,
+          "x": 75,
+          "width": 25,
+          "md5": "a3fdd8a34397e1000cafd7b289bd4483"
+        },
+        {
+          "tile": 5,
+          "x": 100,
+          "width": 24,
+          "md5": "be2fd6cdfed95762662374cd1de31c43"
+        },
+        {
+          "tile": 6,
+          "x": 124,
+          "width": 25,
+          "md5": "02e05fb5d653021e9546d2204ea844df"
+        },
+        {
+          "tile": 7,
+          "x": 149,
+          "width": 25,
+          "md5": "2dea4e67745a5f2d65705cee0665cc44"
+        },
+        {
+          "tile": 8,
+          "x": 174,
+          "width": 25,
+          "md5": "101216ee86f369745302bb87a692f51c"
+        },
+        {
+          "tile": 9,
+          "x": 199,
+          "width": 25,
+          "md5": "c05740cf1432c34806482ab5b967efdf"
+        }
+      ]
+    },
+    "3105": {
+      "file": "extracted_assets/BITMAP3105_1.bmp",
+      "width": 96,
+      "height": 15,
+      "bpp": 4,
+      "headerSize": 40,
+      "tileWidth": 24,
+      "tiles": [
+        {
+          "tile": 1,
+          "x": 0,
+          "width": 24,
+          "md5": "2601a118ed354eaff262172747e8732c"
+        },
+        {
+          "tile": 2,
+          "x": 24,
+          "width": 24,
+          "md5": "c2bc6e05401b0747bb2c39d63b30ea36"
+        },
+        {
+          "tile": 3,
+          "x": 48,
+          "width": 24,
+          "md5": "2c8e5a082afe8fad727ab488df3eae3f"
+        },
+        {
+          "tile": 4,
+          "x": 72,
+          "width": 24,
+          "md5": "e85ee04285d52a8501a4ebb16441c1f6"
+        }
+      ]
+    },
+    "3106": {
+      "file": "extracted_assets/BITMAP3106_1.bmp",
+      "width": 80,
+      "height": 16,
+      "bpp": 4,
+      "headerSize": 40,
+      "tileWidth": 26.666666666666668,
+      "tiles": [
+        {
+          "tile": 1,
+          "x": 0,
+          "width": 27,
+          "md5": "2b36efbc870f562e488e5b019d407f59"
+        },
+        {
+          "tile": 2,
+          "x": 27,
+          "width": 26,
+          "md5": "c72d7c57e340d99d5b50769fa48639f9"
+        },
+        {
+          "tile": 3,
+          "x": 53,
+          "width": 27,
+          "md5": "e89945bef7de3e6f4157cc472b77ac74"
+        }
+      ]
+    },
+    "3107": {
+      "file": "extracted_assets/BITMAP3107_1.bmp",
+      "width": 96,
+      "height": 15,
+      "bpp": 4,
+      "headerSize": 40,
+      "tileWidth": 24,
+      "tiles": [
+        {
+          "tile": 1,
+          "x": 0,
+          "width": 24,
+          "md5": "fd1af378d402810f7145bf4465e8e023"
+        },
+        {
+          "tile": 2,
+          "x": 24,
+          "width": 24,
+          "md5": "9c4d34db2cde9fd5a113093c55992ab9"
+        },
+        {
+          "tile": 3,
+          "x": 48,
+          "width": 24,
+          "md5": "dfcaba91d4b18542f7698e6436035366"
+        },
+        {
+          "tile": 4,
+          "x": 72,
+          "width": 24,
+          "md5": "ea5e61600f39314af7510885261ecf23"
+        }
+      ]
+    },
+    "3108": {
+      "file": "extracted_assets/BITMAP3108_1.bmp",
+      "width": 288,
+      "height": 16,
+      "bpp": 4,
+      "headerSize": 40,
+      "tileWidth": 24,
+      "tiles": [
+        {
+          "tile": 1,
+          "x": 0,
+          "width": 24,
+          "md5": "6c51958675d77ec744c3b6b51bcb61e5"
+        },
+        {
+          "tile": 2,
+          "x": 24,
+          "width": 24,
+          "md5": "edc2c3fdee8d67bb1dfcf07437d37cd5"
+        },
+        {
+          "tile": 3,
+          "x": 48,
+          "width": 24,
+          "md5": "281ac954524d90063e65896e40f8f7a8"
+        },
+        {
+          "tile": 4,
+          "x": 72,
+          "width": 24,
+          "md5": "163b637cf1a7fa20c342bd24d7e6f19e"
+        },
+        {
+          "tile": 5,
+          "x": 96,
+          "width": 24,
+          "md5": "aa6834806c6a11a0bd13d261b49c8e99"
+        },
+        {
+          "tile": 6,
+          "x": 120,
+          "width": 24,
+          "md5": "9c4c83dd122af23dc05653a7132708cd"
+        },
+        {
+          "tile": 7,
+          "x": 144,
+          "width": 24,
+          "md5": "7f5f144ebf220f5b245418332dbe6edd"
+        },
+        {
+          "tile": 8,
+          "x": 168,
+          "width": 24,
+          "md5": "6d5d75b411aa4862866540629e433893"
+        },
+        {
+          "tile": 9,
+          "x": 192,
+          "width": 24,
+          "md5": "7d6664a5c20f47b4f89b9c3dfef6abe8"
+        },
+        {
+          "tile": 10,
+          "x": 216,
+          "width": 24,
+          "md5": "1707bfa98bb659a76d04d58f11fd27cf"
+        },
+        {
+          "tile": 11,
+          "x": 240,
+          "width": 24,
+          "md5": "31687f8648553d6ad310eaf12ceeb907"
+        },
+        {
+          "tile": 12,
+          "x": 264,
+          "width": 24,
+          "md5": "eb33b8a44c831bc2a0ebd16279057f5c"
+        }
+      ]
+    },
+    "3109": {
+      "file": "extracted_assets/BITMAP3109_1.bmp",
+      "width": 224,
+      "height": 16,
+      "bpp": 4,
+      "headerSize": 40,
+      "tileWidth": 24.88888888888889,
+      "tiles": [
+        {
+          "tile": 1,
+          "x": 0,
+          "width": 25,
+          "md5": "d16afeca8fa96f18d2aca5773588830c"
+        },
+        {
+          "tile": 2,
+          "x": 25,
+          "width": 25,
+          "md5": "baa6cd9c499f55928ba616e04d003c06"
+        },
+        {
+          "tile": 3,
+          "x": 50,
+          "width": 25,
+          "md5": "aebbca31c18b426d47bff2bb7f7a1c72"
+        },
+        {
+          "tile": 4,
+          "x": 75,
+          "width": 25,
+          "md5": "274105f220d5128e64617608aec49615"
+        },
+        {
+          "tile": 5,
+          "x": 100,
+          "width": 24,
+          "md5": "0cb7c2235d417fc390fd7d48890e54fa"
+        },
+        {
+          "tile": 6,
+          "x": 124,
+          "width": 25,
+          "md5": "8047ea0f4e25d5b58f1db08e0fc6c0c5"
+        },
+        {
+          "tile": 7,
+          "x": 149,
+          "width": 25,
+          "md5": "f2ac218e17facc09442205e19e135cd6"
+        },
+        {
+          "tile": 8,
+          "x": 174,
+          "width": 25,
+          "md5": "a559f39e55547167f2ab0fe0c59e1b63"
+        },
+        {
+          "tile": 9,
+          "x": 199,
+          "width": 25,
+          "md5": "017f8c5cb9452222d04aa0cbdba51e0c"
+        }
+      ]
+    },
+    "3110": {
+      "file": "extracted_assets/BITMAP3110_1.bmp",
+      "width": 144,
+      "height": 16,
+      "bpp": 4,
+      "headerSize": 40,
+      "tileWidth": 24,
+      "tiles": [
+        {
+          "tile": 1,
+          "x": 0,
+          "width": 24,
+          "md5": "ee63eb5346cbe9c02b5fa5b441cb7eee"
+        },
+        {
+          "tile": 2,
+          "x": 24,
+          "width": 24,
+          "md5": "b0a61041fdb6b1a6ef91abdb2b302d45"
+        },
+        {
+          "tile": 3,
+          "x": 48,
+          "width": 24,
+          "md5": "7624ea314074fc7584d7b9995c7bf383"
+        },
+        {
+          "tile": 4,
+          "x": 72,
+          "width": 24,
+          "md5": "3414a6f980594fa1ee7be0d37011da87"
+        },
+        {
+          "tile": 5,
+          "x": 96,
+          "width": 24,
+          "md5": "49d4dc84e5ac49a409db8e07a9d34dd8"
+        },
+        {
+          "tile": 6,
+          "x": 120,
+          "width": 24,
+          "md5": "aa5a170566abb62028c5469b597cade8"
+        }
+      ]
+    },
+    "3111": {
+      "file": "extracted_assets/BITMAP3111_1.bmp",
+      "width": 192,
+      "height": 15,
+      "bpp": 4,
+      "headerSize": 40,
+      "tileWidth": 24,
+      "tiles": [
+        {
+          "tile": 1,
+          "x": 0,
+          "width": 24,
+          "md5": "e540886ba4db161aedece24e7bd69722"
+        },
+        {
+          "tile": 2,
+          "x": 24,
+          "width": 24,
+          "md5": "ca2ecc788e6861321315794bf2ba4500"
+        },
+        {
+          "tile": 3,
+          "x": 48,
+          "width": 24,
+          "md5": "5a0506246d618925cda501b15709868b"
+        },
+        {
+          "tile": 4,
+          "x": 72,
+          "width": 24,
+          "md5": "4e78b29fa091e53e70dec650e108a45b"
+        },
+        {
+          "tile": 5,
+          "x": 96,
+          "width": 24,
+          "md5": "109c4dc2067b396cbf373c225b56788d"
+        },
+        {
+          "tile": 6,
+          "x": 120,
+          "width": 24,
+          "md5": "d4c2c3cd4003ce5649befa0ce164c00e"
+        },
+        {
+          "tile": 7,
+          "x": 144,
+          "width": 24,
+          "md5": "581b8fbd4a416ef431427e1c7fe05f3d"
+        },
+        {
+          "tile": 8,
+          "x": 168,
+          "width": 24,
+          "md5": "4c81fb5f49c38322323ed5f5a879171e"
+        }
+      ]
+    },
+    "3112": {
+      "file": "extracted_assets/BITMAP3112_1.bmp",
+      "width": 210,
+      "height": 16,
+      "bpp": 4,
+      "headerSize": 40,
+      "tileWidth": 23.333333333333332,
+      "tiles": [
+        {
+          "tile": 1,
+          "x": 0,
+          "width": 23,
+          "md5": "54245aaead34668dcf8f1d6e9aa9e1b3"
+        },
+        {
+          "tile": 2,
+          "x": 23,
+          "width": 24,
+          "md5": "d341c8a12d0fd4ad4dc239f5467e0b51"
+        },
+        {
+          "tile": 3,
+          "x": 47,
+          "width": 23,
+          "md5": "3c609e04e44aa4fde98b766f49f84946"
+        },
+        {
+          "tile": 4,
+          "x": 70,
+          "width": 23,
+          "md5": "48b523040c75af22497f6fd9bd96de9c"
+        },
+        {
+          "tile": 5,
+          "x": 93,
+          "width": 24,
+          "md5": "36d99d001df9e01b94b3f4321b316584"
+        },
+        {
+          "tile": 6,
+          "x": 117,
+          "width": 23,
+          "md5": "1c1d509696a7651e2591a7be773d5c24"
+        },
+        {
+          "tile": 7,
+          "x": 140,
+          "width": 23,
+          "md5": "02f9205bb59d8a87e83dc5c86547105f"
+        },
+        {
+          "tile": 8,
+          "x": 163,
+          "width": 24,
+          "md5": "8dc003dd109a9d7c3b10d99cc7f98edd"
+        },
+        {
+          "tile": 9,
+          "x": 187,
+          "width": 23,
+          "md5": "6c77313fc18c35eed395df92498cafcf"
+        }
+      ]
+    },
+    "3113": {
+      "file": "extracted_assets/BITMAP3113_1.bmp",
+      "width": 112,
+      "height": 15,
+      "bpp": 4,
+      "headerSize": 40,
+      "tileWidth": 22.4,
+      "tiles": [
+        {
+          "tile": 1,
+          "x": 0,
+          "width": 22,
+          "md5": "ab45295d4d1410f40a43a3b9c3200ab9"
+        },
+        {
+          "tile": 2,
+          "x": 22,
+          "width": 23,
+          "md5": "381a9672a4801156dde3da1b8cd0686a"
+        },
+        {
+          "tile": 3,
+          "x": 45,
+          "width": 22,
+          "md5": "8d902c575af029e33ec12f79b9587204"
+        },
+        {
+          "tile": 4,
+          "x": 67,
+          "width": 23,
+          "md5": "d16cfab68ef0b8c897d55f194303d905"
+        },
+        {
+          "tile": 5,
+          "x": 90,
+          "width": 22,
+          "md5": "53754d151d6817ceb4714f47285646b0"
+        }
+      ]
+    },
+    "3114": {
+      "file": "extracted_assets/BITMAP3114_1.bmp",
+      "width": 160,
+      "height": 16,
+      "bpp": 8,
+      "headerSize": 40,
+      "tileWidth": 22.857142857142858,
+      "tiles": [
+        {
+          "tile": 1,
+          "x": 0,
+          "width": 23,
+          "md5": "ef664e3b7df64669ac6e463d64077b42"
+        },
+        {
+          "tile": 2,
+          "x": 23,
+          "width": 23,
+          "md5": "91a8e396c1174bcb3bceec908a190f9e"
+        },
+        {
+          "tile": 3,
+          "x": 46,
+          "width": 23,
+          "md5": "35d16fa85e37738fc3021206224a2db5"
+        },
+        {
+          "tile": 4,
+          "x": 69,
+          "width": 22,
+          "md5": "f838ce9bd3b72202c0075781596da7b9"
+        },
+        {
+          "tile": 5,
+          "x": 91,
+          "width": 23,
+          "md5": "e0612e81afe533ebb7c48803131e2251"
+        },
+        {
+          "tile": 6,
+          "x": 114,
+          "width": 23,
+          "md5": "878d91fcc3b664932c38bf4068141fc9"
+        },
+        {
+          "tile": 7,
+          "x": 137,
+          "width": 23,
+          "md5": "b394e6e01a5e60c40c439a166dbd2df3"
+        }
+      ]
+    },
+    "3115": {
+      "file": "extracted_assets/BITMAP3115_1.bmp",
+      "width": 192,
+      "height": 16,
+      "bpp": 8,
+      "headerSize": 40,
+      "tileWidth": 24,
+      "tiles": [
+        {
+          "tile": 1,
+          "x": 0,
+          "width": 24,
+          "md5": "0dc26d9811b82b6cf879b202b81b283a"
+        },
+        {
+          "tile": 2,
+          "x": 24,
+          "width": 24,
+          "md5": "17c17e076a41de683afd840a0e032f9f"
+        },
+        {
+          "tile": 3,
+          "x": 48,
+          "width": 24,
+          "md5": "fd6c15d828b39793cbec6e95de2023c2"
+        },
+        {
+          "tile": 4,
+          "x": 72,
+          "width": 24,
+          "md5": "8ac67089f410866d5ecc91b738094057"
+        },
+        {
+          "tile": 5,
+          "x": 96,
+          "width": 24,
+          "md5": "e058b714a2b73187ee0770fb844246a6"
+        },
+        {
+          "tile": 6,
+          "x": 120,
+          "width": 24,
+          "md5": "649deafc1a4f556da54a970986b646eb"
+        },
+        {
+          "tile": 7,
+          "x": 144,
+          "width": 24,
+          "md5": "ef2dd25e5b4f2cff1fcfa2d2cf630cc6"
+        },
+        {
+          "tile": 8,
+          "x": 168,
+          "width": 24,
+          "md5": "fec68717c744056abfe8f61e254c20e1"
+        }
+      ]
+    },
+    "3116": {
+      "file": "extracted_assets/BITMAP3116_1.bmp",
+      "width": 320,
+      "height": 16,
+      "bpp": 4,
+      "headerSize": 40,
+      "tileWidth": 24.615384615384617,
+      "tiles": [
+        {
+          "tile": 1,
+          "x": 0,
+          "width": 25,
+          "md5": "2db28afdbaf094cd799c50824f7b0073"
+        },
+        {
+          "tile": 2,
+          "x": 25,
+          "width": 24,
+          "md5": "3425d8d1d17eb580847bf11bb15e1787"
+        },
+        {
+          "tile": 3,
+          "x": 49,
+          "width": 25,
+          "md5": "0f56e82102396914957cd7e31ff24896"
+        },
+        {
+          "tile": 4,
+          "x": 74,
+          "width": 24,
+          "md5": "26678647ee57a8913aa05d5500670906"
+        },
+        {
+          "tile": 5,
+          "x": 98,
+          "width": 25,
+          "md5": "14c67a23847ea583fc09655e1757a608"
+        },
+        {
+          "tile": 6,
+          "x": 123,
+          "width": 25,
+          "md5": "e1258d6ed7707ce15db09319b68bea00"
+        },
+        {
+          "tile": 7,
+          "x": 148,
+          "width": 24,
+          "md5": "1c7a3b1d2ce4161022688b7538d9528b"
+        },
+        {
+          "tile": 8,
+          "x": 172,
+          "width": 25,
+          "md5": "b0a9dd929dcd50ca8788caae31dd787b"
+        },
+        {
+          "tile": 9,
+          "x": 197,
+          "width": 25,
+          "md5": "4907445e502cf865df68e89d50561156"
+        },
+        {
+          "tile": 10,
+          "x": 222,
+          "width": 24,
+          "md5": "a4dadea62ff96c5613314a85d9f47aa2"
+        },
+        {
+          "tile": 11,
+          "x": 246,
+          "width": 25,
+          "md5": "3311b21f52d9be6a4d3d9077d82c56c2"
+        },
+        {
+          "tile": 12,
+          "x": 271,
+          "width": 24,
+          "md5": "6c6d3b371d5e893bae63e16cd10222d5"
+        },
+        {
+          "tile": 13,
+          "x": 295,
+          "width": 25,
+          "md5": "3936bec02215d034127818277a3c01c5"
+        }
+      ]
+    },
+    "3117": {
+      "file": "extracted_assets/BITMAP3117_1.bmp",
+      "width": 320,
+      "height": 16,
+      "bpp": 4,
+      "headerSize": 40,
+      "tileWidth": 24.615384615384617,
+      "tiles": [
+        {
+          "tile": 1,
+          "x": 0,
+          "width": 25,
+          "md5": "2db28afdbaf094cd799c50824f7b0073"
+        },
+        {
+          "tile": 2,
+          "x": 25,
+          "width": 24,
+          "md5": "3425d8d1d17eb580847bf11bb15e1787"
+        },
+        {
+          "tile": 3,
+          "x": 49,
+          "width": 25,
+          "md5": "0f56e82102396914957cd7e31ff24896"
+        },
+        {
+          "tile": 4,
+          "x": 74,
+          "width": 24,
+          "md5": "26678647ee57a8913aa05d5500670906"
+        },
+        {
+          "tile": 5,
+          "x": 98,
+          "width": 25,
+          "md5": "14c67a23847ea583fc09655e1757a608"
+        },
+        {
+          "tile": 6,
+          "x": 123,
+          "width": 25,
+          "md5": "e1258d6ed7707ce15db09319b68bea00"
+        },
+        {
+          "tile": 7,
+          "x": 148,
+          "width": 24,
+          "md5": "1c7a3b1d2ce4161022688b7538d9528b"
+        },
+        {
+          "tile": 8,
+          "x": 172,
+          "width": 25,
+          "md5": "b0a9dd929dcd50ca8788caae31dd787b"
+        },
+        {
+          "tile": 9,
+          "x": 197,
+          "width": 25,
+          "md5": "4907445e502cf865df68e89d50561156"
+        },
+        {
+          "tile": 10,
+          "x": 222,
+          "width": 24,
+          "md5": "a4dadea62ff96c5613314a85d9f47aa2"
+        },
+        {
+          "tile": 11,
+          "x": 246,
+          "width": 25,
+          "md5": "3311b21f52d9be6a4d3d9077d82c56c2"
+        },
+        {
+          "tile": 12,
+          "x": 271,
+          "width": 24,
+          "md5": "6c6d3b371d5e893bae63e16cd10222d5"
+        },
+        {
+          "tile": 13,
+          "x": 295,
+          "width": 25,
+          "md5": "3936bec02215d034127818277a3c01c5"
+        }
+      ]
+    },
+    "3201": {
+      "file": "extracted_assets/BITMAP3201_1.bmp",
+      "width": 552,
+      "height": 24,
+      "bpp": 4,
+      "headerSize": 40,
+      "tileWidth": 24,
+      "tiles": [
+        {
+          "tile": 1,
+          "x": 0,
+          "width": 24,
+          "md5": "be729028f6ed565e727db146d95f1606"
+        },
+        {
+          "tile": 2,
+          "x": 24,
+          "width": 24,
+          "md5": "bf683b4cdbb42e76ac6ac9760b294700"
+        },
+        {
+          "tile": 3,
+          "x": 48,
+          "width": 24,
+          "md5": "64d9765c8a7270a6538b268eb81b1d8b"
+        },
+        {
+          "tile": 4,
+          "x": 72,
+          "width": 24,
+          "md5": "b6614d4ce0c87ae0fe656367ac2de644"
+        },
+        {
+          "tile": 5,
+          "x": 96,
+          "width": 24,
+          "md5": "74b48799a47d5a4730acfcd0061423f6"
+        },
+        {
+          "tile": 6,
+          "x": 120,
+          "width": 24,
+          "md5": "10dce29ba00aad65c784653a46a1d133"
+        },
+        {
+          "tile": 7,
+          "x": 144,
+          "width": 24,
+          "md5": "8bc7119e0d660b615f4401814d6968f5"
+        },
+        {
+          "tile": 8,
+          "x": 168,
+          "width": 24,
+          "md5": "12faf38b501cccfa741d1768d4d331bc"
+        },
+        {
+          "tile": 9,
+          "x": 192,
+          "width": 24,
+          "md5": "eea2e27a738b1a0dcc37bc7426c749c5"
+        },
+        {
+          "tile": 10,
+          "x": 216,
+          "width": 24,
+          "md5": "adfc106d74cbaace8a447fb5f6cc63ec"
+        },
+        {
+          "tile": 11,
+          "x": 240,
+          "width": 24,
+          "md5": "4307837efd685b57610cb154b13ba94b"
+        },
+        {
+          "tile": 12,
+          "x": 264,
+          "width": 24,
+          "md5": "63e5995435a3a34b247b95483c230b66"
+        },
+        {
+          "tile": 13,
+          "x": 288,
+          "width": 24,
+          "md5": "91aec18ce21854a8bb80023da71f228c"
+        },
+        {
+          "tile": 14,
+          "x": 312,
+          "width": 24,
+          "md5": "44070089d34bf24930596512902475ba"
+        },
+        {
+          "tile": 15,
+          "x": 336,
+          "width": 24,
+          "md5": "ace943c72f902fb8b7c0e24f379e9a2b"
+        },
+        {
+          "tile": 16,
+          "x": 360,
+          "width": 24,
+          "md5": "d4ed044db70c1331613e34543752b39e"
+        },
+        {
+          "tile": 17,
+          "x": 384,
+          "width": 24,
+          "md5": "5675678204dc23459d2ee71d0b09f702"
+        },
+        {
+          "tile": 18,
+          "x": 408,
+          "width": 24,
+          "md5": "56c2473ddf6d1ea9d1814a1bdbfcc734"
+        },
+        {
+          "tile": 19,
+          "x": 432,
+          "width": 24,
+          "md5": "902b9d6e8e672b77386f9b9cefcef998"
+        },
+        {
+          "tile": 20,
+          "x": 456,
+          "width": 24,
+          "md5": "514380ff6d8549c557d51b3705eb131e"
+        },
+        {
+          "tile": 21,
+          "x": 480,
+          "width": 24,
+          "md5": "545cd651ccb6ce8715470e394dec3736"
+        },
+        {
+          "tile": 22,
+          "x": 504,
+          "width": 24,
+          "md5": "21c9ac264a8f8d615b6b39a386fc9951"
+        },
+        {
+          "tile": 23,
+          "x": 528,
+          "width": 24,
+          "md5": "ceda8d3f5885607909b6c8f2defbaba2"
+        }
+      ]
+    },
+    "3202": {
+      "file": "extracted_assets/BITMAP3202_1.bmp",
+      "width": 480,
+      "height": 24,
+      "bpp": 4,
+      "headerSize": 40,
+      "tileWidth": 24,
+      "tiles": [
+        {
+          "tile": 1,
+          "x": 0,
+          "width": 24,
+          "md5": "5cbd14f23e9bb4d4b56f4cd617fcd3c7"
+        },
+        {
+          "tile": 2,
+          "x": 24,
+          "width": 24,
+          "md5": "dcb7ee23e378fde9b5fa70e13c7c03b0"
+        },
+        {
+          "tile": 3,
+          "x": 48,
+          "width": 24,
+          "md5": "498691613103ae6165a2618b1074ddd9"
+        },
+        {
+          "tile": 4,
+          "x": 72,
+          "width": 24,
+          "md5": "f591b40d2caa1f7ae8a93c2cae128ad2"
+        },
+        {
+          "tile": 5,
+          "x": 96,
+          "width": 24,
+          "md5": "de8f0fc956d09f49a1d05295bfe7d1b4"
+        },
+        {
+          "tile": 6,
+          "x": 120,
+          "width": 24,
+          "md5": "6d30652b4d1a78e953a61156e3a8f1fd"
+        },
+        {
+          "tile": 7,
+          "x": 144,
+          "width": 24,
+          "md5": "596aa4ff25751ca24b555ea317fecaad"
+        },
+        {
+          "tile": 8,
+          "x": 168,
+          "width": 24,
+          "md5": "86eb092521ade057769a763a36c1c54a"
+        },
+        {
+          "tile": 9,
+          "x": 192,
+          "width": 24,
+          "md5": "ac119db571249a75cd21f7010395739a"
+        },
+        {
+          "tile": 10,
+          "x": 216,
+          "width": 24,
+          "md5": "f864d8d3fe54514af05b683953c6c720"
+        },
+        {
+          "tile": 11,
+          "x": 240,
+          "width": 24,
+          "md5": "92be405d0f0d4d1cb9444a45b6197e7e"
+        },
+        {
+          "tile": 12,
+          "x": 264,
+          "width": 24,
+          "md5": "bb0d5b502a55cc6a5d5464aaa285c724"
+        },
+        {
+          "tile": 13,
+          "x": 288,
+          "width": 24,
+          "md5": "758e9749390a63a78645641ea10d5e9b"
+        },
+        {
+          "tile": 14,
+          "x": 312,
+          "width": 24,
+          "md5": "b90c46351010907ffe96a508a4d8140f"
+        },
+        {
+          "tile": 15,
+          "x": 336,
+          "width": 24,
+          "md5": "5b0eca289f89d4af1ee6c439f7d50697"
+        },
+        {
+          "tile": 16,
+          "x": 360,
+          "width": 24,
+          "md5": "5ab8311ff7ed810709111857a90adb48"
+        },
+        {
+          "tile": 17,
+          "x": 384,
+          "width": 24,
+          "md5": "1165569433b6a4e81c4dbb8e99cc8bac"
+        },
+        {
+          "tile": 18,
+          "x": 408,
+          "width": 24,
+          "md5": "36648a32bb667190bc5d2669b354a4b1"
+        },
+        {
+          "tile": 19,
+          "x": 432,
+          "width": 24,
+          "md5": "3061bd61c012f3a19aed6a3d84794876"
+        },
+        {
+          "tile": 20,
+          "x": 456,
+          "width": 24,
+          "md5": "bfc2a6d24eb91004b48c9ac8717000f9"
+        }
+      ]
+    },
+    "3203": {
+      "file": "extracted_assets/BITMAP3203_1.bmp",
+      "width": 192,
+      "height": 24,
+      "bpp": 4,
+      "headerSize": 40,
+      "tileWidth": 24,
+      "tiles": [
+        {
+          "tile": 1,
+          "x": 0,
+          "width": 24,
+          "md5": "d3d9802667f591e96e69a1c654bf608e"
+        },
+        {
+          "tile": 2,
+          "x": 24,
+          "width": 24,
+          "md5": "0fa08ff3a692cc19d0de9661ab3a9766"
+        },
+        {
+          "tile": 3,
+          "x": 48,
+          "width": 24,
+          "md5": "b635f06146b5d7f19fd41d5b283d273b"
+        },
+        {
+          "tile": 4,
+          "x": 72,
+          "width": 24,
+          "md5": "f947fb62b8d1cb47a027ce41e8542245"
+        },
+        {
+          "tile": 5,
+          "x": 96,
+          "width": 24,
+          "md5": "2e863076e1d2452762c124df7ce2a6f7"
+        },
+        {
+          "tile": 6,
+          "x": 120,
+          "width": 24,
+          "md5": "1efecbcfadb6df66ff1f7467abd8bbbc"
+        },
+        {
+          "tile": 7,
+          "x": 144,
+          "width": 24,
+          "md5": "42c27be2f10f9839ae5dad791dcd9c06"
+        },
+        {
+          "tile": 8,
+          "x": 168,
+          "width": 24,
+          "md5": "4414eb16b6f423002563a6103ac4337e"
+        }
+      ]
+    },
+    "3204": {
+      "file": "extracted_assets/BITMAP3204_1.bmp",
+      "width": 336,
+      "height": 24,
+      "bpp": 4,
+      "headerSize": 40,
+      "tileWidth": 24,
+      "tiles": [
+        {
+          "tile": 1,
+          "x": 0,
+          "width": 24,
+          "md5": "1d329f78fac46244a880fe51d9a984f9"
+        },
+        {
+          "tile": 2,
+          "x": 24,
+          "width": 24,
+          "md5": "bc28497085dd4579c3bc3532684ba1fc"
+        },
+        {
+          "tile": 3,
+          "x": 48,
+          "width": 24,
+          "md5": "c6c8968f6511d6f8037c6f7a68023d8f"
+        },
+        {
+          "tile": 4,
+          "x": 72,
+          "width": 24,
+          "md5": "5ae4cd0370d31ee30a05017b670ec0e2"
+        },
+        {
+          "tile": 5,
+          "x": 96,
+          "width": 24,
+          "md5": "56b8e98a48f94ca67a2233fb0f23c3ed"
+        },
+        {
+          "tile": 6,
+          "x": 120,
+          "width": 24,
+          "md5": "c0be701e3269e2659a5fd10564e107e9"
+        },
+        {
+          "tile": 7,
+          "x": 144,
+          "width": 24,
+          "md5": "d05c20490cb3600a0ed8f91297ab7073"
+        },
+        {
+          "tile": 8,
+          "x": 168,
+          "width": 24,
+          "md5": "3326ff49b178f25eba775b4ba461a865"
+        },
+        {
+          "tile": 9,
+          "x": 192,
+          "width": 24,
+          "md5": "0551f358bc283f0a13facbba50fbbd4d"
+        },
+        {
+          "tile": 10,
+          "x": 216,
+          "width": 24,
+          "md5": "2aa0624970c723963e6f1cf69e70592d"
+        },
+        {
+          "tile": 11,
+          "x": 240,
+          "width": 24,
+          "md5": "1ba867f7f973a2e397b05bd6d80d2e56"
+        },
+        {
+          "tile": 12,
+          "x": 264,
+          "width": 24,
+          "md5": "919c549e2053239308105f7b2e9bc0fc"
+        },
+        {
+          "tile": 13,
+          "x": 288,
+          "width": 24,
+          "md5": "348e9aca8853d9b9356c985f59c321c0"
+        },
+        {
+          "tile": 14,
+          "x": 312,
+          "width": 24,
+          "md5": "67a93d2a06dd5b8db9085a57fd7d40e7"
+        }
+      ]
+    },
+    "3205": {
+      "file": "extracted_assets/BITMAP3205_1.bmp",
+      "width": 144,
+      "height": 24,
+      "bpp": 4,
+      "headerSize": 40,
+      "tileWidth": 24,
+      "tiles": [
+        {
+          "tile": 1,
+          "x": 0,
+          "width": 24,
+          "md5": "c4e3b41ba95fbc7ad2d3690d132dc383"
+        },
+        {
+          "tile": 2,
+          "x": 24,
+          "width": 24,
+          "md5": "8677b7626aefa8b4ad416bd64993a0e1"
+        },
+        {
+          "tile": 3,
+          "x": 48,
+          "width": 24,
+          "md5": "f7a3967c31bebb549c8598a6e2c7dd8d"
+        },
+        {
+          "tile": 4,
+          "x": 72,
+          "width": 24,
+          "md5": "5f1ed0e2d4d7fc661ed497497e8c19c6"
+        },
+        {
+          "tile": 5,
+          "x": 96,
+          "width": 24,
+          "md5": "e03da0308407871fc66ef350091825fe"
+        },
+        {
+          "tile": 6,
+          "x": 120,
+          "width": 24,
+          "md5": "4f4b465c63aee8435441b13e55998e23"
+        }
+      ]
+    },
+    "3206": {
+      "file": "extracted_assets/BITMAP3206_1.bmp",
+      "width": 120,
+      "height": 24,
+      "bpp": 4,
+      "headerSize": 40,
+      "tileWidth": 24,
+      "tiles": [
+        {
+          "tile": 1,
+          "x": 0,
+          "width": 24,
+          "md5": "c47d73310f61d5098181820c3d6b2415"
+        },
+        {
+          "tile": 2,
+          "x": 24,
+          "width": 24,
+          "md5": "aac59f5b13a63588ad4fdc55148acb70"
+        },
+        {
+          "tile": 3,
+          "x": 48,
+          "width": 24,
+          "md5": "e824bdedf977e997d54c86b3d6116b5e"
+        },
+        {
+          "tile": 4,
+          "x": 72,
+          "width": 24,
+          "md5": "fe2a8083c2ef89ab3db4dc03faad8491"
+        },
+        {
+          "tile": 5,
+          "x": 96,
+          "width": 24,
+          "md5": "faa774e7f16410c77458d8c92dfdc16f"
+        }
+      ]
+    },
+    "3207": {
+      "file": "extracted_assets/BITMAP3207_1.bmp",
+      "width": 144,
+      "height": 24,
+      "bpp": 4,
+      "headerSize": 40,
+      "tileWidth": 24,
+      "tiles": [
+        {
+          "tile": 1,
+          "x": 0,
+          "width": 24,
+          "md5": "d0e8ce84b1081d46669f4ca73fc70878"
+        },
+        {
+          "tile": 2,
+          "x": 24,
+          "width": 24,
+          "md5": "46d379e2cefdc164ba7ea657bb8654d6"
+        },
+        {
+          "tile": 3,
+          "x": 48,
+          "width": 24,
+          "md5": "4a47c0236214331c2969e8f3795ee0e8"
+        },
+        {
+          "tile": 4,
+          "x": 72,
+          "width": 24,
+          "md5": "01514e7712f5191cc95a5c075ba4b068"
+        },
+        {
+          "tile": 5,
+          "x": 96,
+          "width": 24,
+          "md5": "22bd9d26cc3be60b52cfb44b79746ea8"
+        },
+        {
+          "tile": 6,
+          "x": 120,
+          "width": 24,
+          "md5": "95b333e727af11216e8a5efe8ed69b66"
+        }
+      ]
+    },
+    "3208": {
+      "file": "extracted_assets/BITMAP3208_1.bmp",
+      "width": 432,
+      "height": 24,
+      "bpp": 4,
+      "headerSize": 40,
+      "tileWidth": 24,
+      "tiles": [
+        {
+          "tile": 1,
+          "x": 0,
+          "width": 24,
+          "md5": "32b5fddb6abe61211bdec0d58cdb2b1c"
+        },
+        {
+          "tile": 2,
+          "x": 24,
+          "width": 24,
+          "md5": "4003d614de16cd636c4b5eb7cf655136"
+        },
+        {
+          "tile": 3,
+          "x": 48,
+          "width": 24,
+          "md5": "6623ed75c05a741a52882dbffa6016bb"
+        },
+        {
+          "tile": 4,
+          "x": 72,
+          "width": 24,
+          "md5": "eef9577b377e31ff08036fd6cc525c20"
+        },
+        {
+          "tile": 5,
+          "x": 96,
+          "width": 24,
+          "md5": "e2b157a736c6f52474bb10de2314763c"
+        },
+        {
+          "tile": 6,
+          "x": 120,
+          "width": 24,
+          "md5": "e220f9dd4b9b579d807e3a5134087868"
+        },
+        {
+          "tile": 7,
+          "x": 144,
+          "width": 24,
+          "md5": "9b140e9b5356ce0ccf8f3d38f6686634"
+        },
+        {
+          "tile": 8,
+          "x": 168,
+          "width": 24,
+          "md5": "07b5868d9759315d45ab200dd1320edd"
+        },
+        {
+          "tile": 9,
+          "x": 192,
+          "width": 24,
+          "md5": "1d0cec9e3e94a3e6849e71ea224ae844"
+        },
+        {
+          "tile": 10,
+          "x": 216,
+          "width": 24,
+          "md5": "e1b76c93bd4db91c2fcbd373a8be4f14"
+        },
+        {
+          "tile": 11,
+          "x": 240,
+          "width": 24,
+          "md5": "46b8883cd516fc9e29531a76dc409bc7"
+        },
+        {
+          "tile": 12,
+          "x": 264,
+          "width": 24,
+          "md5": "78129c8a4fe89a31195a258f5d1c5f43"
+        },
+        {
+          "tile": 13,
+          "x": 288,
+          "width": 24,
+          "md5": "fbd468dd71fa3fa51c48e8b16ea51d3a"
+        },
+        {
+          "tile": 14,
+          "x": 312,
+          "width": 24,
+          "md5": "8484679c8718eb2f23673dc2e3ad16a4"
+        },
+        {
+          "tile": 15,
+          "x": 336,
+          "width": 24,
+          "md5": "61219c98042240a0a8084c721d3353a3"
+        },
+        {
+          "tile": 16,
+          "x": 360,
+          "width": 24,
+          "md5": "f3e513dbee0a02dbc25416da10fb1a86"
+        },
+        {
+          "tile": 17,
+          "x": 384,
+          "width": 24,
+          "md5": "09bb8a7aafa55ccc68b09ad0df0890c6"
+        },
+        {
+          "tile": 18,
+          "x": 408,
+          "width": 24,
+          "md5": "f072628133a74c54c4daf3b5df6c00ff"
+        }
+      ]
+    },
+    "3209": {
+      "file": "extracted_assets/BITMAP3209_1.bmp",
+      "width": 336,
+      "height": 24,
+      "bpp": 4,
+      "headerSize": 40,
+      "tileWidth": 24,
+      "tiles": [
+        {
+          "tile": 1,
+          "x": 0,
+          "width": 24,
+          "md5": "5d7168bad743a726a9ef7db2b7ab73c9"
+        },
+        {
+          "tile": 2,
+          "x": 24,
+          "width": 24,
+          "md5": "dc1ba2087ee6a6cd822c3d7d19d36652"
+        },
+        {
+          "tile": 3,
+          "x": 48,
+          "width": 24,
+          "md5": "7991158cf1300d9e444d7b1c8d34cdca"
+        },
+        {
+          "tile": 4,
+          "x": 72,
+          "width": 24,
+          "md5": "68ab2e88137f09b0dc86259322c42ac9"
+        },
+        {
+          "tile": 5,
+          "x": 96,
+          "width": 24,
+          "md5": "e91a217368ee1549403a431a77e986f5"
+        },
+        {
+          "tile": 6,
+          "x": 120,
+          "width": 24,
+          "md5": "d222b760219795def59f31f96e327bd2"
+        },
+        {
+          "tile": 7,
+          "x": 144,
+          "width": 24,
+          "md5": "966eb0255aef3d8721b8c350545ee45a"
+        },
+        {
+          "tile": 8,
+          "x": 168,
+          "width": 24,
+          "md5": "e296eee56be1759886a2eaf2fdf694d4"
+        },
+        {
+          "tile": 9,
+          "x": 192,
+          "width": 24,
+          "md5": "2d3dea72addd7c8475b029348680844a"
+        },
+        {
+          "tile": 10,
+          "x": 216,
+          "width": 24,
+          "md5": "5162732e597993f89f7d7d42be9f2424"
+        },
+        {
+          "tile": 11,
+          "x": 240,
+          "width": 24,
+          "md5": "31ad839df97f67c4556a11a400d5da73"
+        },
+        {
+          "tile": 12,
+          "x": 264,
+          "width": 24,
+          "md5": "f5705d0848cada4740aa104c35d7c390"
+        },
+        {
+          "tile": 13,
+          "x": 288,
+          "width": 24,
+          "md5": "4b662400ca8b50634dc2232edf3819b6"
+        },
+        {
+          "tile": 14,
+          "x": 312,
+          "width": 24,
+          "md5": "a8aee03ed0a8af24d963b1c88f11e2cd"
+        }
+      ]
+    },
+    "3210": {
+      "file": "extracted_assets/BITMAP3210_1.bmp",
+      "width": 216,
+      "height": 24,
+      "bpp": 4,
+      "headerSize": 40,
+      "tileWidth": 24,
+      "tiles": [
+        {
+          "tile": 1,
+          "x": 0,
+          "width": 24,
+          "md5": "b492c8027927258625699c4de47e016d"
+        },
+        {
+          "tile": 2,
+          "x": 24,
+          "width": 24,
+          "md5": "5059f9c8709f1cd3d116c6f51983ba0f"
+        },
+        {
+          "tile": 3,
+          "x": 48,
+          "width": 24,
+          "md5": "667bac98ae073dff6c42e0f5e8e7275f"
+        },
+        {
+          "tile": 4,
+          "x": 72,
+          "width": 24,
+          "md5": "1e42a70415f6687485a7a8328ca879b0"
+        },
+        {
+          "tile": 5,
+          "x": 96,
+          "width": 24,
+          "md5": "36737ba428fe44a0f6eee376dc5495bf"
+        },
+        {
+          "tile": 6,
+          "x": 120,
+          "width": 24,
+          "md5": "7072ec68311de55a938d8f82697385f5"
+        },
+        {
+          "tile": 7,
+          "x": 144,
+          "width": 24,
+          "md5": "6cf20a10cf588b2ff178ca5ad7c9b3e3"
+        },
+        {
+          "tile": 8,
+          "x": 168,
+          "width": 24,
+          "md5": "c64adbe752b8625e48c3df03a360599a"
+        },
+        {
+          "tile": 9,
+          "x": 192,
+          "width": 24,
+          "md5": "7d0c6a270343ca8f1322c2762279197e"
+        }
+      ]
+    },
+    "3211": {
+      "file": "extracted_assets/BITMAP3211_1.bmp",
+      "width": 288,
+      "height": 24,
+      "bpp": 4,
+      "headerSize": 40,
+      "tileWidth": 24,
+      "tiles": [
+        {
+          "tile": 1,
+          "x": 0,
+          "width": 24,
+          "md5": "950632f967da1cdfaa15d5607197b264"
+        },
+        {
+          "tile": 2,
+          "x": 24,
+          "width": 24,
+          "md5": "0f8ed69cbd598f4504b757d693ee6c42"
+        },
+        {
+          "tile": 3,
+          "x": 48,
+          "width": 24,
+          "md5": "3731358ca0011724b9300b52fe8a9d6c"
+        },
+        {
+          "tile": 4,
+          "x": 72,
+          "width": 24,
+          "md5": "ea399de1eec3d60eff92c5eff30193a8"
+        },
+        {
+          "tile": 5,
+          "x": 96,
+          "width": 24,
+          "md5": "b0d9e06c897196af581dceeef7107f02"
+        },
+        {
+          "tile": 6,
+          "x": 120,
+          "width": 24,
+          "md5": "04521bef6a60ef4d5b4d4f6dfd28d4e0"
+        },
+        {
+          "tile": 7,
+          "x": 144,
+          "width": 24,
+          "md5": "619601f8f846c0777d9f13d0cc6b89cc"
+        },
+        {
+          "tile": 8,
+          "x": 168,
+          "width": 24,
+          "md5": "fe3569f940b96e7efe28b37c06235ff3"
+        },
+        {
+          "tile": 9,
+          "x": 192,
+          "width": 24,
+          "md5": "29561b8bb8c206ad02b767139c4bcd45"
+        },
+        {
+          "tile": 10,
+          "x": 216,
+          "width": 24,
+          "md5": "6c2c5055cfdc0931a39beef88faad6c0"
+        },
+        {
+          "tile": 11,
+          "x": 240,
+          "width": 24,
+          "md5": "bca70187d64f335dc5252f66f7dd44fa"
+        },
+        {
+          "tile": 12,
+          "x": 264,
+          "width": 24,
+          "md5": "c810186ed23a969bcda4837bb33a74dd"
+        }
+      ]
+    },
+    "3212": {
+      "file": "extracted_assets/BITMAP3212_1.bmp",
+      "width": 313,
+      "height": 24,
+      "bpp": 4,
+      "headerSize": 40,
+      "tileWidth": 24.076923076923077,
+      "tiles": [
+        {
+          "tile": 1,
+          "x": 0,
+          "width": 24,
+          "md5": "b31c2080ec2db35635a88061fd748cf9"
+        },
+        {
+          "tile": 2,
+          "x": 24,
+          "width": 24,
+          "md5": "8f95c22a0a1389cb8c8317b1cee2b4df"
+        },
+        {
+          "tile": 3,
+          "x": 48,
+          "width": 24,
+          "md5": "47cec6f2a798ed85f152a5040de29c30"
+        },
+        {
+          "tile": 4,
+          "x": 72,
+          "width": 24,
+          "md5": "fe549812ff8c26e03cee131ce266bbd2"
+        },
+        {
+          "tile": 5,
+          "x": 96,
+          "width": 24,
+          "md5": "3a72157d7afe5d9536e1d08d19ba786b"
+        },
+        {
+          "tile": 6,
+          "x": 120,
+          "width": 24,
+          "md5": "452f9f16d215f65fc6011176dca23138"
+        },
+        {
+          "tile": 7,
+          "x": 144,
+          "width": 25,
+          "md5": "6b39ddfcca7ae7ceb7332724bf030b8e"
+        },
+        {
+          "tile": 8,
+          "x": 169,
+          "width": 24,
+          "md5": "c07f86d8258327f91b87c3230f2f8715"
+        },
+        {
+          "tile": 9,
+          "x": 193,
+          "width": 24,
+          "md5": "330bc95d27e1df63f554979983f1aaac"
+        },
+        {
+          "tile": 10,
+          "x": 217,
+          "width": 24,
+          "md5": "2c46b97d4c18f5e1873fce5fc7f0c87f"
+        },
+        {
+          "tile": 11,
+          "x": 241,
+          "width": 24,
+          "md5": "23d5fbfc9b58cf17d890b994aa23971e"
+        },
+        {
+          "tile": 12,
+          "x": 265,
+          "width": 24,
+          "md5": "820b8f537ef81ae567ba99493a7b24fe"
+        },
+        {
+          "tile": 13,
+          "x": 289,
+          "width": 24,
+          "md5": "28eecfc3d100f119ae59bf85b9ceb5e9"
+        }
+      ]
+    },
+    "3213": {
+      "file": "extracted_assets/BITMAP3213_1.bmp",
+      "width": 168,
+      "height": 24,
+      "bpp": 4,
+      "headerSize": 40,
+      "tileWidth": 24,
+      "tiles": [
+        {
+          "tile": 1,
+          "x": 0,
+          "width": 24,
+          "md5": "4910043941f650e302c7f9d95101e33b"
+        },
+        {
+          "tile": 2,
+          "x": 24,
+          "width": 24,
+          "md5": "e58d7496ea8806536a497809151f9fa6"
+        },
+        {
+          "tile": 3,
+          "x": 48,
+          "width": 24,
+          "md5": "c9555a50e6dcaa76abc16a225766fa43"
+        },
+        {
+          "tile": 4,
+          "x": 72,
+          "width": 24,
+          "md5": "0201e8e52b35a07fbaa30bed56b4409f"
+        },
+        {
+          "tile": 5,
+          "x": 96,
+          "width": 24,
+          "md5": "fb00b5853a6c6591e854eb3a21992fbe"
+        },
+        {
+          "tile": 6,
+          "x": 120,
+          "width": 24,
+          "md5": "79a671610ecbadfd4a8c23c60fcf4852"
+        },
+        {
+          "tile": 7,
+          "x": 144,
+          "width": 24,
+          "md5": "53cc8a2be2c8ad9483851e5df42184de"
+        }
+      ]
+    },
+    "3214": {
+      "file": "extracted_assets/BITMAP3214_1.bmp",
+      "width": 240,
+      "height": 24,
+      "bpp": 8,
+      "headerSize": 40,
+      "tileWidth": 24,
+      "tiles": [
+        {
+          "tile": 1,
+          "x": 0,
+          "width": 24,
+          "md5": "65fe32db5784ce4080e8843df9d8c4f0"
+        },
+        {
+          "tile": 2,
+          "x": 24,
+          "width": 24,
+          "md5": "e8abfd028034cac8d1a56c97a702af1d"
+        },
+        {
+          "tile": 3,
+          "x": 48,
+          "width": 24,
+          "md5": "07f0c0b5ac6d41cd0d0321381cb25653"
+        },
+        {
+          "tile": 4,
+          "x": 72,
+          "width": 24,
+          "md5": "efc1deb4f67f3c730b49e5e5bd9063a7"
+        },
+        {
+          "tile": 5,
+          "x": 96,
+          "width": 24,
+          "md5": "e8dab65606bd91ac117eec3671dd7615"
+        },
+        {
+          "tile": 6,
+          "x": 120,
+          "width": 24,
+          "md5": "ef673903431cf2c50787df9dd2511162"
+        },
+        {
+          "tile": 7,
+          "x": 144,
+          "width": 24,
+          "md5": "409fc8994f9e4287e561c0b0d053f039"
+        },
+        {
+          "tile": 8,
+          "x": 168,
+          "width": 24,
+          "md5": "e3f452c11648a9cfd5c3cd7b39fc15ed"
+        },
+        {
+          "tile": 9,
+          "x": 192,
+          "width": 24,
+          "md5": "80d198a60b7aa91629789376f0140e8e"
+        },
+        {
+          "tile": 10,
+          "x": 216,
+          "width": 24,
+          "md5": "b37fa0ecff701402af5588d2f863919c"
+        }
+      ]
+    },
+    "3215": {
+      "file": "extracted_assets/BITMAP3215_1.bmp",
+      "width": 288,
+      "height": 24,
+      "bpp": 8,
+      "headerSize": 40,
+      "tileWidth": 24,
+      "tiles": [
+        {
+          "tile": 1,
+          "x": 0,
+          "width": 24,
+          "md5": "9e66047206ff23376f224ae9f4dd04d9"
+        },
+        {
+          "tile": 2,
+          "x": 24,
+          "width": 24,
+          "md5": "47911b207c8e7ee840e73629218c5f10"
+        },
+        {
+          "tile": 3,
+          "x": 48,
+          "width": 24,
+          "md5": "bb79c069b24317de1f49206a0b0a0257"
+        },
+        {
+          "tile": 4,
+          "x": 72,
+          "width": 24,
+          "md5": "7a58cb5209646c92ae3cde924e1bf14b"
+        },
+        {
+          "tile": 5,
+          "x": 96,
+          "width": 24,
+          "md5": "5009bee1827099bcbee932b7d158763d"
+        },
+        {
+          "tile": 6,
+          "x": 120,
+          "width": 24,
+          "md5": "1c1e206749666f0b223f8f7e7bf58014"
+        },
+        {
+          "tile": 7,
+          "x": 144,
+          "width": 24,
+          "md5": "b8d218f2853c2e8ac5d3d2129f1c8af1"
+        },
+        {
+          "tile": 8,
+          "x": 168,
+          "width": 24,
+          "md5": "3b11f552c25d818fbcb16bf86d3e3f7d"
+        },
+        {
+          "tile": 9,
+          "x": 192,
+          "width": 24,
+          "md5": "c661caa9cf759d92c2d021c063a45663"
+        },
+        {
+          "tile": 10,
+          "x": 216,
+          "width": 24,
+          "md5": "6ad2a73aa2ff1fc6bb356a1e4105e07c"
+        },
+        {
+          "tile": 11,
+          "x": 240,
+          "width": 24,
+          "md5": "420a8af358c90a8ce774b5cd36d29752"
+        },
+        {
+          "tile": 12,
+          "x": 264,
+          "width": 24,
+          "md5": "2b330ce780b34f23829e97972ee6614a"
+        }
+      ]
+    },
+    "3216": {
+      "file": "extracted_assets/BITMAP3216_1.bmp",
+      "width": 240,
+      "height": 24,
+      "bpp": 8,
+      "headerSize": 40,
+      "tileWidth": 24,
+      "tiles": [
+        {
+          "tile": 1,
+          "x": 0,
+          "width": 24,
+          "md5": "65fe32db5784ce4080e8843df9d8c4f0"
+        },
+        {
+          "tile": 2,
+          "x": 24,
+          "width": 24,
+          "md5": "e8abfd028034cac8d1a56c97a702af1d"
+        },
+        {
+          "tile": 3,
+          "x": 48,
+          "width": 24,
+          "md5": "a499627c8d527414fc4231bccb1f5e03"
+        },
+        {
+          "tile": 4,
+          "x": 72,
+          "width": 24,
+          "md5": "c50e8ae8ca6d62b1431bea0580c2d9cc"
+        },
+        {
+          "tile": 5,
+          "x": 96,
+          "width": 24,
+          "md5": "e8dab65606bd91ac117eec3671dd7615"
+        },
+        {
+          "tile": 6,
+          "x": 120,
+          "width": 24,
+          "md5": "ec69c9b5ce7f7f3f4ec9471d6fe6eadd"
+        },
+        {
+          "tile": 7,
+          "x": 144,
+          "width": 24,
+          "md5": "409fc8994f9e4287e561c0b0d053f039"
+        },
+        {
+          "tile": 8,
+          "x": 168,
+          "width": 24,
+          "md5": "e3f452c11648a9cfd5c3cd7b39fc15ed"
+        },
+        {
+          "tile": 9,
+          "x": 192,
+          "width": 24,
+          "md5": "80d198a60b7aa91629789376f0140e8e"
+        },
+        {
+          "tile": 10,
+          "x": 216,
+          "width": 24,
+          "md5": "b37fa0ecff701402af5588d2f863919c"
+        }
+      ]
+    },
+    "3217": {
+      "file": "extracted_assets/BITMAP3217_1.bmp",
+      "width": 240,
+      "height": 24,
+      "bpp": 8,
+      "headerSize": 40,
+      "tileWidth": 24,
+      "tiles": [
+        {
+          "tile": 1,
+          "x": 0,
+          "width": 24,
+          "md5": "65fe32db5784ce4080e8843df9d8c4f0"
+        },
+        {
+          "tile": 2,
+          "x": 24,
+          "width": 24,
+          "md5": "e8abfd028034cac8d1a56c97a702af1d"
+        },
+        {
+          "tile": 3,
+          "x": 48,
+          "width": 24,
+          "md5": "a499627c8d527414fc4231bccb1f5e03"
+        },
+        {
+          "tile": 4,
+          "x": 72,
+          "width": 24,
+          "md5": "c50e8ae8ca6d62b1431bea0580c2d9cc"
+        },
+        {
+          "tile": 5,
+          "x": 96,
+          "width": 24,
+          "md5": "e8dab65606bd91ac117eec3671dd7615"
+        },
+        {
+          "tile": 6,
+          "x": 120,
+          "width": 24,
+          "md5": "ec69c9b5ce7f7f3f4ec9471d6fe6eadd"
+        },
+        {
+          "tile": 7,
+          "x": 144,
+          "width": 24,
+          "md5": "409fc8994f9e4287e561c0b0d053f039"
+        },
+        {
+          "tile": 8,
+          "x": 168,
+          "width": 24,
+          "md5": "e3f452c11648a9cfd5c3cd7b39fc15ed"
+        },
+        {
+          "tile": 9,
+          "x": 192,
+          "width": 24,
+          "md5": "80d198a60b7aa91629789376f0140e8e"
+        },
+        {
+          "tile": 10,
+          "x": 216,
+          "width": 24,
+          "md5": "b37fa0ecff701402af5588d2f863919c"
+        }
+      ]
+    },
+    "3301": {
+      "file": "extracted_assets/BITMAP3301_1.bmp",
+      "width": 368,
+      "height": 15,
+      "bpp": 4,
+      "headerSize": 40,
+      "tileWidth": 24.533333333333335,
+      "tiles": [
+        {
+          "tile": 1,
+          "x": 0,
+          "width": 25,
+          "md5": "3c951ca3beef40d229dcf9318e785b12"
+        },
+        {
+          "tile": 2,
+          "x": 25,
+          "width": 24,
+          "md5": "f020cabf75771e3899685f0be6b2be58"
+        },
+        {
+          "tile": 3,
+          "x": 49,
+          "width": 25,
+          "md5": "821af9b47d28e8f7ba4c8eee435a4e7f"
+        },
+        {
+          "tile": 4,
+          "x": 74,
+          "width": 24,
+          "md5": "4625d63782bd590a10d2801e93292d09"
+        },
+        {
+          "tile": 5,
+          "x": 98,
+          "width": 25,
+          "md5": "dbf0d5087df6c4f8dad595ba91f1ce15"
+        },
+        {
+          "tile": 6,
+          "x": 123,
+          "width": 24,
+          "md5": "f3cced631f948e0819a1be62374dd2ee"
+        },
+        {
+          "tile": 7,
+          "x": 147,
+          "width": 25,
+          "md5": "adcb302c079572d45526b0933dc47941"
+        },
+        {
+          "tile": 8,
+          "x": 172,
+          "width": 24,
+          "md5": "37d58ce4a32acb92be4f9477e9f44c24"
+        },
+        {
+          "tile": 9,
+          "x": 196,
+          "width": 25,
+          "md5": "9f994e57233a38560664301fa7aefae8"
+        },
+        {
+          "tile": 10,
+          "x": 221,
+          "width": 24,
+          "md5": "a7f00f05b4fb30e240e06b85362df65f"
+        },
+        {
+          "tile": 11,
+          "x": 245,
+          "width": 25,
+          "md5": "6fbb89f1ae811d394410c71b4815e749"
+        },
+        {
+          "tile": 12,
+          "x": 270,
+          "width": 24,
+          "md5": "5797223d5f37a2125bd641d3f4e4fa2d"
+        },
+        {
+          "tile": 13,
+          "x": 294,
+          "width": 25,
+          "md5": "429dbedaf5c585743f9e36b762134192"
+        },
+        {
+          "tile": 14,
+          "x": 319,
+          "width": 24,
+          "md5": "1ab7797c9c8f0fee7df89418826793d5"
+        },
+        {
+          "tile": 15,
+          "x": 343,
+          "width": 25,
+          "md5": "05cdcefa67fb41599592d9db007ca7bc"
+        }
+      ]
+    },
+    "3302": {
+      "file": "extracted_assets/BITMAP3302_1.bmp",
+      "width": 320,
+      "height": 16,
+      "bpp": 4,
+      "headerSize": 40,
+      "tileWidth": 24.615384615384617,
+      "tiles": [
+        {
+          "tile": 1,
+          "x": 0,
+          "width": 25,
+          "md5": "93f41c0660b01c2a79b5fecd14dc1937"
+        },
+        {
+          "tile": 2,
+          "x": 25,
+          "width": 24,
+          "md5": "701697246fde29302f358db7cbdbd07b"
+        },
+        {
+          "tile": 3,
+          "x": 49,
+          "width": 25,
+          "md5": "ff6a86a539d100b99af2e2ad2f0d8ab7"
+        },
+        {
+          "tile": 4,
+          "x": 74,
+          "width": 24,
+          "md5": "caa551d038d598d0f49b2f5a8d423c84"
+        },
+        {
+          "tile": 5,
+          "x": 98,
+          "width": 25,
+          "md5": "ce24c0186bf3baf7611acccaaa43a776"
+        },
+        {
+          "tile": 6,
+          "x": 123,
+          "width": 25,
+          "md5": "9604393af66873b43ed6a20c53028e79"
+        },
+        {
+          "tile": 7,
+          "x": 148,
+          "width": 24,
+          "md5": "7b85462e9605991c96be191084de32a1"
+        },
+        {
+          "tile": 8,
+          "x": 172,
+          "width": 25,
+          "md5": "5dcae56f3c2610a329de655cf45f2a72"
+        },
+        {
+          "tile": 9,
+          "x": 197,
+          "width": 25,
+          "md5": "42ca814603c78f425e175048891ef4fa"
+        },
+        {
+          "tile": 10,
+          "x": 222,
+          "width": 24,
+          "md5": "18fd1b8c7e57a8ac9c6fa3ffc54ccc69"
+        },
+        {
+          "tile": 11,
+          "x": 246,
+          "width": 25,
+          "md5": "3311b21f52d9be6a4d3d9077d82c56c2"
+        },
+        {
+          "tile": 12,
+          "x": 271,
+          "width": 24,
+          "md5": "6c6d3b371d5e893bae63e16cd10222d5"
+        },
+        {
+          "tile": 13,
+          "x": 295,
+          "width": 25,
+          "md5": "412d94b6a7c420b4b000b1583ead785a"
+        }
+      ]
+    },
+    "3303": {
+      "file": "extracted_assets/BITMAP3303_1.bmp",
+      "width": 128,
+      "height": 15,
+      "bpp": 4,
+      "headerSize": 40,
+      "tileWidth": 25.6,
+      "tiles": [
+        {
+          "tile": 1,
+          "x": 0,
+          "width": 26,
+          "md5": "b6da298f517c61e2526f12ecb4958588"
+        },
+        {
+          "tile": 2,
+          "x": 26,
+          "width": 25,
+          "md5": "34df700d61bf8644ffd55134dc92ab75"
+        },
+        {
+          "tile": 3,
+          "x": 51,
+          "width": 26,
+          "md5": "02246e2862ca0793f3257d94ae5d1e25"
+        },
+        {
+          "tile": 4,
+          "x": 77,
+          "width": 25,
+          "md5": "d03cc57b5df43ecdbece87d2ec49939d"
+        },
+        {
+          "tile": 5,
+          "x": 102,
+          "width": 26,
+          "md5": "6eb075712d766ca827226be8a30908bb"
+        }
+      ]
+    },
+    "3304": {
+      "file": "extracted_assets/BITMAP3304_1.bmp",
+      "width": 224,
+      "height": 15,
+      "bpp": 4,
+      "headerSize": 40,
+      "tileWidth": 24.88888888888889,
+      "tiles": [
+        {
+          "tile": 1,
+          "x": 0,
+          "width": 25,
+          "md5": "c27450e02d4d22db2d1b48904e3eb403"
+        },
+        {
+          "tile": 2,
+          "x": 25,
+          "width": 25,
+          "md5": "0d6713196410a48e53fe279a5e5e58ce"
+        },
+        {
+          "tile": 3,
+          "x": 50,
+          "width": 25,
+          "md5": "36cd7649d9de06ce2637f4e1293158f4"
+        },
+        {
+          "tile": 4,
+          "x": 75,
+          "width": 25,
+          "md5": "60a781f27755c13e65e79647da3cf606"
+        },
+        {
+          "tile": 5,
+          "x": 100,
+          "width": 24,
+          "md5": "d44f0ff57cc11271a550c6985b06f63b"
+        },
+        {
+          "tile": 6,
+          "x": 124,
+          "width": 25,
+          "md5": "fbe0a083c28f7b0a1608b2579aaef986"
+        },
+        {
+          "tile": 7,
+          "x": 149,
+          "width": 25,
+          "md5": "323917a70a80a4ceede61f6cea14c221"
+        },
+        {
+          "tile": 8,
+          "x": 174,
+          "width": 25,
+          "md5": "402ac9f904ffe2098394ce066a065b5d"
+        },
+        {
+          "tile": 9,
+          "x": 199,
+          "width": 25,
+          "md5": "2f48fe6efc9c83db6a615197c98d309a"
+        }
+      ]
+    },
+    "3305": {
+      "file": "extracted_assets/BITMAP3305_1.bmp",
+      "width": 96,
+      "height": 15,
+      "bpp": 4,
+      "headerSize": 40,
+      "tileWidth": 24,
+      "tiles": [
+        {
+          "tile": 1,
+          "x": 0,
+          "width": 24,
+          "md5": "2601a118ed354eaff262172747e8732c"
+        },
+        {
+          "tile": 2,
+          "x": 24,
+          "width": 24,
+          "md5": "c2bc6e05401b0747bb2c39d63b30ea36"
+        },
+        {
+          "tile": 3,
+          "x": 48,
+          "width": 24,
+          "md5": "d560df09674229c5e8e66b80f5d8927a"
+        },
+        {
+          "tile": 4,
+          "x": 72,
+          "width": 24,
+          "md5": "3f9d224df261f6fe2ab1cc962af245dc"
+        }
+      ]
+    },
+    "3306": {
+      "file": "extracted_assets/BITMAP3306_1.bmp",
+      "width": 80,
+      "height": 15,
+      "bpp": 4,
+      "headerSize": 40,
+      "tileWidth": 26.666666666666668,
+      "tiles": [
+        {
+          "tile": 1,
+          "x": 0,
+          "width": 27,
+          "md5": "dbb40cf13783838290f6c7d6aaf5c6c7"
+        },
+        {
+          "tile": 2,
+          "x": 27,
+          "width": 26,
+          "md5": "07ec1539bb51c90447cb74ed7701cc0e"
+        },
+        {
+          "tile": 3,
+          "x": 53,
+          "width": 27,
+          "md5": "68cdf77e7c2fdc2b57aa35f8a000baf8"
+        }
+      ]
+    },
+    "3307": {
+      "file": "extracted_assets/BITMAP3307_1.bmp",
+      "width": 96,
+      "height": 15,
+      "bpp": 4,
+      "headerSize": 40,
+      "tileWidth": 24,
+      "tiles": [
+        {
+          "tile": 1,
+          "x": 0,
+          "width": 24,
+          "md5": "fd1af378d402810f7145bf4465e8e023"
+        },
+        {
+          "tile": 2,
+          "x": 24,
+          "width": 24,
+          "md5": "9c4d34db2cde9fd5a113093c55992ab9"
+        },
+        {
+          "tile": 3,
+          "x": 48,
+          "width": 24,
+          "md5": "dfcaba91d4b18542f7698e6436035366"
+        },
+        {
+          "tile": 4,
+          "x": 72,
+          "width": 24,
+          "md5": "ea5e61600f39314af7510885261ecf23"
+        }
+      ]
+    },
+    "3308": {
+      "file": "extracted_assets/BITMAP3308_1.bmp",
+      "width": 288,
+      "height": 15,
+      "bpp": 4,
+      "headerSize": 40,
+      "tileWidth": 24,
+      "tiles": [
+        {
+          "tile": 1,
+          "x": 0,
+          "width": 24,
+          "md5": "5ba2a540680d9c554349c0e1148867a5"
+        },
+        {
+          "tile": 2,
+          "x": 24,
+          "width": 24,
+          "md5": "bd6896611391aec31d3ff4fe67017837"
+        },
+        {
+          "tile": 3,
+          "x": 48,
+          "width": 24,
+          "md5": "c39b566ec543b9827f1d8f0927ee87d2"
+        },
+        {
+          "tile": 4,
+          "x": 72,
+          "width": 24,
+          "md5": "21b4a4558ec6246e56d757f8952afdee"
+        },
+        {
+          "tile": 5,
+          "x": 96,
+          "width": 24,
+          "md5": "95cb0bff82915c7fa9ce42f69eef9d9a"
+        },
+        {
+          "tile": 6,
+          "x": 120,
+          "width": 24,
+          "md5": "7c3b066fca8c95b5a57d6849bf2bbd0c"
+        },
+        {
+          "tile": 7,
+          "x": 144,
+          "width": 24,
+          "md5": "dcefca6da994b637a6eb37f06585ac3f"
+        },
+        {
+          "tile": 8,
+          "x": 168,
+          "width": 24,
+          "md5": "a65465ff169931e4080ab17933705973"
+        },
+        {
+          "tile": 9,
+          "x": 192,
+          "width": 24,
+          "md5": "97600c89e6372fb42d5f6cc2122412f3"
+        },
+        {
+          "tile": 10,
+          "x": 216,
+          "width": 24,
+          "md5": "2a6c2c5b0774f14367f8a74e59876aab"
+        },
+        {
+          "tile": 11,
+          "x": 240,
+          "width": 24,
+          "md5": "94958ed009dfee77aa94b88e938df137"
+        },
+        {
+          "tile": 12,
+          "x": 264,
+          "width": 24,
+          "md5": "82a23b561074f89046ccdb9950a1abe8"
+        }
+      ]
+    },
+    "3309": {
+      "file": "extracted_assets/BITMAP3309_1.bmp",
+      "width": 224,
+      "height": 15,
+      "bpp": 4,
+      "headerSize": 40,
+      "tileWidth": 24.88888888888889,
+      "tiles": [
+        {
+          "tile": 1,
+          "x": 0,
+          "width": 25,
+          "md5": "cc5ba477ab6bde9e5169ae057644c2bc"
+        },
+        {
+          "tile": 2,
+          "x": 25,
+          "width": 25,
+          "md5": "383868a4adf5671d76505b44daa42328"
+        },
+        {
+          "tile": 3,
+          "x": 50,
+          "width": 25,
+          "md5": "5845cf20bd6bb3b46681ec626cecb305"
+        },
+        {
+          "tile": 4,
+          "x": 75,
+          "width": 25,
+          "md5": "a163438de19896fa569493ba52f690af"
+        },
+        {
+          "tile": 5,
+          "x": 100,
+          "width": 24,
+          "md5": "73177063327fdf79e0b904fabdf28edc"
+        },
+        {
+          "tile": 6,
+          "x": 124,
+          "width": 25,
+          "md5": "834e9afb2f1c4f1e02d11a335a82ad2f"
+        },
+        {
+          "tile": 7,
+          "x": 149,
+          "width": 25,
+          "md5": "27a62227ceb4b5491c606ee140d33385"
+        },
+        {
+          "tile": 8,
+          "x": 174,
+          "width": 25,
+          "md5": "5c648f565842d25882adcec63ce0633e"
+        },
+        {
+          "tile": 9,
+          "x": 199,
+          "width": 25,
+          "md5": "57bc0f309f1fcd7fe85b791ec19c2cc5"
+        }
+      ]
+    },
+    "3310": {
+      "file": "extracted_assets/BITMAP3310_1.bmp",
+      "width": 144,
+      "height": 15,
+      "bpp": 4,
+      "headerSize": 40,
+      "tileWidth": 24,
+      "tiles": [
+        {
+          "tile": 1,
+          "x": 0,
+          "width": 24,
+          "md5": "ef754e034aa99d7d424820b76a242096"
+        },
+        {
+          "tile": 2,
+          "x": 24,
+          "width": 24,
+          "md5": "553f48ed17216f3ceef5dd34b24c6b2a"
+        },
+        {
+          "tile": 3,
+          "x": 48,
+          "width": 24,
+          "md5": "88072d52f782ce6a85be8980ce0a80be"
+        },
+        {
+          "tile": 4,
+          "x": 72,
+          "width": 24,
+          "md5": "6790de7e46e652408035542d61cf7522"
+        },
+        {
+          "tile": 5,
+          "x": 96,
+          "width": 24,
+          "md5": "050e16a7ca14bc0f1e1483659315006d"
+        },
+        {
+          "tile": 6,
+          "x": 120,
+          "width": 24,
+          "md5": "4509a1520b6a4dd90262314c9d9b9f7b"
+        }
+      ]
+    },
+    "3311": {
+      "file": "extracted_assets/BITMAP3311_1.bmp",
+      "width": 192,
+      "height": 15,
+      "bpp": 4,
+      "headerSize": 40,
+      "tileWidth": 24,
+      "tiles": [
+        {
+          "tile": 1,
+          "x": 0,
+          "width": 24,
+          "md5": "dae87c5279394303f5eb15a7ce424588"
+        },
+        {
+          "tile": 2,
+          "x": 24,
+          "width": 24,
+          "md5": "ca2ecc788e6861321315794bf2ba4500"
+        },
+        {
+          "tile": 3,
+          "x": 48,
+          "width": 24,
+          "md5": "ccff80770d0fffd6ef2ae0fc0bbca5c2"
+        },
+        {
+          "tile": 4,
+          "x": 72,
+          "width": 24,
+          "md5": "901413dacbe065b72f14de1dbc7237c5"
+        },
+        {
+          "tile": 5,
+          "x": 96,
+          "width": 24,
+          "md5": "1eef8375149b821dcec5d56c7a1d19f2"
+        },
+        {
+          "tile": 6,
+          "x": 120,
+          "width": 24,
+          "md5": "d4c2c3cd4003ce5649befa0ce164c00e"
+        },
+        {
+          "tile": 7,
+          "x": 144,
+          "width": 24,
+          "md5": "581b8fbd4a416ef431427e1c7fe05f3d"
+        },
+        {
+          "tile": 8,
+          "x": 168,
+          "width": 24,
+          "md5": "4c81fb5f49c38322323ed5f5a879171e"
+        }
+      ]
+    },
+    "3312": {
+      "file": "extracted_assets/BITMAP3312_1.bmp",
+      "width": 210,
+      "height": 16,
+      "bpp": 4,
+      "headerSize": 40,
+      "tileWidth": 23.333333333333332,
+      "tiles": [
+        {
+          "tile": 1,
+          "x": 0,
+          "width": 23,
+          "md5": "42020bdc18e0564a44f1ce8a3371ae1c"
+        },
+        {
+          "tile": 2,
+          "x": 23,
+          "width": 24,
+          "md5": "d341c8a12d0fd4ad4dc239f5467e0b51"
+        },
+        {
+          "tile": 3,
+          "x": 47,
+          "width": 23,
+          "md5": "62e4d11764dadb5cfd12e51a3c0a2b53"
+        },
+        {
+          "tile": 4,
+          "x": 70,
+          "width": 23,
+          "md5": "cdc79fa08c77e0ca5918832d485e8125"
+        },
+        {
+          "tile": 5,
+          "x": 93,
+          "width": 24,
+          "md5": "36d99d001df9e01b94b3f4321b316584"
+        },
+        {
+          "tile": 6,
+          "x": 117,
+          "width": 23,
+          "md5": "1c1d509696a7651e2591a7be773d5c24"
+        },
+        {
+          "tile": 7,
+          "x": 140,
+          "width": 23,
+          "md5": "02f9205bb59d8a87e83dc5c86547105f"
+        },
+        {
+          "tile": 8,
+          "x": 163,
+          "width": 24,
+          "md5": "8dc003dd109a9d7c3b10d99cc7f98edd"
+        },
+        {
+          "tile": 9,
+          "x": 187,
+          "width": 23,
+          "md5": "6c77313fc18c35eed395df92498cafcf"
+        }
+      ]
+    },
+    "3313": {
+      "file": "extracted_assets/BITMAP3313_1.bmp",
+      "width": 112,
+      "height": 15,
+      "bpp": 4,
+      "headerSize": 40,
+      "tileWidth": 22.4,
+      "tiles": [
+        {
+          "tile": 1,
+          "x": 0,
+          "width": 22,
+          "md5": "ab45295d4d1410f40a43a3b9c3200ab9"
+        },
+        {
+          "tile": 2,
+          "x": 22,
+          "width": 23,
+          "md5": "381a9672a4801156dde3da1b8cd0686a"
+        },
+        {
+          "tile": 3,
+          "x": 45,
+          "width": 22,
+          "md5": "8d902c575af029e33ec12f79b9587204"
+        },
+        {
+          "tile": 4,
+          "x": 67,
+          "width": 23,
+          "md5": "d16cfab68ef0b8c897d55f194303d905"
+        },
+        {
+          "tile": 5,
+          "x": 90,
+          "width": 22,
+          "md5": "53754d151d6817ceb4714f47285646b0"
+        }
+      ]
+    },
+    "3314": {
+      "file": "extracted_assets/BITMAP3314_1.bmp",
+      "width": 160,
+      "height": 16,
+      "bpp": 8,
+      "headerSize": 40,
+      "tileWidth": 22.857142857142858,
+      "tiles": [
+        {
+          "tile": 1,
+          "x": 0,
+          "width": 23,
+          "md5": "ef664e3b7df64669ac6e463d64077b42"
+        },
+        {
+          "tile": 2,
+          "x": 23,
+          "width": 23,
+          "md5": "91a8e396c1174bcb3bceec908a190f9e"
+        },
+        {
+          "tile": 3,
+          "x": 46,
+          "width": 23,
+          "md5": "35d16fa85e37738fc3021206224a2db5"
+        },
+        {
+          "tile": 4,
+          "x": 69,
+          "width": 22,
+          "md5": "f838ce9bd3b72202c0075781596da7b9"
+        },
+        {
+          "tile": 5,
+          "x": 91,
+          "width": 23,
+          "md5": "e0612e81afe533ebb7c48803131e2251"
+        },
+        {
+          "tile": 6,
+          "x": 114,
+          "width": 23,
+          "md5": "878d91fcc3b664932c38bf4068141fc9"
+        },
+        {
+          "tile": 7,
+          "x": 137,
+          "width": 23,
+          "md5": "b394e6e01a5e60c40c439a166dbd2df3"
+        }
+      ]
+    },
+    "3315": {
+      "file": "extracted_assets/BITMAP3315_1.bmp",
+      "width": 192,
+      "height": 16,
+      "bpp": 8,
+      "headerSize": 40,
+      "tileWidth": 24,
+      "tiles": [
+        {
+          "tile": 1,
+          "x": 0,
+          "width": 24,
+          "md5": "0dc26d9811b82b6cf879b202b81b283a"
+        },
+        {
+          "tile": 2,
+          "x": 24,
+          "width": 24,
+          "md5": "17c17e076a41de683afd840a0e032f9f"
+        },
+        {
+          "tile": 3,
+          "x": 48,
+          "width": 24,
+          "md5": "fd6c15d828b39793cbec6e95de2023c2"
+        },
+        {
+          "tile": 4,
+          "x": 72,
+          "width": 24,
+          "md5": "8ac67089f410866d5ecc91b738094057"
+        },
+        {
+          "tile": 5,
+          "x": 96,
+          "width": 24,
+          "md5": "e058b714a2b73187ee0770fb844246a6"
+        },
+        {
+          "tile": 6,
+          "x": 120,
+          "width": 24,
+          "md5": "649deafc1a4f556da54a970986b646eb"
+        },
+        {
+          "tile": 7,
+          "x": 144,
+          "width": 24,
+          "md5": "ef2dd25e5b4f2cff1fcfa2d2cf630cc6"
+        },
+        {
+          "tile": 8,
+          "x": 168,
+          "width": 24,
+          "md5": "fec68717c744056abfe8f61e254c20e1"
+        }
+      ]
+    },
+    "3316": {
+      "file": "extracted_assets/BITMAP3316_1.bmp",
+      "width": 320,
+      "height": 16,
+      "bpp": 4,
+      "headerSize": 40,
+      "tileWidth": 24.615384615384617,
+      "tiles": [
+        {
+          "tile": 1,
+          "x": 0,
+          "width": 25,
+          "md5": "2db28afdbaf094cd799c50824f7b0073"
+        },
+        {
+          "tile": 2,
+          "x": 25,
+          "width": 24,
+          "md5": "3425d8d1d17eb580847bf11bb15e1787"
+        },
+        {
+          "tile": 3,
+          "x": 49,
+          "width": 25,
+          "md5": "0f56e82102396914957cd7e31ff24896"
+        },
+        {
+          "tile": 4,
+          "x": 74,
+          "width": 24,
+          "md5": "26678647ee57a8913aa05d5500670906"
+        },
+        {
+          "tile": 5,
+          "x": 98,
+          "width": 25,
+          "md5": "14c67a23847ea583fc09655e1757a608"
+        },
+        {
+          "tile": 6,
+          "x": 123,
+          "width": 25,
+          "md5": "e1258d6ed7707ce15db09319b68bea00"
+        },
+        {
+          "tile": 7,
+          "x": 148,
+          "width": 24,
+          "md5": "1c7a3b1d2ce4161022688b7538d9528b"
+        },
+        {
+          "tile": 8,
+          "x": 172,
+          "width": 25,
+          "md5": "b0a9dd929dcd50ca8788caae31dd787b"
+        },
+        {
+          "tile": 9,
+          "x": 197,
+          "width": 25,
+          "md5": "4907445e502cf865df68e89d50561156"
+        },
+        {
+          "tile": 10,
+          "x": 222,
+          "width": 24,
+          "md5": "a4dadea62ff96c5613314a85d9f47aa2"
+        },
+        {
+          "tile": 11,
+          "x": 246,
+          "width": 25,
+          "md5": "3311b21f52d9be6a4d3d9077d82c56c2"
+        },
+        {
+          "tile": 12,
+          "x": 271,
+          "width": 24,
+          "md5": "6c6d3b371d5e893bae63e16cd10222d5"
+        },
+        {
+          "tile": 13,
+          "x": 295,
+          "width": 25,
+          "md5": "3936bec02215d034127818277a3c01c5"
+        }
+      ]
+    },
+    "3317": {
+      "file": "extracted_assets/BITMAP3317_1.bmp",
+      "width": 320,
+      "height": 16,
+      "bpp": 4,
+      "headerSize": 40,
+      "tileWidth": 24.615384615384617,
+      "tiles": [
+        {
+          "tile": 1,
+          "x": 0,
+          "width": 25,
+          "md5": "2db28afdbaf094cd799c50824f7b0073"
+        },
+        {
+          "tile": 2,
+          "x": 25,
+          "width": 24,
+          "md5": "3425d8d1d17eb580847bf11bb15e1787"
+        },
+        {
+          "tile": 3,
+          "x": 49,
+          "width": 25,
+          "md5": "0f56e82102396914957cd7e31ff24896"
+        },
+        {
+          "tile": 4,
+          "x": 74,
+          "width": 24,
+          "md5": "26678647ee57a8913aa05d5500670906"
+        },
+        {
+          "tile": 5,
+          "x": 98,
+          "width": 25,
+          "md5": "14c67a23847ea583fc09655e1757a608"
+        },
+        {
+          "tile": 6,
+          "x": 123,
+          "width": 25,
+          "md5": "e1258d6ed7707ce15db09319b68bea00"
+        },
+        {
+          "tile": 7,
+          "x": 148,
+          "width": 24,
+          "md5": "1c7a3b1d2ce4161022688b7538d9528b"
+        },
+        {
+          "tile": 8,
+          "x": 172,
+          "width": 25,
+          "md5": "b0a9dd929dcd50ca8788caae31dd787b"
+        },
+        {
+          "tile": 9,
+          "x": 197,
+          "width": 25,
+          "md5": "4907445e502cf865df68e89d50561156"
+        },
+        {
+          "tile": 10,
+          "x": 222,
+          "width": 24,
+          "md5": "a4dadea62ff96c5613314a85d9f47aa2"
+        },
+        {
+          "tile": 11,
+          "x": 246,
+          "width": 25,
+          "md5": "3311b21f52d9be6a4d3d9077d82c56c2"
+        },
+        {
+          "tile": 12,
+          "x": 271,
+          "width": 24,
+          "md5": "6c6d3b371d5e893bae63e16cd10222d5"
+        },
+        {
+          "tile": 13,
+          "x": 295,
+          "width": 25,
+          "md5": "3936bec02215d034127818277a3c01c5"
+        }
+      ]
+    }
+  },
+  "registry": {
+    "fileOffset": 88996,
+    "keys": [
+      {
+        "offset": 88996,
+        "key": "fwb"
+      },
+      {
+        "offset": 89000,
+        "key": "shock"
+      },
+      {
+        "offset": 89006,
+        "key": "scr"
+      },
+      {
+        "offset": 89010,
+        "key": "diac"
+      },
+      {
+        "offset": 89015,
+        "key": "triac"
+      },
+      {
+        "offset": 89021,
+        "key": "nmesfet"
+      },
+      {
+        "offset": 89029,
+        "key": "pmesfet"
+      },
+      {
+        "offset": 89037,
+        "key": "opamp"
+      },
+      {
+        "offset": 89043,
+        "key": "7oamp"
+      },
+      {
+        "offset": 89049,
+        "key": "9oamp"
+      },
+      {
+        "offset": 89055,
+        "key": "comp"
+      },
+      {
+        "offset": 89060,
+        "key": "pll"
+      },
+      {
+        "offset": 89064,
+        "key": "555"
+      },
+      {
+        "offset": 89068,
+        "key": "clock"
+      },
+      {
+        "offset": 89074,
+        "key": "am"
+      },
+      {
+        "offset": 89077,
+        "key": "fm"
+      },
+      {
+        "offset": 89080,
+        "key": "sinewave"
+      },
+      {
+        "offset": 89089,
+        "key": "triwave"
+      },
+      {
+        "offset": 89097,
+        "key": "sqrwave"
+      },
+      {
+        "offset": 89105,
+        "key": "con1shot"
+      },
+      {
+        "offset": 89114,
+        "key": "ascts"
+      },
+      {
+        "offset": 89120,
+        "key": "pwl"
+      },
+      {
+        "offset": 89124,
+        "key": "fsk"
+      },
+      {
+        "offset": 89128,
+        "key": "poly"
+      },
+      {
+        "offset": 89133,
+        "key": "arbsrc"
+      },
+      {
+        "offset": 89140,
+        "key": "beeper"
+      },
+      {
+        "offset": 89147,
+        "key": "bar"
+      },
+      {
+        "offset": 89151,
+        "key": "dbar"
+      },
+      {
+        "offset": 89156,
+        "key": "pot"
+      },
+      {
+        "offset": 89160,
+        "key": "respk"
+      },
+      {
+        "offset": 89166,
+        "key": "analogsw"
+      },
+      {
+        "offset": 89175,
+        "key": "polcap"
+      },
+      {
+        "offset": 89182,
+        "key": "varc"
+      },
+      {
+        "offset": 89187,
+        "key": "varl"
+      },
+      {
+        "offset": 89192,
+        "key": "lcouple"
+      },
+      {
+        "offset": 89200,
+        "key": "mcore"
+      },
+      {
+        "offset": 89206,
+        "key": "nltrnfr"
+      },
+      {
+        "offset": 89214,
+        "key": "net8"
+      },
+      {
+        "offset": 89219,
+        "key": "lotra"
+      },
+      {
+        "offset": 89225,
+        "key": "trans"
+      },
+      {
+        "offset": 89231,
+        "key": "cryst"
+      },
+      {
+        "offset": 89237,
+        "key": "motr"
+      },
+      {
+        "offset": 89242,
+        "key": "vacum"
+      },
+      {
+        "offset": 89248,
+        "key": "boost"
+      },
+      {
+        "offset": 89254,
+        "key": "buck"
+      },
+      {
+        "offset": 89259,
+        "key": "bckbst"
+      },
+      {
+        "offset": 89266,
+        "key": "diff"
+      },
+      {
+        "offset": 89271,
+        "key": "int"
+      },
+      {
+        "offset": 89275,
+        "key": "gain"
+      },
+      {
+        "offset": 89280,
+        "key": "tran"
+      },
+      {
+        "offset": 89285,
+        "key": "mult"
+      },
+      {
+        "offset": 89290,
+        "key": "div"
+      },
+      {
+        "offset": 89294,
+        "key": "sum"
+      },
+      {
+        "offset": 89298,
+        "key": "lim"
+      },
+      {
+        "offset": 89302,
+        "key": "conlimit"
+      },
+      {
+        "offset": 89311,
+        "key": "curlimit"
+      },
+      {
+        "offset": 89320,
+        "key": "hyst"
+      },
+      {
+        "offset": 89325,
+        "key": "slew"
+      },
+      {
+        "offset": 89330,
+        "key": "textbox"
+      },
+      {
+        "offset": 89338,
+        "key": "titleblk"
+      },
+      {
+        "offset": 89347,
+        "key": "And2"
+      },
+      {
+        "offset": 89352,
+        "key": "Or2"
+      },
+      {
+        "offset": 89356,
+        "key": "Not"
+      },
+      {
+        "offset": 89360,
+        "key": "Nor2"
+      },
+      {
+        "offset": 89365,
+        "key": "Nand2"
+      },
+      {
+        "offset": 89371,
+        "key": "Xor2"
+      },
+      {
+        "offset": 89376,
+        "key": "Xnor2"
+      },
+      {
+        "offset": 89382,
+        "key": "Tri"
+      },
+      {
+        "offset": 89386,
+        "key": "Buf"
+      },
+      {
+        "offset": 89390,
+        "key": "Schmitt"
+      },
+      {
+        "offset": 89398,
+        "key": "And3"
+      },
+      {
+        "offset": 89403,
+        "key": "And4"
+      },
+      {
+        "offset": 89408,
+        "key": "And5"
+      },
+      {
+        "offset": 89413,
+        "key": "And6"
+      },
+      {
+        "offset": 89418,
+        "key": "And7"
+      },
+      {
+        "offset": 89423,
+        "key": "And8"
+      },
+      {
+        "offset": 89428,
+        "key": "ProbeB"
+      },
+      {
+        "offset": 89435,
+        "key": "Probe"
+      },
+      {
+        "offset": 89441,
+        "key": "Nand3"
+      },
+      {
+        "offset": 89447,
+        "key": "Nand4"
+      },
+      {
+        "offset": 89453,
+        "key": "Nand5"
+      },
+      {
+        "offset": 89459,
+        "key": "Nand6"
+      },
+      {
+        "offset": 89465,
+        "key": "Nand7"
+      },
+      {
+        "offset": 89471,
+        "key": "Nand8"
+      },
+      {
+        "offset": 89477,
+        "key": "Or3"
+      },
+      {
+        "offset": 89481,
+        "key": "Or4"
+      },
+      {
+        "offset": 89485,
+        "key": "Or5"
+      },
+      {
+        "offset": 89489,
+        "key": "Or6"
+      },
+      {
+        "offset": 89493,
+        "key": "Or7"
+      },
+      {
+        "offset": 89497,
+        "key": "Or8"
+      },
+      {
+        "offset": 89501,
+        "key": "Nor3"
+      },
+      {
+        "offset": 89506,
+        "key": "Nor4"
+      },
+      {
+        "offset": 89511,
+        "key": "Nor5"
+      },
+      {
+        "offset": 89516,
+        "key": "Nor6"
+      },
+      {
+        "offset": 89521,
+        "key": "Nor7"
+      },
+      {
+        "offset": 89526,
+        "key": "Nor8"
+      },
+      {
+        "offset": 89531,
+        "key": "Xor3"
+      },
+      {
+        "offset": 89536,
+        "key": "Xor4"
+      },
+      {
+        "offset": 89541,
+        "key": "Xor5"
+      },
+      {
+        "offset": 89546,
+        "key": "Xor6"
+      },
+      {
+        "offset": 89551,
+        "key": "Xor7"
+      },
+      {
+        "offset": 89556,
+        "key": "Xor8"
+      },
+      {
+        "offset": 89561,
+        "key": "Xnor3"
+      },
+      {
+        "offset": 89567,
+        "key": "Xnor4"
+      },
+      {
+        "offset": 89573,
+        "key": "Xnor5"
+      },
+      {
+        "offset": 89579,
+        "key": "Xnor6"
+      },
+      {
+        "offset": 89585,
+        "key": "Xnor7"
+      },
+      {
+        "offset": 89591,
+        "key": "Xnor8"
+      },
+      {
+        "offset": 89597,
+        "key": "HA"
+      },
+      {
+        "offset": 89600,
+        "key": "FA"
+      },
+      {
+        "offset": 89603,
+        "key": "RS"
+      },
+      {
+        "offset": 89606,
+        "key": "JK3"
+      },
+      {
+        "offset": 89610,
+        "key": "JK"
+      },
+      {
+        "offset": 89613,
+        "key": "D"
+      },
+      {
+        "offset": 89615,
+        "key": "DN"
+      },
+      {
+        "offset": 89618,
+        "key": "Ram"
+      },
+      {
+        "offset": 89622,
+        "key": "Rom"
+      },
+      {
+        "offset": 89626,
+        "key": "PLA"
+      },
+      {
+        "offset": 89630,
+        "key": "Volt"
+      },
+      {
+        "offset": 89635,
+        "key": "Vdd"
+      },
+      {
+        "offset": 89639,
+        "key": "Pull"
+      },
+      {
+        "offset": 89644,
+        "key": "ProbeR"
+      },
+      {
+        "offset": 89651,
+        "key": "Seg7"
+      },
+      {
+        "offset": 89656,
+        "key": "Seg7D"
+      },
+      {
+        "offset": 89662,
+        "key": "Arrow"
+      },
+      {
+        "offset": 89668,
+        "key": "Table"
+      },
+      {
+        "offset": 89674,
+        "key": "AD"
+      },
+      {
+        "offset": 89677,
+        "key": "DA"
+      },
+      {
+        "offset": 89680,
+        "key": "VDA"
+      },
+      {
+        "offset": 89684,
+        "key": "Mono"
+      },
+      {
+        "offset": 89689,
+        "key": "TemplateAnd"
+      },
+      {
+        "offset": 89701,
+        "key": "AND Gates"
+      },
+      {
+        "offset": 89711,
+        "key": "TemplateOr"
+      },
+      {
+        "offset": 89722,
+        "key": "OR Gates"
+      },
+      {
+        "offset": 89731,
+        "key": "TemplateNand"
+      },
+      {
+        "offset": 89744,
+        "key": "NAND Gates"
+      },
+      {
+        "offset": 89755,
+        "key": "TemplateNor"
+      },
+      {
+        "offset": 89767,
+        "key": "NOR Gates"
+      },
+      {
+        "offset": 89777,
+        "key": "TemplateNot"
+      },
+      {
+        "offset": 89789,
+        "key": "NOT Gates"
+      },
+      {
+        "offset": 89799,
+        "key": "TemplateXor"
+      },
+      {
+        "offset": 89811,
+        "key": "XOR Gates"
+      },
+      {
+        "offset": 89821,
+        "key": "TemplateXnor"
+      },
+      {
+        "offset": 89834,
+        "key": "XNOR Gates"
+      },
+      {
+        "offset": 89845,
+        "key": "TemplateBuf"
+      },
+      {
+        "offset": 89857,
+        "key": "Buffers"
+      },
+      {
+        "offset": 89865,
+        "key": "TemplateMux"
+      },
+      {
+        "offset": 89877,
+        "key": "Multiplexers"
+      },
+      {
+        "offset": 89890,
+        "key": "TemplateDecDemux"
+      },
+      {
+        "offset": 89907,
+        "key": "Dec/Demux"
+      },
+      {
+        "offset": 89917,
+        "key": "TemplateEnc"
+      },
+      {
+        "offset": 89929,
+        "key": "Encoders"
+      },
+      {
+        "offset": 89938,
+        "key": "TemplateAri"
+      },
+      {
+        "offset": 89950,
+        "key": "Arithmetic"
+      },
+      {
+        "offset": 89961,
+        "key": "TemplateCou"
+      },
+      {
+        "offset": 89973,
+        "key": "Counters"
+      },
+      {
+        "offset": 89982,
+        "key": "TemplateShf"
+      },
+      {
+        "offset": 89994,
+        "key": "Shift Registers"
+      },
+      {
+        "offset": 90010,
+        "key": "TemplateFli"
+      },
+      {
+        "offset": 90022,
+        "key": "Flip-Flops"
+      },
+      {
+        "offset": 90033,
+        "key": "muxer"
+      },
+      {
+        "offset": 90039,
+        "key": "demux"
+      },
+      {
+        "offset": 90045,
+        "key": "bcd7"
+      },
+      {
+        "offset": 90050,
+        "key": "bcd7"
+      },
+      {
+        "offset": 90055,
+        "key": "38dec"
+      },
+      {
+        "offset": 90061,
+        "key": "83enc"
+      },
+      {
+        "offset": 90067,
+        "key": "count"
+      },
+      {
+        "offset": 90073,
+        "key": "shift"
+      },
+      {
+        "offset": 90079,
+        "key": "7400"
+      },
+      {
+        "offset": 90084,
+        "key": "7402"
+      },
+      {
+        "offset": 90089,
+        "key": "7403"
+      },
+      {
+        "offset": 90094,
+        "key": "7404"
+      },
+      {
+        "offset": 90099,
+        "key": "7405"
+      },
+      {
+        "offset": 90104,
+        "key": "7406"
+      },
+      {
+        "offset": 90109,
+        "key": "7407"
+      },
+      {
+        "offset": 90114,
+        "key": "7408"
+      },
+      {
+        "offset": 90119,
+        "key": "7409"
+      },
+      {
+        "offset": 90124,
+        "key": "7410"
+      },
+      {
+        "offset": 90129,
+        "key": "7411"
+      },
+      {
+        "offset": 90134,
+        "key": "7412"
+      },
+      {
+        "offset": 90139,
+        "key": "7414"
+      },
+      {
+        "offset": 90144,
+        "key": "7415"
+      },
+      {
+        "offset": 90149,
+        "key": "7416"
+      },
+      {
+        "offset": 90154,
+        "key": "7417"
+      },
+      {
+        "offset": 90159,
+        "key": "7420"
+      },
+      {
+        "offset": 90164,
+        "key": "7421"
+      },
+      {
+        "offset": 90169,
+        "key": "7422"
+      },
+      {
+        "offset": 90174,
+        "key": "7425"
+      },
+      {
+        "offset": 90179,
+        "key": "7426"
+      },
+      {
+        "offset": 90184,
+        "key": "7427"
+      },
+      {
+        "offset": 90189,
+        "key": "7428"
+      },
+      {
+        "offset": 90194,
+        "key": "7430"
+      },
+      {
+        "offset": 90199,
+        "key": "7432"
+      },
+      {
+        "offset": 90204,
+        "key": "7433"
+      },
+      {
+        "offset": 90209,
+        "key": "7437"
+      },
+      {
+        "offset": 90214,
+        "key": "7438"
+      },
+      {
+        "offset": 90219,
+        "key": "7439"
+      },
+      {
+        "offset": 90224,
+        "key": "7440"
+      },
+      {
+        "offset": 90229,
+        "key": "7442"
+      },
+      {
+        "offset": 90234,
+        "key": "7445"
+      },
+      {
+        "offset": 90239,
+        "key": "7447"
+      },
+      {
+        "offset": 90244,
+        "key": "7449"
+      },
+      {
+        "offset": 90249,
+        "key": "7450"
+      },
+      {
+        "offset": 90254,
+        "key": "7451"
+      },
+      {
+        "offset": 90259,
+        "key": "7454"
+      },
+      {
+        "offset": 90264,
+        "key": "7455"
+      },
+      {
+        "offset": 90269,
+        "key": "7457"
+      },
+      {
+        "offset": 90274,
+        "key": "7469"
+      },
+      {
+        "offset": 90279,
+        "key": "7472"
+      },
+      {
+        "offset": 90284,
+        "key": "7473"
+      },
+      {
+        "offset": 90289,
+        "key": "7474"
+      },
+      {
+        "offset": 90294,
+        "key": "7475"
+      },
+      {
+        "offset": 90299,
+        "key": "7476"
+      },
+      {
+        "offset": 90304,
+        "key": "7477"
+      },
+      {
+        "offset": 90309,
+        "key": "7478"
+      },
+      {
+        "offset": 90314,
+        "key": "7482"
+      },
+      {
+        "offset": 90319,
+        "key": "7483"
+      },
+      {
+        "offset": 90324,
+        "key": "7483A"
+      },
+      {
+        "offset": 90330,
+        "key": "7485"
+      },
+      {
+        "offset": 90335,
+        "key": "7486"
+      },
+      {
+        "offset": 90340,
+        "key": "7489"
+      },
+      {
+        "offset": 90345,
+        "key": "7490"
+      },
+      {
+        "offset": 90350,
+        "key": "7491"
+      },
+      {
+        "offset": 90355,
+        "key": "7492"
+      },
+      {
+        "offset": 90360,
+        "key": "7493"
+      },
+      {
+        "offset": 90365,
+        "key": "7495"
+      },
+      {
+        "offset": 90370,
+        "key": "7496"
+      },
+      {
+        "offset": 90375,
+        "key": "74107"
+      },
+      {
+        "offset": 90381,
+        "key": "74109"
+      },
+      {
+        "offset": 90387,
+        "key": "74112"
+      },
+      {
+        "offset": 90393,
+        "key": "74113"
+      },
+      {
+        "offset": 90399,
+        "key": "74114"
+      },
+      {
+        "offset": 90405,
+        "key": "74116"
+      },
+      {
+        "offset": 90411,
+        "key": "74125"
+      },
+      {
+        "offset": 90417,
+        "key": "74126"
+      },
+      {
+        "offset": 90423,
+        "key": "74132"
+      },
+      {
+        "offset": 90429,
+        "key": "74133"
+      },
+      {
+        "offset": 90435,
+        "key": "74134"
+      },
+      {
+        "offset": 90441,
+        "key": "74138"
+      },
+      {
+        "offset": 90447,
+        "key": "74139"
+      },
+      {
+        "offset": 90453,
+        "key": "74145"
+      },
+      {
+        "offset": 90459,
+        "key": "74147"
+      },
+      {
+        "offset": 90465,
+        "key": "74148"
+      },
+      {
+        "offset": 90471,
+        "key": "74150"
+      },
+      {
+        "offset": 90477,
+        "key": "74151"
+      },
+      {
+        "offset": 90483,
+        "key": "74153"
+      },
+      {
+        "offset": 90489,
+        "key": "74154"
+      },
+      {
+        "offset": 90495,
+        "key": "74155"
+      },
+      {
+        "offset": 90501,
+        "key": "74156"
+      },
+      {
+        "offset": 90507,
+        "key": "74157"
+      },
+      {
+        "offset": 90513,
+        "key": "74158"
+      },
+      {
+        "offset": 90519,
+        "key": "74159"
+      },
+      {
+        "offset": 90525,
+        "key": "74160"
+      },
+      {
+        "offset": 90531,
+        "key": "74162"
+      },
+      {
+        "offset": 90537,
+        "key": "74163"
+      },
+      {
+        "offset": 90543,
+        "key": "74164"
+      },
+      {
+        "offset": 90549,
+        "key": "74165"
+      },
+      {
+        "offset": 90555,
+        "key": "74166"
+      },
+      {
+        "offset": 90561,
+        "key": "74168"
+      },
+      {
+        "offset": 90567,
+        "key": "74169"
+      },
+      {
+        "offset": 90573,
+        "key": "74173"
+      },
+      {
+        "offset": 90579,
+        "key": "74174"
+      },
+      {
+        "offset": 90585,
+        "key": "74175"
+      },
+      {
+        "offset": 90591,
+        "key": "74181"
+      },
+      {
+        "offset": 90597,
+        "key": "74182"
+      },
+      {
+        "offset": 90603,
+        "key": "74190"
+      },
+      {
+        "offset": 90609,
+        "key": "74191"
+      },
+      {
+        "offset": 90615,
+        "key": "74192"
+      },
+      {
+        "offset": 90621,
+        "key": "74193"
+      },
+      {
+        "offset": 90627,
+        "key": "74194"
+      },
+      {
+        "offset": 90633,
+        "key": "74195"
+      },
+      {
+        "offset": 90639,
+        "key": "74197"
+      },
+      {
+        "offset": 90645,
+        "key": "74198"
+      },
+      {
+        "offset": 90651,
+        "key": "74199"
+      },
+      {
+        "offset": 90657,
+        "key": "74238"
+      },
+      {
+        "offset": 90663,
+        "key": "74240"
+      },
+      {
+        "offset": 90669,
+        "key": "74241"
+      },
+      {
+        "offset": 90675,
+        "key": "74242"
+      },
+      {
+        "offset": 90681,
+        "key": "74243"
+      },
+      {
+        "offset": 90687,
+        "key": "74244"
+      },
+      {
+        "offset": 90693,
+        "key": "74245"
+      },
+      {
+        "offset": 90699,
+        "key": "74247"
+      },
+      {
+        "offset": 90705,
+        "key": "74248"
+      },
+      {
+        "offset": 90711,
+        "key": "74251"
+      },
+      {
+        "offset": 90717,
+        "key": "74253"
+      },
+      {
+        "offset": 90723,
+        "key": "74256"
+      },
+      {
+        "offset": 90729,
+        "key": "74257"
+      },
+      {
+        "offset": 90735,
+        "key": "74258"
+      },
+      {
+        "offset": 90741,
+        "key": "74266"
+      },
+      {
+        "offset": 90747,
+        "key": "74259"
+      },
+      {
+        "offset": 90753,
+        "key": "74273"
+      },
+      {
+        "offset": 90759,
+        "key": "74279"
+      },
+      {
+        "offset": 90765,
+        "key": "74280"
+      },
+      {
+        "offset": 90771,
+        "key": "74283"
+      },
+      {
+        "offset": 90777,
+        "key": "74290"
+      },
+      {
+        "offset": 90783,
+        "key": "74293"
+      },
+      {
+        "offset": 90789,
+        "key": "74298"
+      },
+      {
+        "offset": 90795,
+        "key": "74350"
+      },
+      {
+        "offset": 90801,
+        "key": "74352"
+      },
+      {
+        "offset": 90807,
+        "key": "74353"
+      },
+      {
+        "offset": 90813,
+        "key": "74365"
+      },
+      {
+        "offset": 90819,
+        "key": "74367"
+      },
+      {
+        "offset": 90825,
+        "key": "74368"
+      },
+      {
+        "offset": 90831,
+        "key": "74373"
+      },
+      {
+        "offset": 90837,
+        "key": "74374"
+      },
+      {
+        "offset": 90843,
+        "key": "74375"
+      },
+      {
+        "offset": 90849,
+        "key": "74377"
+      },
+      {
+        "offset": 90855,
+        "key": "74378"
+      },
+      {
+        "offset": 90861,
+        "key": "74379"
+      },
+      {
+        "offset": 90867,
+        "key": "74393"
+      },
+      {
+        "offset": 90873,
+        "key": "74395"
+      },
+      {
+        "offset": 90879,
+        "key": "74445"
+      },
+      {
+        "offset": 90885,
+        "key": "74465"
+      },
+      {
+        "offset": 90891,
+        "key": "74466"
+      },
+      {
+        "offset": 90897,
+        "key": "74568"
+      },
+      {
+        "offset": 90903,
+        "key": "74569"
+      },
+      {
+        "offset": 90909,
+        "key": "4000"
+      },
+      {
+        "offset": 90914,
+        "key": "4001"
+      },
+      {
+        "offset": 90919,
+        "key": "4002"
+      },
+      {
+        "offset": 90924,
+        "key": "4008"
+      },
+      {
+        "offset": 90929,
+        "key": "4009"
+      },
+      {
+        "offset": 90934,
+        "key": "4010"
+      },
+      {
+        "offset": 90939,
+        "key": "4011"
+      },
+      {
+        "offset": 90944,
+        "key": "4012"
+      },
+      {
+        "offset": 90949,
+        "key": "4013"
+      },
+      {
+        "offset": 90954,
+        "key": "4014"
+      },
+      {
+        "offset": 90959,
+        "key": "4015"
+      },
+      {
+        "offset": 90964,
+        "key": "4017"
+      },
+      {
+        "offset": 90969,
+        "key": "4019"
+      },
+      {
+        "offset": 90974,
+        "key": "4020"
+      },
+      {
+        "offset": 90979,
+        "key": "4022"
+      },
+      {
+        "offset": 90984,
+        "key": "4023"
+      },
+      {
+        "offset": 90989,
+        "key": "4024"
+      },
+      {
+        "offset": 90994,
+        "key": "4025"
+      },
+      {
+        "offset": 90999,
+        "key": "4035"
+      },
+      {
+        "offset": 91004,
+        "key": "4027"
+      },
+      {
+        "offset": 91009,
+        "key": "4028"
+      },
+      {
+        "offset": 91014,
+        "key": "4030"
+      },
+      {
+        "offset": 91019,
+        "key": "4040"
+      },
+      {
+        "offset": 91024,
+        "key": "4041"
+      },
+      {
+        "offset": 91029,
+        "key": "4042"
+      },
+      {
+        "offset": 91034,
+        "key": "4043"
+      },
+      {
+        "offset": 91039,
+        "key": "4044"
+      },
+      {
+        "offset": 91044,
+        "key": "4049"
+      },
+      {
+        "offset": 91049,
+        "key": "4050"
+      },
+      {
+        "offset": 91054,
+        "key": "4066"
+      },
+      {
+        "offset": 91059,
+        "key": "4068"
+      },
+      {
+        "offset": 91064,
+        "key": "4069"
+      },
+      {
+        "offset": 91069,
+        "key": "4070"
+      },
+      {
+        "offset": 91074,
+        "key": "4071"
+      },
+      {
+        "offset": 91079,
+        "key": "4072"
+      },
+      {
+        "offset": 91084,
+        "key": "4073"
+      },
+      {
+        "offset": 91089,
+        "key": "4075"
+      },
+      {
+        "offset": 91094,
+        "key": "4076"
+      },
+      {
+        "offset": 91099,
+        "key": "4077"
+      },
+      {
+        "offset": 91104,
+        "key": "4078"
+      },
+      {
+        "offset": 91109,
+        "key": "4081"
+      },
+      {
+        "offset": 91114,
+        "key": "4082"
+      },
+      {
+        "offset": 91119,
+        "key": "4085"
+      },
+      {
+        "offset": 91124,
+        "key": "4086"
+      },
+      {
+        "offset": 91129,
+        "key": "4093"
+      },
+      {
+        "offset": 91134,
+        "key": "40106"
+      },
+      {
+        "offset": 91140,
+        "key": "4502"
+      },
+      {
+        "offset": 91145,
+        "key": "4503"
+      },
+      {
+        "offset": 91150,
+        "key": "4508"
+      },
+      {
+        "offset": 91155,
+        "key": "4510"
+      },
+      {
+        "offset": 91160,
+        "key": "4511"
+      },
+      {
+        "offset": 91165,
+        "key": "4512"
+      },
+      {
+        "offset": 91170,
+        "key": "4514"
+      },
+      {
+        "offset": 91175,
+        "key": "4515"
+      },
+      {
+        "offset": 91180,
+        "key": "4516"
+      },
+      {
+        "offset": 91185,
+        "key": "4518"
+      },
+      {
+        "offset": 91190,
+        "key": "4520"
+      },
+      {
+        "offset": 91195,
+        "key": "4532"
+      },
+      {
+        "offset": 91200,
+        "key": "4556"
+      },
+      {
+        "offset": 91205,
+        "key": "Template740"
+      },
+      {
+        "offset": 91217,
+        "key": "74xx Series"
+      },
+      {
+        "offset": 91229,
+        "key": "Template741"
+      },
+      {
+        "offset": 91241,
+        "key": "741xx Series"
+      },
+      {
+        "offset": 91254,
+        "key": "Template742"
+      },
+      {
+        "offset": 91266,
+        "key": "742xx Series"
+      },
+      {
+        "offset": 91279,
+        "key": "Template743"
+      },
+      {
+        "offset": 91291,
+        "key": "743xx Series"
+      },
+      {
+        "offset": 91304,
+        "key": "Template744"
+      },
+      {
+        "offset": 91316,
+        "key": "744xx Series"
+      },
+      {
+        "offset": 91329,
+        "key": "Template4"
+      },
+      {
+        "offset": 91339,
+        "key": "4xxx Series"
+      },
+      {
+        "offset": 91351,
+        "key": "Subcircuit"
+      },
+      {
+        "offset": 91362,
+        "key": "AC_VOLTAGE_SOURCE"
+      },
+      {
+        "offset": 91380,
+        "key": "RESISTOR"
+      },
+      {
+        "offset": 91389,
+        "key": "BATTERY"
+      },
+      {
+        "offset": 91397,
+        "key": "CAPACITOR"
+      },
+      {
+        "offset": 91407,
+        "key": "DIODE"
+      },
+      {
+        "offset": 91413,
+        "key": "NPN_TRANSISTOR"
+      },
+      {
+        "offset": 91428,
+        "key": "INDUCTOR"
+      },
+      {
+        "offset": 91437,
+        "key": "AC_CURRENT_SOURCE"
+      },
+      {
+        "offset": 91455,
+        "key": "GROUND"
+      },
+      {
+        "offset": 91462,
+        "key": "CONNECTOR"
+      },
+      {
+        "offset": 91472,
+        "key": "DC_CURRENT_SOURCE"
+      },
+      {
+        "offset": 91490,
+        "key": "PNP_TRANSISTOR"
+      },
+      {
+        "offset": 91505,
+        "key": "AMMETER"
+      },
+      {
+        "offset": 91513,
+        "key": "VOLTMETER"
+      },
+      {
+        "offset": 91523,
+        "key": "TRANSFORMER"
+      },
+      {
+        "offset": 91535,
+        "key": "OPAMP"
+      },
+      {
+        "offset": 91541,
+        "key": "ZENER_DIODE"
+      },
+      {
+        "offset": 91553,
+        "key": "LED"
+      },
+      {
+        "offset": 91557,
+        "key": "BULB"
+      },
+      {
+        "offset": 91562,
+        "key": "FUSE"
+      },
+      {
+        "offset": 91567,
+        "key": "RELAY"
+      },
+      {
+        "offset": 91573,
+        "key": "TIME_DELAY_SWITCH"
+      },
+      {
+        "offset": 91591,
+        "key": "N_CHANNEL_JFET"
+      },
+      {
+        "offset": 91606,
+        "key": "P_CHANNEL_JFET"
+      },
+      {
+        "offset": 91621,
+        "key": "3_TERMINAL_DEPLETION_N_MOSFET"
+      },
+      {
+        "offset": 91651,
+        "key": "3_TERMINAL_DEPLETION_P_MOSFET"
+      },
+      {
+        "offset": 91681,
+        "key": "4_TERMINAL_DEPLETION_N_MOSFET"
+      },
+      {
+        "offset": 91711,
+        "key": "4_TERMINAL_DEPLETION_P_MOSFET"
+      },
+      {
+        "offset": 91741,
+        "key": "3_TERMINAL_ENHANCEMENT_N_MOSFET"
+      },
+      {
+        "offset": 91773,
+        "key": "3_TERMINAL_ENHANCEMENT_P_MOSFET"
+      },
+      {
+        "offset": 91805,
+        "key": "4_TERMINAL_ENHANCEMENT_N_MOSFET"
+      },
+      {
+        "offset": 91837,
+        "key": "4_TERMINAL_ENHANCEMENT_P_MOSFET"
+      },
+      {
+        "offset": 91869,
+        "key": "VOLTAGE_CONTROLLED_VOLTAGE_SOURCE"
+      },
+      {
+        "offset": 91903,
+        "key": "CURRENT_CONTROLLED_CURRENT_SOURCE"
+      },
+      {
+        "offset": 91937,
+        "key": "VOLTAGE_CONTROLLED_CURRENT_SOURCE"
+      },
+      {
+        "offset": 91971,
+        "key": "CURRENT_CONTROLLED_VOLTAGE_SOURCE"
+      },
+      {
+        "offset": 92005,
+        "key": "VOLTAGE_CONTROLLED_SWITCH"
+      },
+      {
+        "offset": 92031,
+        "key": "CURRENT_CONTROLLED_SWITCH"
+      },
+      {
+        "offset": 92057,
+        "key": "SWITCH"
+      },
+      {
+        "offset": 92064,
+        "key": "NODE"
+      },
+      {
+        "offset": 92069,
+        "key": "IC_TEMP"
+      },
+      {
+        "offset": 92077,
+        "key": "SUB_TEMP"
+      },
+      {
+        "offset": 92086,
+        "key": "Oscilloscope"
+      },
+      {
+        "offset": 92099,
+        "key": "Ammeter"
+      },
+      {
+        "offset": 92107,
+        "key": "LogicAnalyzer"
+      },
+      {
+        "offset": 92121,
+        "key": "TruthTable"
+      },
+      {
+        "offset": 92132,
+        "key": "BodePlotter"
+      },
+      {
+        "offset": 92144,
+        "key": "FunctionGenerator"
+      },
+      {
+        "offset": 92162,
+        "key": "WordGenerator"
+      },
+      {
+        "offset": 92176,
+        "key": "MultiMeter"
+      },
+      {
+        "offset": 92187,
+        "key": "ANALOG:"
+      },
+      {
+        "offset": 92195,
+        "key": "ANALOG:"
+      },
+      {
+        "offset": 92203,
+        "key": "ANALOG:"
+      },
+      {
+        "offset": 92211,
+        "key": "DIGITAL:"
+      },
+      {
+        "offset": 92220,
+        "key": "DIGITAL:"
+      },
+      {
+        "offset": 92229,
+        "key": "DIGITAL:"
+      },
+      {
+        "offset": 92238,
+        "key": "CHIP:"
+      },
+      {
+        "offset": 92244,
+        "key": "CHIP:"
+      },
+      {
+        "offset": 92250,
+        "key": "CHIP:"
+      },
+      {
+        "offset": 92256,
+        "key": "SPECIAL:"
+      },
+      {
+        "offset": 92265,
+        "key": "SPECIAL:"
+      },
+      {
+        "offset": 92274,
+        "key": "SPECIAL:"
+      },
+      {
+        "offset": 92283,
+        "key": "INTERNAL:"
+      },
+      {
+        "offset": 92293,
+        "key": "INTERNAL:"
+      },
+      {
+        "offset": 92303,
+        "key": "INTERNAL:"
+      },
+      {
+        "offset": 92313,
+        "key": "INSTRUMENT:"
+      },
+      {
+        "offset": 92325,
+        "key": "INSTRUMENT:"
+      },
+      {
+        "offset": 92337,
+        "key": "INSTRUMENT:"
+      }
+    ],
+    "sections": [
+      {
+        "id": "styles",
+        "name": "библиотечные стили",
+        "from": 0,
+        "to": 59,
+        "count": 60
+      },
+      {
+        "id": "digital",
+        "name": "цифровые примитивы и шаблоны",
+        "from": 60,
+        "to": 129,
+        "count": 70
+      },
+      {
+        "id": "subcategories",
+        "name": "подкатегории цифровых ИС",
+        "from": 130,
+        "to": 159,
+        "count": 30
+      },
+      {
+        "id": "template-impl",
+        "name": "реализации шаблонов цифры",
+        "from": 160,
+        "to": 167,
+        "count": 8
+      },
+      {
+        "id": "series-74",
+        "name": "серия 74xx",
+        "from": 168,
+        "to": 315,
+        "count": 148
+      },
+      {
+        "id": "series-4",
+        "name": "серия 4xxx",
+        "from": 316,
+        "to": 374,
+        "count": 59
+      },
+      {
+        "id": "series-templates",
+        "name": "шаблоны серий ИС",
+        "from": 375,
+        "to": 386,
+        "count": 12
+      },
+      {
+        "id": "subcircuit",
+        "name": "подсхема",
+        "from": 387,
+        "to": 387,
+        "count": 1
+      },
+      {
+        "id": "primitives",
+        "name": "внутренние типы примитивов (PN0..41)",
+        "from": 388,
+        "to": 429,
+        "count": 42
+      },
+      {
+        "id": "instruments",
+        "name": "классы приборов",
+        "from": 430,
+        "to": 437,
+        "count": 8
+      },
+      {
+        "id": "prefixes",
+        "name": "префиксы имён ExtComp",
+        "from": 438,
+        "to": 455,
+        "count": 18
+      }
+    ]
+  },
+  "partNames": [
+    {
+      "partNum": 0,
+      "name": "AC Voltage Source"
+    },
+    {
+      "partNum": 1,
+      "name": "Resistor"
+    },
+    {
+      "partNum": 2,
+      "name": "Battery"
+    },
+    {
+      "partNum": 3,
+      "name": "Capacitor"
+    },
+    {
+      "partNum": 4,
+      "name": "Diode"
+    },
+    {
+      "partNum": 5,
+      "name": "NPN Transistor"
+    },
+    {
+      "partNum": 6,
+      "name": "Inductor"
+    },
+    {
+      "partNum": 7,
+      "name": "AC Current Source"
+    },
+    {
+      "partNum": 8,
+      "name": "Ground"
+    },
+    {
+      "partNum": 9,
+      "name": "Connector"
+    },
+    {
+      "partNum": 10,
+      "name": "DC Current Source"
+    },
+    {
+      "partNum": 11,
+      "name": "PNP Transistor"
+    },
+    {
+      "partNum": 12,
+      "name": "Ammeter"
+    },
+    {
+      "partNum": 13,
+      "name": "Voltmeter"
+    },
+    {
+      "partNum": 14,
+      "name": "Transformer"
+    },
+    {
+      "partNum": 15,
+      "name": "3-Terminal Opamp"
+    },
+    {
+      "partNum": 16,
+      "name": "Zener Diode"
+    },
+    {
+      "partNum": 17,
+      "name": "LED"
+    },
+    {
+      "partNum": 18,
+      "name": "Bulb"
+    },
+    {
+      "partNum": 19,
+      "name": "Fuse"
+    },
+    {
+      "partNum": 20,
+      "name": "Relay"
+    },
+    {
+      "partNum": 21,
+      "name": "Time-Delay Switch"
+    },
+    {
+      "partNum": 22,
+      "name": "N-Channel JFET"
+    },
+    {
+      "partNum": 23,
+      "name": "P-Channel JFET"
+    },
+    {
+      "partNum": 24,
+      "name": "3-Terminal Depletion N-MOSFET"
+    },
+    {
+      "partNum": 25,
+      "name": "3-Terminal Depletion P-MOSFET"
+    },
+    {
+      "partNum": 26,
+      "name": "4-Terminal Depletion N-MOSFET"
+    },
+    {
+      "partNum": 27,
+      "name": "4-Terminal Depletion P-MOSFET"
+    },
+    {
+      "partNum": 28,
+      "name": "3-Terminal Enhancement N-MOSFET"
+    },
+    {
+      "partNum": 29,
+      "name": "3-Terminal Enhancement P-MOSFET"
+    },
+    {
+      "partNum": 30,
+      "name": "4-Terminal Enhancement N-MOSFET"
+    },
+    {
+      "partNum": 31,
+      "name": "4-Terminal Enhancement P-MOSFET"
+    },
+    {
+      "partNum": 32,
+      "name": "Voltage-Controlled Voltage Source"
+    },
+    {
+      "partNum": 33,
+      "name": "Current-Controlled Current Source"
+    },
+    {
+      "partNum": 34,
+      "name": "Voltage-Controlled Current Source"
+    },
+    {
+      "partNum": 35,
+      "name": "Current-Controlled Voltage Source"
+    },
+    {
+      "partNum": 36,
+      "name": "Voltage-Controlled Switch"
+    },
+    {
+      "partNum": 37,
+      "name": "Current-Controlled Switch"
+    },
+    {
+      "partNum": 38,
+      "name": "Switch"
+    },
+    {
+      "partNum": 39,
+      "name": "Node"
+    },
+    {
+      "partNum": 40,
+      "name": "IC Template"
+    },
+    {
+      "partNum": 41,
+      "name": "Subcircuit Template"
+    }
+  ],
+  "symbolLayouts": {
+    "ansi": {
+      "file": "EWB512/WEWBANSI.RES",
+      "symbols": [
+        {
+          "partNum": 8,
+          "flags": 0,
+          "x": 27,
+          "y": 1219
+        },
+        {
+          "partNum": 2,
+          "flags": 3,
+          "x": 28,
+          "y": 1292
+        },
+        {
+          "partNum": 10,
+          "flags": 1,
+          "x": 26,
+          "y": 1256
+        },
+        {
+          "partNum": 0,
+          "flags": 3,
+          "x": 26,
+          "y": 1183
+        },
+        {
+          "partNum": 7,
+          "flags": 1,
+          "x": 26,
+          "y": 1147
+        },
+        {
+          "partNum": 32,
+          "flags": 0,
+          "x": 20,
+          "y": 154
+        },
+        {
+          "partNum": 34,
+          "flags": 0,
+          "x": 19,
+          "y": 85
+        },
+        {
+          "partNum": 35,
+          "flags": 0,
+          "x": 19,
+          "y": 50
+        },
+        {
+          "partNum": 33,
+          "flags": 0,
+          "x": 19,
+          "y": 120
+        },
+        {
+          "partNum": 9,
+          "flags": 0,
+          "x": 34,
+          "y": 1239
+        },
+        {
+          "partNum": 1,
+          "flags": 0,
+          "x": 32,
+          "y": 1053
+        },
+        {
+          "partNum": 3,
+          "flags": 0,
+          "x": 36,
+          "y": 1020
+        },
+        {
+          "partNum": 6,
+          "flags": 0,
+          "x": 27,
+          "y": 999
+        },
+        {
+          "partNum": 14,
+          "flags": 0,
+          "x": 27,
+          "y": 961
+        },
+        {
+          "partNum": 20,
+          "flags": 0,
+          "x": 26,
+          "y": 189
+        },
+        {
+          "partNum": 38,
+          "flags": 3,
+          "x": 26,
+          "y": 344
+        },
+        {
+          "partNum": 21,
+          "flags": 3,
+          "x": 26,
+          "y": 312
+        },
+        {
+          "partNum": 36,
+          "flags": 0,
+          "x": 25,
+          "y": 271
+        },
+        {
+          "partNum": 37,
+          "flags": 0,
+          "x": 25,
+          "y": 230
+        },
+        {
+          "partNum": 4,
+          "flags": 3,
+          "x": 31,
+          "y": 934
+        },
+        {
+          "partNum": 16,
+          "flags": 3,
+          "x": 27,
+          "y": 908
+        },
+        {
+          "partNum": 17,
+          "flags": 3,
+          "x": 20,
+          "y": 877
+        },
+        {
+          "partNum": 5,
+          "flags": 3,
+          "x": 33,
+          "y": 838
+        },
+        {
+          "partNum": 11,
+          "flags": 3,
+          "x": 33,
+          "y": 800
+        },
+        {
+          "partNum": 22,
+          "flags": 3,
+          "x": 31,
+          "y": 716
+        },
+        {
+          "partNum": 23,
+          "flags": 3,
+          "x": 31,
+          "y": 678
+        },
+        {
+          "partNum": 24,
+          "flags": 3,
+          "x": 31,
+          "y": 639
+        },
+        {
+          "partNum": 25,
+          "flags": 3,
+          "x": 31,
+          "y": 601
+        },
+        {
+          "partNum": 26,
+          "flags": 3,
+          "x": 31,
+          "y": 562
+        },
+        {
+          "partNum": 27,
+          "flags": 3,
+          "x": 31,
+          "y": 524
+        },
+        {
+          "partNum": 28,
+          "flags": 3,
+          "x": 31,
+          "y": 486
+        },
+        {
+          "partNum": 29,
+          "flags": 3,
+          "x": 31,
+          "y": 447
+        },
+        {
+          "partNum": 30,
+          "flags": 3,
+          "x": 31,
+          "y": 409
+        },
+        {
+          "partNum": 31,
+          "flags": 3,
+          "x": 31,
+          "y": 370
+        },
+        {
+          "partNum": 15,
+          "flags": 0,
+          "x": 20,
+          "y": 754
+        },
+        {
+          "partNum": 13,
+          "flags": 0,
+          "x": -1,
+          "y": 1112
+        },
+        {
+          "partNum": 12,
+          "flags": 0,
+          "x": -1,
+          "y": 1077
+        },
+        {
+          "partNum": 18,
+          "flags": 0,
+          "x": 28,
+          "y": 21
+        },
+        {
+          "partNum": 19,
+          "flags": 0,
+          "x": 30,
+          "y": 0
+        }
+      ]
+    },
+    "din": {
+      "file": "EWB512/WEWBDIN.RES",
+      "symbols": [
+        {
+          "partNum": 8,
+          "flags": 0,
+          "x": 27,
+          "y": 1219
+        },
+        {
+          "partNum": 2,
+          "flags": 3,
+          "x": 28,
+          "y": 1292
+        },
+        {
+          "partNum": 10,
+          "flags": 1,
+          "x": 26,
+          "y": 1256
+        },
+        {
+          "partNum": 0,
+          "flags": 3,
+          "x": 26,
+          "y": 1183
+        },
+        {
+          "partNum": 7,
+          "flags": 1,
+          "x": 26,
+          "y": 1147
+        },
+        {
+          "partNum": 32,
+          "flags": 0,
+          "x": 20,
+          "y": 154
+        },
+        {
+          "partNum": 34,
+          "flags": 0,
+          "x": 19,
+          "y": 85
+        },
+        {
+          "partNum": 35,
+          "flags": 0,
+          "x": 19,
+          "y": 50
+        },
+        {
+          "partNum": 33,
+          "flags": 0,
+          "x": 19,
+          "y": 120
+        },
+        {
+          "partNum": 9,
+          "flags": 0,
+          "x": 34,
+          "y": 1239
+        },
+        {
+          "partNum": 1,
+          "flags": 0,
+          "x": 32,
+          "y": 1053
+        },
+        {
+          "partNum": 3,
+          "flags": 0,
+          "x": 36,
+          "y": 1020
+        },
+        {
+          "partNum": 6,
+          "flags": 0,
+          "x": 27,
+          "y": 999
+        },
+        {
+          "partNum": 14,
+          "flags": 0,
+          "x": 27,
+          "y": 961
+        },
+        {
+          "partNum": 20,
+          "flags": 0,
+          "x": 26,
+          "y": 189
+        },
+        {
+          "partNum": 38,
+          "flags": 3,
+          "x": 26,
+          "y": 344
+        },
+        {
+          "partNum": 21,
+          "flags": 3,
+          "x": 26,
+          "y": 312
+        },
+        {
+          "partNum": 36,
+          "flags": 0,
+          "x": 25,
+          "y": 271
+        },
+        {
+          "partNum": 37,
+          "flags": 0,
+          "x": 25,
+          "y": 230
+        },
+        {
+          "partNum": 4,
+          "flags": 3,
+          "x": 31,
+          "y": 934
+        },
+        {
+          "partNum": 16,
+          "flags": 3,
+          "x": 27,
+          "y": 908
+        },
+        {
+          "partNum": 17,
+          "flags": 3,
+          "x": 20,
+          "y": 877
+        },
+        {
+          "partNum": 5,
+          "flags": 3,
+          "x": 33,
+          "y": 838
+        },
+        {
+          "partNum": 11,
+          "flags": 3,
+          "x": 33,
+          "y": 800
+        },
+        {
+          "partNum": 22,
+          "flags": 3,
+          "x": 31,
+          "y": 716
+        },
+        {
+          "partNum": 23,
+          "flags": 3,
+          "x": 31,
+          "y": 678
+        },
+        {
+          "partNum": 24,
+          "flags": 3,
+          "x": 31,
+          "y": 639
+        },
+        {
+          "partNum": 25,
+          "flags": 3,
+          "x": 31,
+          "y": 601
+        },
+        {
+          "partNum": 26,
+          "flags": 3,
+          "x": 31,
+          "y": 562
+        },
+        {
+          "partNum": 27,
+          "flags": 3,
+          "x": 31,
+          "y": 524
+        },
+        {
+          "partNum": 28,
+          "flags": 3,
+          "x": 31,
+          "y": 486
+        },
+        {
+          "partNum": 29,
+          "flags": 3,
+          "x": 31,
+          "y": 447
+        },
+        {
+          "partNum": 30,
+          "flags": 3,
+          "x": 31,
+          "y": 409
+        },
+        {
+          "partNum": 31,
+          "flags": 3,
+          "x": 31,
+          "y": 370
+        },
+        {
+          "partNum": 15,
+          "flags": 0,
+          "x": 20,
+          "y": 754
+        },
+        {
+          "partNum": 13,
+          "flags": 0,
+          "x": -1,
+          "y": 1112
+        },
+        {
+          "partNum": 12,
+          "flags": 0,
+          "x": -1,
+          "y": 1077
+        },
+        {
+          "partNum": 18,
+          "flags": 0,
+          "x": 28,
+          "y": 21
+        },
+        {
+          "partNum": 19,
+          "flags": 0,
+          "x": 30,
+          "y": 0
+        }
+      ]
+    }
+  },
+  "library": {
+    "ansi": [
+      {
+        "partNum": 2,
+        "flags": 3,
+        "x": 23,
+        "y": 1980,
+        "value": "0",
+        "units": 0,
+        "modelClass": "",
+        "label": ""
+      },
+      {
+        "partNum": 0,
+        "flags": 3,
+        "x": 23,
+        "y": 1954,
+        "value": "0",
+        "units": 0,
+        "modelClass": "",
+        "label": ""
+      },
+      {
+        "partNum": 10,
+        "flags": 0,
+        "x": 20,
+        "y": 1934,
+        "value": "0",
+        "units": 0,
+        "modelClass": "",
+        "label": ""
+      },
+      {
+        "partNum": 7,
+        "flags": 0,
+        "x": 20,
+        "y": 1914,
+        "value": "0",
+        "units": 0,
+        "modelClass": "",
+        "label": ""
+      },
+      {
+        "partNum": 1,
+        "flags": 0,
+        "x": 22,
+        "y": 1899,
+        "value": "0",
+        "units": 0,
+        "modelClass": "",
+        "label": ""
+      },
+      {
+        "partNum": 3,
+        "flags": 0,
+        "x": 29,
+        "y": 1879,
+        "value": "0",
+        "units": 0,
+        "modelClass": "",
+        "label": ""
+      },
+      {
+        "partNum": 6,
+        "flags": 0,
+        "x": 17,
+        "y": 1865,
+        "value": "0",
+        "units": 0,
+        "modelClass": "",
+        "label": ""
+      },
+      {
+        "partNum": 14,
+        "flags": 0,
+        "x": 23,
+        "y": 1837,
+        "value": "1",
+        "units": 0,
+        "modelClass": "transf",
+        "label": ""
+      },
+      {
+        "partNum": 8,
+        "flags": 0,
+        "x": 23,
+        "y": 1820,
+        "value": "0",
+        "units": 0,
+        "modelClass": "",
+        "label": ""
+      },
+      {
+        "partNum": 9,
+        "flags": 0,
+        "x": 29,
+        "y": 1806,
+        "value": "0",
+        "units": 0,
+        "modelClass": "",
+        "label": ""
+      },
+      {
+        "partNum": 4,
+        "flags": 3,
+        "x": 23,
+        "y": 1786,
+        "value": "1e-14",
+        "units": 0,
+        "modelClass": "diode",
+        "label": ""
+      },
+      {
+        "partNum": 16,
+        "flags": 3,
+        "x": 23,
+        "y": 1766,
+        "value": "1e-14",
+        "units": 0,
+        "modelClass": "zener",
+        "label": ""
+      },
+      {
+        "partNum": 17,
+        "flags": 3,
+        "x": 17,
+        "y": 1740,
+        "value": "1e-14",
+        "units": 0,
+        "modelClass": "led",
+        "label": ""
+      },
+      {
+        "partNum": 5,
+        "flags": 3,
+        "x": 26,
+        "y": 1708,
+        "value": "1e-16",
+        "units": 0,
+        "modelClass": "npn",
+        "label": ""
+      },
+      {
+        "partNum": 11,
+        "flags": 3,
+        "x": 26,
+        "y": 1676,
+        "value": "1e-16",
+        "units": 0,
+        "modelClass": "pnp",
+        "label": ""
+      },
+      {
+        "partNum": 15,
+        "flags": 0,
+        "x": 11,
+        "y": 1638,
+        "value": "1e+10",
+        "units": 0,
+        "modelClass": "opamp",
+        "label": ""
+      },
+      {
+        "partNum": 13,
+        "flags": 0,
+        "x": -1,
+        "y": 1609,
+        "value": "1",
+        "units": 3,
+        "modelClass": "",
+        "label": ""
+      },
+      {
+        "partNum": 12,
+        "flags": 0,
+        "x": -1,
+        "y": 1580,
+        "value": "1",
+        "units": 1,
+        "modelClass": "",
+        "label": ""
+      },
+      {
+        "partNum": 18,
+        "flags": 0,
+        "x": 24,
+        "y": 1560,
+        "value": "1",
+        "units": 0,
+        "modelClass": "bulb",
+        "label": ""
+      },
+      {
+        "partNum": 19,
+        "flags": 0,
+        "x": 24,
+        "y": 1546,
+        "value": "1",
+        "units": 0,
+        "modelClass": "fuse",
+        "label": ""
+      },
+      {
+        "partNum": 20,
+        "flags": 0,
+        "x": 17,
+        "y": 1514,
+        "value": "1",
+        "units": 0,
+        "modelClass": "relay",
+        "label": ""
+      },
+      {
+        "partNum": 22,
+        "flags": 3,
+        "x": 27,
+        "y": 1676,
+        "value": "1e-016",
+        "units": 0,
+        "modelClass": "jfet-n",
+        "label": ""
+      },
+      {
+        "partNum": 23,
+        "flags": 3,
+        "x": 27,
+        "y": 1676,
+        "value": "1e-016",
+        "units": 0,
+        "modelClass": "jfet-p",
+        "label": ""
+      },
+      {
+        "partNum": 24,
+        "flags": 3,
+        "x": 27,
+        "y": 1676,
+        "value": "1e-016",
+        "units": 0,
+        "modelClass": "nmos-dm",
+        "label": ""
+      },
+      {
+        "partNum": 25,
+        "flags": 3,
+        "x": 27,
+        "y": 1676,
+        "value": "1e-016",
+        "units": 0,
+        "modelClass": "pmos-dm",
+        "label": ""
+      },
+      {
+        "partNum": 26,
+        "flags": 3,
+        "x": 27,
+        "y": 1676,
+        "value": "1e-016",
+        "units": 0,
+        "modelClass": "nmos-dmb",
+        "label": ""
+      },
+      {
+        "partNum": 27,
+        "flags": 3,
+        "x": 27,
+        "y": 1676,
+        "value": "1e-016",
+        "units": 0,
+        "modelClass": "pmos-dmb",
+        "label": ""
+      },
+      {
+        "partNum": 28,
+        "flags": 3,
+        "x": 27,
+        "y": 1676,
+        "value": "1e-016",
+        "units": 0,
+        "modelClass": "nmos-em",
+        "label": ""
+      },
+      {
+        "partNum": 29,
+        "flags": 3,
+        "x": 27,
+        "y": 1676,
+        "value": "1e-016",
+        "units": 0,
+        "modelClass": "pmos-em",
+        "label": ""
+      },
+      {
+        "partNum": 30,
+        "flags": 3,
+        "x": 27,
+        "y": 1676,
+        "value": "1e-016",
+        "units": 0,
+        "modelClass": "nmos-emb",
+        "label": ""
+      },
+      {
+        "partNum": 31,
+        "flags": 3,
+        "x": 27,
+        "y": 1676,
+        "value": "1e-016",
+        "units": 0,
+        "modelClass": "pmos-emb",
+        "label": ""
+      },
+      {
+        "partNum": 2,
+        "flags": 0,
+        "x": 61,
+        "y": 28,
+        "value": "12",
+        "units": 2,
+        "modelClass": "",
+        "label": "Vcc"
+      },
+      {
+        "partNum": 8,
+        "flags": 0,
+        "x": 108,
+        "y": 4,
+        "value": "0",
+        "units": 0,
+        "modelClass": "",
+        "label": ""
+      },
+      {
+        "partNum": 2,
+        "flags": 2,
+        "x": 57,
+        "y": 37,
+        "value": "12",
+        "units": 2,
+        "modelClass": "",
+        "label": "Vcc"
+      },
+      {
+        "partNum": 8,
+        "flags": 0,
+        "x": 121,
+        "y": 5,
+        "value": "0",
+        "units": 0,
+        "modelClass": "",
+        "label": ""
+      }
+    ],
+    "din": [],
+    "classesByPartNum": {
+      "0": [
+        null
+      ],
+      "1": [
+        null
+      ],
+      "2": [
+        null,
+        null,
+        null
+      ],
+      "3": [
+        null
+      ],
+      "4": [
+        "diode"
+      ],
+      "5": [
+        "npn"
+      ],
+      "6": [
+        null
+      ],
+      "7": [
+        null
+      ],
+      "8": [
+        null,
+        null,
+        null
+      ],
+      "9": [
+        null
+      ],
+      "10": [
+        null
+      ],
+      "11": [
+        "pnp"
+      ],
+      "12": [
+        null
+      ],
+      "13": [
+        null
+      ],
+      "14": [
+        "transf"
+      ],
+      "15": [
+        "opamp"
+      ],
+      "16": [
+        "zener"
+      ],
+      "17": [
+        "led"
+      ],
+      "18": [
+        "bulb"
+      ],
+      "19": [
+        "fuse"
+      ],
+      "20": [
+        "relay"
+      ],
+      "22": [
+        "jfet-n"
+      ],
+      "23": [
+        "jfet-p"
+      ],
+      "24": [
+        "nmos-dm"
+      ],
+      "25": [
+        "pmos-dm"
+      ],
+      "26": [
+        "nmos-dmb"
+      ],
+      "27": [
+        "pmos-dmb"
+      ],
+      "28": [
+        "nmos-em"
+      ],
+      "29": [
+        "pmos-em"
+      ],
+      "30": [
+        "nmos-emb"
+      ],
+      "31": [
+        "pmos-emb"
+      ]
+    }
+  }
+}

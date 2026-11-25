@@ -1,0 +1,38 @@
+{
+    "id": "capacitor",
+    "name": "Конденсатор",
+    "category": "component",
+    "description": "Конденсатор, два порта",
+    "source": "ewb-3002-03",
+    "size": {
+        "w": 190,
+        "h": 284
+    },
+    "symbol": "symbol.svg",
+    "parameters": {},
+    "ports": [
+        {
+            "id": "p1",
+            "label": "",
+            "role": "inout",
+            "dir": "left",
+            "x": 9,
+            "y": 144
+        },
+        {
+            "id": "p2",
+            "label": "",
+            "role": "inout",
+            "dir": "right",
+            "x": 178,
+            "y": 141
+        }
+    ],
+    "ewb": {
+        "partNum": 3,
+        "ext": null,
+        "model": null,
+        "device": "capacitor",
+        "confidence": "confirmed"
+    }
+}

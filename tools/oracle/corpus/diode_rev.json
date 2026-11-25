@@ -1,0 +1,14 @@
+{
+  "_comment": "Диод в пробое (bv/ibv): OP. Проверяет ветку tBrkdwnV и ограничение pnjlim.",
+  "elements": [
+    { "name": "V1", "dev": "Vsource", "nodes": ["in", "0"], "params": { "dc": -6 } },
+    { "name": "R1", "dev": "Resistor", "nodes": ["in", "a"], "params": { "resistance": 100 } },
+    {
+      "name": "D1",
+      "dev": "Diode",
+      "nodes": ["a", "0"],
+      "modelParams": { "is": 1e-14, "n": 1, "bv": 5, "ibv": 1e-3 }
+    }
+  ],
+  "analyses": [{ "type": "OP", "name": "op1" }]
+}

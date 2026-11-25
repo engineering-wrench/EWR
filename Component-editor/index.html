@@ -14,7 +14,11 @@
             <button class="tool-btn" data-tool="rect" title="Прямоугольник (R)">▭ Прямоугольник</button>
             <button class="tool-btn" data-tool="circle" title="Эллипс (C)">◯ Эллипс</button>
             <button class="tool-btn" data-tool="text" title="Текст (T)">T Текст</button>
+            <button class="tool-btn" data-tool="slot" title="Поле значения (N): текст, привязанный к параметру">Ⓣ Поле значения</button>
             <button class="tool-btn" data-tool="port" title="Точка подключения (P)">● Порт</button>
+        </div>
+        <div class="tb-group">
+            <button class="tool-btn" id="btn-library" title="Галерея исходных элементов EWB">🗂 Библиотека элементов</button>
         </div>
         <div class="tb-group">
             <label class="tb-label">Обводка</label>
@@ -67,8 +71,8 @@
                 </g>
             </svg>
             <div id="canvas-hint">
-                Перетаскивание — рисование/движение · рамка обрезки 800×800 — двигать за границу, тянуть за углы ·
-                Delete — удалить выбранное
+                Библиотека — исходный элемент · фото — референс · N — поле значения ·
+                рамка обрезки 800×800 двигается за границу и тянется за углы · Delete — удалить
             </div>
         </div>
 
@@ -77,6 +81,7 @@
                 <button class="sp-tab active" data-tab="ports">Порты</button>
                 <button class="sp-tab" data-tab="props">Свойства</button>
                 <button class="sp-tab" data-tab="bg">Фон</button>
+                <button class="sp-tab" data-tab="merge">Слияние</button>
                 <button class="sp-tab" data-tab="export">Экспорт</button>
             </div>
 
@@ -106,12 +111,56 @@
                     </div>
                 </section>
 
+                <section id="tab-merge" class="sp-section">
+                    <p class="sp-hint">Слияние кладёт нарисованный SVG в существующий элемент палитры
+                        <code>Site/components/&lt;id&gt;/symbol.svg</code>. Иконка и манифест элемента
+                        остаются прежними; если папки ещё нет — создаётся минимальный манифест.</p>
+
+                    <fieldset class="fset">
+                        <legend>Категория</legend>
+                        <div class="merge-cats" id="merge-cats"></div>
+                    </fieldset>
+
+                    <fieldset class="fset">
+                        <legend>Элемент палитры</legend>
+                        <div class="merge-elements" id="merge-elements">
+                            <p class="sp-empty">Загрузка палитры…</p>
+                        </div>
+                    </fieldset>
+
+                    <div class="merge-target" id="merge-target">
+                        <p class="sp-empty">Элемент не выбран</p>
+                    </div>
+
+                    <fieldset class="fset">
+                        <legend>Масштаб SVG</legend>
+                        <label class="row"><span>Масштаб, %</span>
+                            <input type="number" id="merge-scale" value="100" min="1" max="1000"></label>
+                        <button class="tool-btn wide" id="merge-fit">Вписать в размер элемента</button>
+                        <button class="tool-btn wide" id="merge-reset">Сбросить 100 %</button>
+                        <p class="sp-hint" id="merge-size-hint">Итоговый размер: —</p>
+                    </fieldset>
+
+                    <button class="tool-btn wide primary" id="btn-merge">Слить SVG в элемент</button>
+                    <p class="sp-hint" id="merge-hint">Нужен запущенный <code>npm run studio</code>.</p>
+                </section>
+
                 <section id="tab-export" class="sp-section">
-                    <p class="sp-hint">Компонент экспортируется как папка:<br>
-                        <code>Site/components/&lt;id&gt;/</code> — <code>symbol.svg</code> + <code>manifest.json</code>.</p>
+                    <p class="sp-hint">Компонент экспортируется в подпапку <code>&lt;id&gt;/</code> выбранной папки:
+                        <code>symbol.svg</code>, <code>manifest.json</code>, <code>description.txt</code>
+                        (+ <code>source.png</code> и фото-референс, если были).</p>
                     <label class="row"><span>id</span><input id="exp-id" value="component"></label>
                     <label class="row"><span>Имя</span><input id="exp-name" value="Компонент"></label>
                     <label class="row"><span>Категория</span><input id="exp-category" value="component"></label>
+                    <label class="exp-col"><span>Описание</span>
+                        <textarea id="exp-description" rows="3" placeholder="Что это за компонент, назначение, особенности"></textarea>
+                    </label>
+
+                    <fieldset class="fset">
+                        <legend>Источник</legend>
+                        <p class="sp-hint" id="exp-source">Элемент не выбран — рисуйте с нуля или откройте «Библиотеку элементов».</p>
+                        <button class="tool-btn wide" id="btn-source-library">Открыть библиотеку элементов</button>
+                    </fieldset>
 
                     <fieldset class="fset">
                         <legend>Область обрезки (viewBox экспорта)</legend>
@@ -137,11 +186,60 @@
                         <div id="exp-port-summary"></div>
                     </fieldset>
 
-                    <button class="tool-btn wide primary" id="btn-export">Экспорт компонента</button>
+                    <button class="tool-btn wide primary" id="btn-save-project">Сохранить в проект</button>
+                    <p class="sp-hint" id="exp-project-hint">Прямая запись в <code>Component-editor/components/&lt;id&gt;/</code>.
+                        Требуется запущенный <code>npm run studio</code>.</p>
+                    <button class="tool-btn wide" id="btn-export">Экспорт в выбранную папку…</button>
+                    <button class="tool-btn wide" id="btn-export-download">Скачать symbol.svg + icon.png + manifest.json</button>
+                    <p class="sp-hint" id="exp-folder-hint">Папка не выбрана. При экспорте браузер спросит папку, рядом с проектом появится подпапка &lt;id&gt;/.</p>
                 </section>
             </div>
         </aside>
     </main>
+
+    <!-- Библиотека исходных элементов EWB (нарезка BITMAP-полос) -->
+    <div id="library" class="lib-overlay" hidden>
+        <div class="lib-dialog" role="dialog" aria-label="Библиотека элементов">
+            <header class="lib-head">
+                <strong>Библиотека элементов EWB</strong>
+                <span class="lib-count" id="lib-count"></span>
+                <input type="search" id="lib-search" placeholder="Поиск по id или описанию…">
+                <select id="lib-group" title="Полоса-источник"></select>
+                <button class="tool-btn" id="lib-close" title="Закрыть">✕</button>
+            </header>
+            <div class="lib-body">
+                <div class="lib-grid" id="lib-grid"></div>
+                <aside class="lib-detail">
+                    <div class="lib-preview-wrap">
+                        <img id="lib-preview" alt="Выбранный элемент" hidden>
+                        <p class="sp-empty" id="lib-preview-empty">Выберите элемент слева</p>
+                    </div>
+                    <div class="lib-meta" id="lib-meta"></div>
+
+                    <label class="exp-col"><span>Описание объекта</span>
+                        <textarea id="lib-desc" rows="4" placeholder="Например: резистор постоянный, 0.25 Вт; выводы слева/справа"></textarea>
+                    </label>
+
+                    <fieldset class="fset">
+                        <legend>Фото-референс</legend>
+                        <button class="tool-btn wide" id="lib-photo-btn">Загрузить фото…</button>
+                        <input type="file" id="lib-photo-file" accept="image/*" hidden>
+                        <div class="lib-photo-preview" id="lib-photo-preview" hidden>
+                            <img id="lib-photo-img" alt="Фото-референс">
+                            <div>
+                                <div id="lib-photo-name" class="lib-photo-name"></div>
+                                <button class="tool-btn danger" id="lib-photo-remove">Убрать фото</button>
+                            </div>
+                        </div>
+                        <p class="sp-hint">Фото кладётся под холст как референс для обводки и сохраняется в папку элемента.</p>
+                    </fieldset>
+
+                    <button class="tool-btn wide primary" id="lib-use">Перерисовать этот элемент</button>
+                    <p class="sp-hint">Элемент станет полупрозрачной подложкой. Обведите его инструментами, добавьте порты и поля значений, затем экспортируйте.</p>
+                </aside>
+            </div>
+        </div>
+    </div>
 
     <footer id="statusbar">
         <span id="status-text">Готово · холст 1000×1000 · область обрезки 800×800 в центре</span>
@@ -152,6 +250,8 @@
     <script src="js/ports.js"></script>
     <script src="js/background.js"></script>
     <script src="js/crop.js"></script>
+    <script src="js/gallery.js"></script>
+    <script src="js/merge.js"></script>
     <script src="js/export.js"></script>
 </body>
 </html>

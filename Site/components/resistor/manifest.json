@@ -1,10 +1,12 @@
 {
     "id": "resistor",
-    "name": "резистор",
+    "name": "Резистор",
     "category": "component",
+    "description": "Резистор",
+    "source": "ewb-3002-02",
     "size": {
-        "w": 800,
-        "h": 600
+        "w": 321,
+        "h": 121
     },
     "symbol": "symbol.svg",
     "parameters": {
@@ -21,16 +23,23 @@
             "label": "",
             "role": "inout",
             "dir": "left",
-            "x": 339,
-            "y": 308
+            "x": 9,
+            "y": 57
         },
         {
             "id": "p2",
             "label": "",
             "role": "inout",
             "dir": "right",
-            "x": 405,
-            "y": 306
+            "x": 311,
+            "y": 60
         }
-    ]
+    ],
+    "ewb": {
+        "partNum": 1,
+        "ext": null,
+        "model": null,
+        "device": "resistor",
+        "confidence": "confirmed"
+    }
 }

@@ -1,0 +1,55 @@
+{
+    "id": "vccs",
+    "name": "ИНУТ: источник тока, управляемый напряжением",
+    "category": "component",
+    "description": "ИНУТ: источник тока, управляемый напряжением (Voltage-Controlled Current Source); источник EWB: ewb-3001-07",
+    "source": "ewb-3001-07",
+    "status": "placeholder",
+    "size": {
+        "w": 100,
+        "h": 40
+    },
+    "symbol": "symbol.svg",
+    "parameters": {},
+    "ports": [
+        {
+            "id": "p1",
+            "label": "",
+            "role": "inout",
+            "dir": "left",
+            "x": 0,
+            "y": 20
+        },
+        {
+            "id": "p2",
+            "label": "",
+            "role": "inout",
+            "dir": "right",
+            "x": 100,
+            "y": 20
+        },
+        {
+            "id": "p3",
+            "label": "",
+            "role": "inout",
+            "dir": "down",
+            "x": 33.333333333333336,
+            "y": 40
+        },
+        {
+            "id": "p4",
+            "label": "",
+            "role": "inout",
+            "dir": "down",
+            "x": 66.66666666666667,
+            "y": 40
+        }
+    ],
+    "ewb": {
+        "partNum": 34,
+        "ext": null,
+        "model": null,
+        "device": "unknown",
+        "confidence": "inferred"
+    }
+}

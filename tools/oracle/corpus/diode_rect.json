@@ -1,0 +1,24 @@
+{
+  "_comment": "Однополупериодный выпрямитель с ёмкостью: OP + TRAN (cjo/tt, пробой нет).",
+  "elements": [
+    {
+      "name": "V1",
+      "dev": "Vsource",
+      "nodes": ["in", "0"],
+      "params": { "sine": [0, 5, 1000, 0, 0] }
+    },
+    { "name": "R1", "dev": "Resistor", "nodes": ["in", "a"], "params": { "resistance": 10 } },
+    {
+      "name": "D1",
+      "dev": "Diode",
+      "nodes": ["a", "out"],
+      "modelParams": { "is": 1e-14, "n": 1, "cjo": 2e-12, "tt": 5e-9 }
+    },
+    { "name": "R2", "dev": "Resistor", "nodes": ["out", "0"], "params": { "resistance": 1000 } },
+    { "name": "C1", "dev": "Capacitor", "nodes": ["out", "0"], "params": { "capacitance": 1e-6 } }
+  ],
+  "analyses": [
+    { "type": "OP", "name": "op1" },
+    { "type": "TRAN", "name": "tran1", "params": { "tstep": 1e-4, "tstop": 3e-3, "tmax": 1e-5 } }
+  ]
+}

@@ -9,6 +9,7 @@
 export const DEFAULT_TOL = {
   rel: 1e-6, // относительная для значений
   abs: 1e-9, // абсолютная для значений
+  timeRel: 0, // относительная для сетки времени (0 = только timeAbs)
   timeAbs: 0, // допустимое расхождение сетки времени (0 = бит-в-бит)
 };
 
@@ -90,7 +91,7 @@ export function compareResults(golden, actual, tol = {}) {
     }
     for (let j = 0; j < gpts.length; j++) {
       const tt = `${tag}[${j}]`;
-      if (!numEq(gpts[j].ref, apts[j].ref, { rel: 0, abs: t.timeAbs })) {
+      if (!numEq(gpts[j].ref, apts[j].ref, { rel: t.timeRel, abs: t.timeAbs })) {
         diffs.push(`${tt}.t: ${fmt(apts[j].ref)} != эталон ${fmt(gpts[j].ref)}`);
       }
       cmpValue(gpts[j].values, apts[j].values, t, `${tt}.v`, diffs);

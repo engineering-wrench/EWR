@@ -28,18 +28,21 @@ window.App = window.App || {};
             e.target.value = '';
         },
 
-        install(src, naturalW, naturalH) {
+        install(src, naturalW, naturalH, opts = {}) {
             if (A.refs.bg) A.refs.bg.remove();
             const { w, h } = A.state.viewBox;
-            const scale = Math.min(w / naturalW, h / naturalH);
+            const fit = Math.min(w / naturalW, h / naturalH);
+            const scale = opts.target ? opts.target / Math.max(naturalW, naturalH) : fit;
             const iw = naturalW * scale, ih = naturalH * scale;
+            const opacity = opts.opacity != null ? opts.opacity : 0.5;
 
             const el = A.svgEl('image', {
                 href: src,
                 x: (w - iw) / 2, y: (h - ih) / 2,
                 width: iw, height: ih,
-                opacity: 0.5,
-                style: 'pointer-events:visiblePainted; cursor:move; image-rendering:auto'
+                opacity,
+                preserveAspectRatio: 'xMidYMid meet',
+                style: 'pointer-events:visiblePainted; cursor:move; image-rendering:pixelated'
             });
 
             A.refs.bg = el;
@@ -48,12 +51,13 @@ window.App = window.App || {};
             A.state.bg.el = el;
             A.state.bg.naturalW = naturalW;
             A.state.bg.naturalH = naturalH;
+            A.state.bg.kind = opts.kind || 'background';
 
-            A.$('bg-opacity').value = 50;
+            A.$('bg-opacity').value = Math.round(opacity * 100);
             A.$('bg-scale').value = Math.round(scale * 100);
             A.$('bg-visible').checked = true;
             this.renderControls(true);
-            A.setStatus('Подложка загружена: ' + naturalW + '×' + naturalH);
+            A.setStatus(opts.status || ('Подложка загружена: ' + naturalW + '×' + naturalH));
         },
 
         _size() {

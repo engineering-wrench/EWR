@@ -1,0 +1,39 @@
+{
+    "id": "am-source",
+    "name": "Источник с амплитудной модуляцией",
+    "category": "component",
+    "description": "Источник с амплитудной модуляцией (AM Source); источник EWB: ewb-3001-13",
+    "source": "ewb-3001-13",
+    "status": "placeholder",
+    "size": {
+        "w": 100,
+        "h": 40
+    },
+    "symbol": "symbol.svg",
+    "parameters": {},
+    "ports": [
+        {
+            "id": "p1",
+            "label": "",
+            "role": "inout",
+            "dir": "left",
+            "x": 0,
+            "y": 20
+        },
+        {
+            "id": "p2",
+            "label": "",
+            "role": "inout",
+            "dir": "right",
+            "x": 100,
+            "y": 20
+        }
+    ],
+    "ewb": {
+        "partNum": null,
+        "ext": "am",
+        "model": "am.par",
+        "device": "unknown",
+        "confidence": "confirmed"
+    }
+}

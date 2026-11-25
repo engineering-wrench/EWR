@@ -30,20 +30,86 @@
 - **Файлы в редакторе** (`Site/logic/js/file-io.js`): **Open** `.ewb` → декод+парсер+сцена
   (плейсхолдеры для нераспознанных), **Save** → сцена → `.ewb` (Type-1) → скачивание;
   **New** — очистить. Плюс `demo.html` и мост `sim.js` (`window.EWR_SIM`, Run → `selfTest`).
-- **Тесты:** `npm test` → 84 зелёных (кодек/парсер/сериализация/солверы/мост/оракул/модели +
-  sparse: golden C↔JS и юниты). Полный цикл открыть→сохранить→переоткрыть проверен на `kirch_cu.ewb`.
+- **Тесты:** `npm test` → 192 зелёных (кодек/парсер/сериализация/солверы/мост/оракул/модели +
+  sparse: golden C↔JS и юниты + CKT: `ckt.test.mjs` + NI: `ni.test.mjs` + устройства:
+  `devices.test.mjs` + анализы: `analyses.test.mjs`). Полный цикл
+  открыть→сохранить→переоткрыть проверен на `kirch_cu.ewb`.
 - **Клон движка, P1.1 (`docs/engine/PLAN-CLONE.md`):** порт `sparse` 1.3 —
   `Site/engine/spice/sparse.js`; C↔JS golden-харнесс `tools/sparse-golden/`
   (bit-exact сверка через gcc-сборку F4); квирки — `docs/re/engine-quirks.md`.
+- **Клон движка, P1.2:** CKT-скелет — `Site/engine/spice/ckt.js` (узлы/элементы/модели/
+  задачи/диспетчер анализов 1:1 по F4), каркас NI — `ni.js` (`niInit/niReinit/niDestroy`),
+  каталог 84 устройств и 10 анализов — `catalog.js` (генератор `tools/gen-spice-catalog.mjs`,
+  источник `tools/oracle/golden/enum.json`); тесты `Site/engine/test/ckt.test.mjs` (30);
+  план — [`plans/P1.2-ckt.md`](./plans/P1.2-ckt.md), квирк Q-C01.
 - **Карта PartNum/библиотеки (`docs/re/engine-parts.md`, фаза M плана клона):**
   `tools/models-parse.mjs` → `Site/engine/models/ewb-models.json`; имена —
   `WEWBMSG.RES` (индекс = PartNum), классы — `WEWB.RES`, семейства — `MODELS/*.M**`;
   покрытие по `CIRCUITS/**` — 100 % номеров и экземпляров.
-- **Дальше:** фаза P1.2 клона — CKT-скелет
-  ([`plans/P1.2-ckt.md`](./plans/P1.2-ckt.md)), затем P1.3 (NI: Ньютон/интеграция/LTE)
-  в `Site/engine/spice/`, сохранение в Type-2 (сжатие), расширение устройств
-  (BJT/MOSFET/оп-ампы/логика/555), уникальные id компонентов редактора +
-  полная привязка сцены кнопке Run.
+- **Клон движка, P1.3:** полный NI по XSPICE-редакции — `niIter` (Ньютон,
+  `SMPpreOrder`/`SMPreorder`/`SMPluFac`/`SMPsolve`, `E_SINGULAR`/`E_ITERLIM`, машина
+  `MODEINIT*`), `niConvTest`, `niComCof` (трапеция 1–2, Gear 1–6), `niIntegrate`;
+  в `ckt.js` — `cktLoad`/`cktConvTest`/`cktTrunc`; тесты `Site/engine/test/ni.test.mjs` (19);
+  план — [`plans/P1.3-ni.md`](./plans/P1.3-ni.md), квирки Q-C02…Q-C04, Q-N01.
+- **Клон движка, P1.4:** порт базовых устройств — `Site/engine/spice/devices/`
+  (`resistor`, `capacitor`, `inductor`+`mutual`, `vsource`, `isource`, `switch` SW/CSW,
+  `common`, `index`); параметры каталога (`instanceParms`/`modelParms`) + автоустановка
+  хуков в `DEVICES`; `ckt.js` — `cktParam`/`cktModParam`/`cktFndBranch`/`cktDltNNum`/
+  `cktTerr`/`cktAcLoad`; тесты `Site/engine/test/devices.test.mjs` (12);
+  план — [`plans/P1.4-devices.md`](./plans/P1.4-devices.md), квирки Q-D01…Q-D04.
+- **Клон движка, P1.5:** точки останова независимых источников — `CKTbreaks`/
+  `cktSetBreak`/`cktClrBreak`, `DEVaccept` у `Vsource`/`Isource` (PULSE/PWL),
+  `cktAccept` в диспетчере устройств; тесты в `devices.test.mjs` (`TR`, затем
+  `TD+TR+PW`); план — [`plans/P1.5-sources.md`](./plans/P1.5-sources.md), квирк Q-A01.
+- **Клон движка, P1.6:** анализы OP/TRAN — `Site/engine/spice/analyses/`
+  (`cktop` — gmin/source stepping, `op` — `DCop`, `tran` — `TRANinit`/`DCtran` по
+  XSPICE-редакции, `index` — установка в `ANALYSES`); выход `cktOut*`; параметры
+  анализов (`cktAnalParamIndex`); паритет с оракулом: `op_divider`/`op_rc` —
+  бит-в-бит, `tran_rc` — 180/180 точек (сетка `timeRel=1e-9`, Q-F01); тесты
+  `Site/engine/test/analyses.test.mjs` (4); план — [`plans/P1.6-op-tran.md`](./plans/P1.6-op-tran.md),
+  квирки Q-A01, Q-O01/Q-O02, Q-F01.
+- **Клон движка, P2.7 (частично):** AC-драйвер — `Site/engine/spice/analyses/ac.js`
+  (`ACan`/`CKTacDump`/параметры), `ni.js` — `niAcIter`; корпус `ac_rc` + golden,
+  комплексные значения и сетка совпадают с оракулом (Q-A02: LINEAR в DLL — по F4);
+  тесты `analyses.test.mjs` (6); план — [`plans/P2.7-ac.md`](./plans/P2.7-ac.md).
+- **Клон движка, I1 (GUI):** `Site/engine/ewb-facade.js` — сцена редактора
+  (`WireSystem.scene()`) → дека CKT → OP/TRAN/AC, узлы/токи/приборы/ряды;
+  Run в `Site/logic/js/sim.js` гоняет реальную схему, швы
+  `getVoltage`/`getCurrent`/`setMaxStep` в `ckt.js`; тесты `facade.test.mjs`;
+  план — [`plans/I1-gui.md`](./plans/I1-gui.md).
+- **GUI, I2 (символы палитры):** готовые SVG из `Site/components/ewb-*`
+  подключены к существующим плиткам без новых компонентов: `ewb-3002-02` →
+  `resistor`, `ewb-3002-03` → `capacitor`, `ewb-3001-01` → `point` (земля),
+  `ewb-3213-02` → `generator`; пустые поля SVG обрезаны;
+  `file-io.js` использует их при открытии `.ewb`, тест — `test/components.test.mjs`;
+  скил для будущих агентов — `.opencode/skills/component-symbols/`; план —
+  [`plans/I2-component-symbols.md`](./plans/I2-component-symbols.md).
+- **GUI, I3 (бесконечное поле):** `Site/logic/js/viewport.js` — мировые координаты,
+  масштаб колесом/кнопками (`#zoom-controls`, 10–800 %), панорама ПКМ/СКМ+drag и
+  стрелками; компоненты/провода/выделение/сохранение сцены переведены на мировые px,
+  размер символа фиксирован (`worldSymbolSize`, пропорции viewBox сохранены);
+  план — [`plans/I3-canvas-viewport.md`](./plans/I3-canvas-viewport.md).
+- **GUI, I4 (палитра 1:1):** статическая таблица PartsBin из `WEWB32.EXE`
+  (17 записей, ленты 31xx/30xx/33xx/32xx, счётчики), реестр `COMPDAT.DLL` и имена
+  13 вкладок из `WEWBMSG.RES` (Sources…Instruments; `3014–3017` — иконки диалогов,
+  не вкладки); `tools/palette-extract.mjs` → `Site/engine/palette.generated.json`,
+  контракт — `docs/re/palette.md`; цель — привязка «плитка → `PartNum`/`ExtComp`-имя»
+  вместо эвристик. Сделано: все 155 плиток 13 вкладок привязаны
+  (`tools/palette-tiles.data.mjs`), 155 манифестов с блоком `ewb`, порядок
+  `idListComponent` заполнен; шаг 5b закрыт — тип элемента берётся из данных
+  (`Site/engine/ewb-devices.js`, генератор `--runtime`) в `parser.deviceType`,
+  `sim.mapComponentType`, `ewb-facade.mapEditorType`, `file-io.buildScene`;
+  план — [`plans/I4-palette.md`](./plans/I4-palette.md).
+- **Клон движка, P2.1:** полный диод по редакции XSPICE —
+  `Site/engine/spice/devices/diode.js` (`DEVsetup` с внутренним узлом `rs`,
+  `DEVload` DC/TRAN с `pnjlim`/пробоем/зарядом, `DEVtemperature`, `DEVacLoad`,
+  `DEVtrunc`, `DEVconvTest`, `DEVask`/`DEVmAsk`, `DEVunsetup`);
+  корпус оракула `diode_{fwd,rs,rev,rect,ac}` — OP/AC бит-в-бит, TRAN 351/351;
+  квирки Q-D05 (`NOBYPASS`), Q-D06 (`NEWCONV`), Q-O03; план —
+  [`plans/P2.1-diode.md`](./plans/P2.1-diode.md).
+- **Дальше:** P2.2 (BJT Gummel-Poon), затем JFET/MOSFET/оп-ампы и полный AC
+  с нелинейными устройствами; осциллограф/графер как отдельное окно (после I);
+  сохранение в Type-2 (сжатие), уникальные id компонентов редактора.
 
 ---
 

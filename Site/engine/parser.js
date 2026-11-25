@@ -23,6 +23,10 @@
 // Компоненты-«призраки» (список элементов без подключения по проводам) не
 // попадают в нетлист, т.к. не участвуют в соединениях.
 
+// Тип устройства по PartNum/ExtComp/модели — генерируется из палитры, чтобы
+// не держать в коде списки-эвристики (план I4, шаг 5b).
+import { EWB_BY_PART } from './ewb-devices.js';
+
 // --- Токенайзер ----------------------------------------------------------
 // Токены: слово, строка "..." (с escape \" ), '{', '}'.
 function tokenize(text) {
@@ -98,12 +102,21 @@ const kids = (blk, name) => (blk && blk.children ? blk.children : []).filter((c)
 const first = (blk, name) => (blk && blk.children ? blk.children : []).find((c) => c.name === name);
 const findBlock = (blk, name) => { const c = kids(blk, name); return c.length ? c[0] : null; };
 
-// --- Определение типа устройства по RefID/PartNum ---
+// --- Определение типа устройства по PartNum/RefID ---
+//
+// PartNum — идентичность детали из файла, поэтому он и решает тип: таблица
+// `ewb-devices.js` сгенерирована из палитры (`tools/palette-tiles.data.mjs`).
+// RefID остаётся запасным путём для текстов/старых файлов без PartNum: имя
+// RefID — производное от детали и может быть переименовано пользователем.
 export function deviceType(ref, partnum) {
     const r = String(ref == null ? '' : ref).trim();
     const m = r.match(/^([A-Za-z]+)/);
     const pre = m ? m[1].toLowerCase() : '';
-    if (r === '0' || pre === 'gnd' || pre === 'ground' || +partnum === 8) return 'ground';
+    const pn = Number(partnum);
+    if (r === '0' || pre === 'gnd' || pre === 'ground') return 'ground';
+    const byPart = Number.isFinite(pn) && pn > 0 ? EWB_BY_PART[pn] : null;
+    if (byPart) return byPart;
+    // Fallback: префикс RefID.
     if (pre === 'r') return 'resistor';
     if (pre === 'c') return 'capacitor';
     if (pre === 'l') return 'inductor';
@@ -113,11 +126,7 @@ export function deviceType(ref, partnum) {
     if (pre === 'conn') return 'connector';
     if (pre === 'm') return 'meter';
     if (pre === 't') return 'transformer';
-    if (+partnum === 1) return 'resistor';
-    if (+partnum === 2 || +partnum === 0) return 'vsource';
-    if (+partnum === 9) return 'connector';
-    if (+partnum === 12 || +partnum === 13) return 'meter';
-    if (+partnum === 14) return 'transformer';
+    if (pn === 0) return 'vsource';
     return 'unknown';
 }
 

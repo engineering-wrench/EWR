@@ -1,0 +1,31 @@
+{
+    "id": "vdd",
+    "name": "Напряжение питания Vdd",
+    "category": "component",
+    "description": "Напряжение питания Vdd (Vdd); источник EWB: ewb-3001-11",
+    "source": "ewb-3001-11",
+    "status": "placeholder",
+    "size": {
+        "w": 100,
+        "h": 40
+    },
+    "symbol": "symbol.svg",
+    "parameters": {},
+    "ports": [
+        {
+            "id": "p1",
+            "label": "",
+            "role": "inout",
+            "dir": "left",
+            "x": 0,
+            "y": 20
+        }
+    ],
+    "ewb": {
+        "partNum": null,
+        "ext": "Vdd",
+        "model": "vdd.par",
+        "device": "unknown",
+        "confidence": "confirmed"
+    }
+}

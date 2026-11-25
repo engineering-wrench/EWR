@@ -13,10 +13,20 @@ import { toSpec } from '../../engine/parser.js';
 import { serializeNetlist, groupTerminals } from '../../engine/ewb-text.js';
 import { buildComponentNode, buildPlaceholderNode } from './registry.js';
 import WireSystem from './wires.js';
+import V from './viewport.js';
 import { assignNets, mapComponentType } from './sim.js';
+import { EDITOR_ID_BY_DEVICE } from '../../engine/ewb-devices.js';
 
-// Какие движковые типы имеют «настоящий» символ в редакторе. Остальные — плейсхолдер.
-const EDITOR_MAP = { resistor: 'resistor' };
+// Бесконечное поле: компоненты размещаются в мировых координатах.
+function host() {
+    return V.world || document.getElementById('main-windows');
+}
+
+// Каким символом редактора открывать элемент из `.ewb`. Таблица генерируется из
+// палитры (EDITOR_ID_BY_DEVICE): resistor/capacitor/ground/meter/… — настоящие
+// плитки. Чего нет в таблице — попадает в плейсхолдер.
+// vsource — это `battery`, а не `generator`: у генератора 3 порта (инструмент),
+// а у источника напряжения в `.ewb` — 2 терминала.
 
 function setStatus(text) {
     const st = document.getElementById('status');
@@ -26,7 +36,8 @@ function setStatus(text) {
 function clearScene() {
     const main = document.getElementById('main-windows');
     if (!main) return;
-    [...main.querySelectorAll('.component-svg')].forEach((n) => {
+    const root = host();
+    [...root.querySelectorAll('.component-svg')].forEach((n) => {
         WireSystem.removeNodeWires(n);
         n.remove();
     });
@@ -42,27 +53,39 @@ async function buildScene(spec) {
     const comps = spec.components || [];
     const nets = [...groupTerminals(spec).entries()]; // [ [net, [{ci,ti}]], … ]
     const placed = [];
-    const gx = 130, gy = 110, ox = 50, oy = 40;
+    const nodes = [];
 
     for (let i = 0; i < comps.length; i++) {
         const c = comps[i];
-        const x = ox + (i % 5) * gx;
-        const y = oy + Math.floor(i / 5) * gy;
-        const editorId = EDITOR_MAP[c.type];
+        const editorId = EDITOR_ID_BY_DEVICE[c.type] || null;
         let node = null;
         if (editorId) {
             try { node = await buildComponentNode(editorId, buildValues(c)); } catch (e) { node = null; }
         }
         if (!node) node = buildPlaceholderNode({ id: c.id, type: c.type, value: c.value != null ? c.value : c.dc, nodes: c.nodes });
         node.style.position = 'absolute';
-        node.style.left = x + 'px';
-        node.style.top = y + 'px';
         if (c.type) node.dataset.etype = c.type;
         const val = c.value != null ? c.value : c.dc;
         if (val != null) node.dataset.compvalue = String(val);
-        main.appendChild(node);
-        placed.push({ node, ports: [...node.querySelectorAll('.port')] });
+        nodes.push(node);
     }
+
+    // Сетка размещения — в мировых px. Мир бесконечный, поэтому шаг и
+    // количество колонок не зависят от текущего размера окна/масштаба:
+    // 6 колонок по умолчанию, дальше — вниз.
+    const ox = 40, oy = 30, gap = 40;
+    const maxW = Math.max(80, ...nodes.map((n) => parseFloat(n.style.width) || 0));
+    const maxH = Math.max(60, ...nodes.map((n) => parseFloat(n.style.height) || 0));
+    const cols = Math.max(1, Math.min(6, nodes.length));
+    const stepX = maxW + gap;
+    const stepY = maxH + gap;
+
+    nodes.forEach((node, i) => {
+        node.style.left = (ox + (i % cols) * stepX) + 'px';
+        node.style.top = (oy + Math.floor(i / cols) * stepY) + 'px';
+        host().appendChild(node);
+        placed.push({ node, ports: [...node.querySelectorAll('.port')] });
+    });
 
     // Соединяем терминалы одного узла «звездой» от первого терминала (keepExisting).
     for (const [, terms] of nets) {

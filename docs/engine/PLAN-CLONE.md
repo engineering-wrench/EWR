@@ -5,8 +5,9 @@
 > проекта), `docs/re/EWB-file-format.md` (формат `.ewb`).
 > Детальные планы подпунктов — `docs/engine/plans/` (индекс `README.md`, шаблон
 > `_TEMPLATE.md`); правила ведения — `AGENTS.md` §«Планы».
-> Последнее обновление: 2026-10 (P1.1: порт sparse + golden-харнесс C↔JS;
-> заведён протокол планов подпунктов).
+> Последнее обновление: 2026-11-04 (P1.4: устройства R/C/L/V/I, mutual, ключи;
+> P1.3: NI — Ньютон, trap/Gear, LTE-шаг, критерии сходимости; P1.2: CKT-скелет +
+> каталог; P1.1: порт sparse + golden C↔JS).
 
 ---
 
@@ -214,8 +215,12 @@ R5/R6 закрыли: FOUR/MonteCarlo/WorstCase/Sweeps — оркестраци�
 | P1.5 | Источники: DC/PULSE/PWL/SIN/EXP | сигнатуры SPICE3 |
 | P1.6 | OP и TRAN на корпусе против оракула | первые diff-тесты |
 
-**Статус (2026-10): P1.1 — ✅ готово.** План подпункта —
-[`plans/P1.1-sparse.md`](./plans/P1.1-sparse.md). `Site/engine/spice/sparse.js` (~2200 строк) —
+**Статус (2026-11-05): P1.1–P1.6 — ✅ готово.** Планы подпунктов —
+[`plans/P1.1-sparse.md`](./plans/P1.1-sparse.md), [`plans/P1.2-ckt.md`](./plans/P1.2-ckt.md),
+[`plans/P1.3-ni.md`](./plans/P1.3-ni.md), [`plans/P1.4-devices.md`](./plans/P1.4-devices.md),
+[`plans/P1.5-sources.md`](./plans/P1.5-sources.md), [`plans/P1.6-op-tran.md`](./plans/P1.6-op-tran.md).
+
+P1.1: `Site/engine/spice/sparse.js` (~2200 строк) —
 полный порт `vendor/spice3f4/src/lib/sparse/{spalloc,spbuild,spfactor,spsolve,sputils,spsmp}.c`
 с конфигом из `spconfig.h` (REAL/spCOMPLEX, TRANSLATE/EXPANDABLE, MODIFIED_NODAL,
 DETERMINANT(2)/MULTIPLICATION, DIAGONAL_PIVOTING; SCALING/STRIP/DELETE/CONDITION/
@@ -228,18 +233,66 @@ PSEUDOCONDITION/STABILITY/FORTRAN/MODIFIED_MARKOWITZ — NO; `DEBUG=NO` как �
 - `Site/engine/test/sparse.test.mjs` (14) — математика (делитель, AC, det,
   multiply/transposed, singular/gmin) и квирки.
 
-Квирки, найденные портом, заведены в `docs/re/engine-quirks.md` (Q-S01…Q-S06;
-Q-S06 — открытый вопрос про трансляцию индексов в `SMPfindElt`, сверить с DLL).
-Следующий шаг — **P1.2** (CKT-скелет), порядок вызовов сверять с
-`vendor/spice3f4/src/lib/ckt/` и `vendor/xspice-1-0/src/sim/NI/`.
+P1.2: `Site/engine/spice/ckt.js` — CKT-скелет (узлы/элементы/модели/задачи/
+диспетчер анализов) по `vendor/spice3f4/src/lib/ckt/`; `Site/engine/spice/ni.js` —
+только каркас NI (`niInit/niReinit/niDestroy`, матрица/RHS), нужный `CKTsetup`;
+`Site/engine/spice/catalog.js` — генерируемый каталог 84 устройств и 10 анализов
+(индексы = `type` из DLL, источник `tools/oracle/golden/enum.json`,
+генератор `tools/gen-spice-catalog.mjs`). Тесты — `Site/engine/test/ckt.test.mjs` (30).
+Квирки: Q-S01…Q-S06 (sparse), Q-C01 (открытый: `CKTsetup` в F4 vs XSPICE).
 
-**Приёмка:** OP/TRAN на корпусе совпадают (см. §5); сетка времени TRAN совпадает с оракулом.
+P1.3: `Site/engine/spice/ni.js` — полный NI по XSPICE-редакции DLL:
+`niIter` (ньютоновский цикл, `SMPpreOrder`/`SMPreorder`/`SMPluFac`/`SMPsolve`,
+`E_SINGULAR` → переупорядочивание, `E_ITERLIM`, машина `MODEINIT*`),
+`niConvTest` (пороги узлов/ветвей), `niComCof` (трапеция 1–2, Gear 1–6),
+`niIntegrate` (корректор, `geq`/`ceq`); `ckt.js` — `cktLoad` (XSPICE-семантика
+nodeset/ic), `cktConvTest` (возврат `1` при `CKTnoncon`), `cktTrunc`
+(`min(2*h, min(DEVtrunc))`). `NIpred`/`CKTagp`/`CKTpred`/`CKTsols` не портированы:
+`PREDICTOR` не определён в сборке DLL; ветка `NEWTRUNC` также не компилируется.
+Тесты — `Site/engine/test/ni.test.mjs` (19, на синтетических device-хуках).
+Квирки: Q-C02…Q-C04, Q-N01 (открытые — сверить оракулом в P1.6).
+
+P1.4: `Site/engine/spice/devices/` — порт базовых устройств по
+`vendor/spice3f4/src/lib/dev/`: `resistor.js` (RES), `capacitor.js` (CAP, состояния
+`qcap/ccap`, trap/Gear через `NIintegrate`), `inductor.js` (IND + MUT, ветвевые
+уравнения, `MUTfactor`), `vsource.js` (DC/PULSE/SINE/EXP/PWL/SFFM, AC real/imag,
+`findBranch`), `isource.js` (то же для тока, квирк порядка узлов Q-D02),
+`switch.js` (SW/CSW, порог/гистерезис, `CKTnoncon`). `devices/common.js` —
+`CONSTCtoK`, `CKTmkCur`-обёртка и вычислитель форм источников. `devices/index.js`
+навешивает реализации на `DEVICES`; в `ckt.js` добавлены `cktParam`/`cktModParam`
+(+поиск по ключевым словам каталога), `cktFndBranch`, `cktDltNNum`, `cktTerr`,
+`cktAcLoad`. Генератор `tools/gen-spice-catalog.mjs` теперь пишет
+`instanceParms`/`modelParms`. Тесты — `Site/engine/test/devices.test.mjs` (12).
+Квирки: Q-D01…Q-D04.
+
+P1.5: точки останова независимых источников — `CKTbreaks`/`cktSetBreak`/
+`cktClrBreak`, `DEVaccept` у `Vsource`/`Isource` (PULSE/PWL), `cktAccept` в
+диспетчере устройств. Тесты — `Site/engine/test/devices.test.mjs` (`CKTaccept`
+даёт `TR`, затем `TD+TR+PW`). Квирк Q-A01 (порог `CKTminBreak`).
+
+P1.6: анализы OP/TRAN — `Site/engine/spice/analyses/` (`cktop.js` — gmin/source
+stepping, `op.js` — `DCop`, `tran.js` — `TRANinit/setParm/askQuest` + `DCtran`
+по XSPICE-редакции, `index.js` — установка в `ANALYSES`); выходной фронтенд
+`cktOut*`; каталог анализов с `parms` (`cktAnalParamIndex`/`…ByName`). Тесты —
+`Site/engine/test/analyses.test.mjs` (OP-делитель/RC, TRAN `tran_rc`: 180/180
+точек). Квирки: Q-A01, Q-O01, Q-O02, Q-F01.
+
+P2.7 (частично): AC-драйвер — `Site/engine/spice/analyses/ac.js`
+(`ACsetParm`/`ACaskQuest`/`ACan`/`CKTacDump`), `ni.js` — `niAcIter`
+(`SMPcReorder`/`SMPcLUfac`/`SMPcSolve`), `ckt.js` — `IF_COMPLEX` и поля `ACAN`.
+Корпус `tools/oracle/corpus/ac_rc.json` (RC-ФНЧ, `lin`) + golden; тесты —
+`Site/engine/test/analyses.test.mjs` (комплексные значения, сетка, параметры).
+Квирки: Q-A02 (LINEAR в DLL — по F4), Q-O02 (refName шима). Полный AC с
+нелинейными устройствами — после P2.1–P2.6.
+
+Следующий шаг — **P2.2** (BJT Gummel-Poon), затем JFET/MOSFET/оп-ампы и
+расширение корпуса AC.
 
 ### Фаза P2 — Устройства и модели
 
 | ID | Задача |
 |---|---|
-| P2.1 | Диод (полный SPICE3: area, temp, breakdown/зенер) |
+| P2.1 ✅ | [Диод (полный SPICE3: area, temp, breakdown/зенер)](./plans/P2.1-diode.md) — `done` |
 | P2.2 | BJT (Gummel-Poon: NPN/PNP, area, temp) |
 | P2.3 | JFET, MESFET |
 | P2.4 | MOSFET уровни 1–3/6 (как в оригинале — уточнить по строкам DLL) |
@@ -374,7 +427,8 @@ Q-S06 — открытый вопрос про трансляцию индекс
 ## 8. Чеклист первых задач следующему агенту
 
 1. [x] Прочитать этот файл + `AGENTS.md` + `docs/engine/PLAN.md` §1–4.
-2. [x] `npm test` — база зелёная (**84** теста на 2026-10, включая оракул, модели и sparse).
+2. [x] `npm test` — база зелёная (**153** теста на 2026-11-05, включая оракул, модели,
+   sparse, CKT, NI, устройства и анализы OP/TRAN/AC).
 3. [x] **R1–R3**: версия предка, источники (`docs/re/engine-lineage.md`), `vendor/`.
 4. [x] **O1–O5**: оракул (32-бит Python + ctypes под Wine) считает OP/TRAN, golden сняты,
    детерминизм проверен (`tools/oracle/`, `test/oracle.test.mjs`).
@@ -384,10 +438,24 @@ Q-S06 — открытый вопрос про трансляцию индекс
 7. [x] **P1.1**: порт sparse готов (`Site/engine/spice/sparse.js`) + golden-харнесс C↔JS
    (`tools/sparse-golden/`), тесты `sparse-golden.test.mjs` (10) и `sparse.test.mjs` (14);
    квирки — `docs/re/engine-quirks.md`.
-8. [ ] **P1.2–P1.3**: CKT + NI (Ньютон/интеграция/LTE).
-9. [ ] **P1.4–P1.6**: R/C/L/V/I + OP/TRAN diff-тесты.
-10. [x] Quirk-лист заведён (`docs/re/engine-quirks.md`, Q-S01…Q-S06) — вести дальше
-    с каждого расхождения.
+8. [x] **P1.2**: CKT-скелет (`Site/engine/spice/ckt.js`), каркас NI
+   (`Site/engine/spice/ni.js`), каталог устройств/анализов
+   (`Site/engine/spice/catalog.js` + `tools/gen-spice-catalog.mjs`); тесты
+   `ckt.test.mjs` (30); квирк Q-C01.
+9. [x] **P1.3**: NI — Ньютон/интеграция/LTE (`Site/engine/spice/ni.js`), `cktLoad`/
+   `cktConvTest`/`cktTrunc` (`ckt.js`); тесты `ni.test.mjs` (19); квирки Q-C02…Q-C04, Q-N01.
+10. [x] **P1.4**: устройства R/C/L/mutual/V/I/SW/CSW
+    (`Site/engine/spice/devices/`), тесты `devices.test.mjs` (12); квирки Q-D01…Q-D04.
+11. [x] **P1.5–P1.6**: точки останова источников, `DCop`/`DCtran`/`CKTop`,
+    `analyses.test.mjs` — OP/TRAN против оракула (квирки Q-A01, Q-O01, Q-O02, Q-F01).
+12. [x] Quirk-лист заведён (`docs/re/engine-quirks.md`, Q-S01…Q-S06, Q-C01…Q-C04,
+    Q-N01, Q-D01…Q-D04, Q-A01, Q-O01/Q-O02, Q-F01) — вести дальше с каждого расхождения.
+13. [x] **P2.7 (частично)**: AC-драйвер (`analyses/ac.js`, `niAcIter`), корпус
+    `ac_rc` + golden, тесты; квирк Q-A02. Далее — P2.1 (диод) и полный AC
+    с нелинейными устройствами.
+14. [x] **P2.1**: полный диод (XSPICE-редакция) — `devices/diode.js`, корпус
+    `diode_{fwd,rs,rev,rect,ac}`, OP/AC бит-в-бит, TRAN 351/351; квирки
+    Q-D05 (`NOBYPASS`), Q-D06 (`NEWCONV`), Q-O03. Далее — P2.2 (BJT).
 
 Правило ступеней: **каждая ступень заканчивается зелёными тестами** (`npm test`, включая
 diff-тесты, если оракул поднят).
@@ -437,14 +505,18 @@ addVoltage
 - `Site/engine/` — рабочий «старый» движок: `analysis.js` (MNA, Ньютон, TRAP/BE, DC/TRAN/AC),
   `system.js`, `linalg.js`, `netlist.js`, `index.js`, `parser.js` (`.ewb`→нетлист),
   `ewb-codec.js` (декод Type1/2, энкодер Type1), `ewb-text.js` (сериализатор).
-- `Site/engine/spice/` — порт предка: `sparse.js` (P1.1); далее `ckt.js`, `ni.js`, …
+- `Site/engine/spice/` — порт предка: `sparse.js` (P1.1), `ckt.js` + `catalog.js`
+  (P1.2), `ni.js` (P1.3 — полный NI: Ньютон, trap/Gear, LTE, сходимость),
+  `devices/` (P1.4 — R/C/L/mutual/V/I/SW/CSW); далее P1.5–P1.6 и анализы.
 - `Site/engine/models/ewb-models.json` — карта PartNum (генерируется `tools/models-parse.mjs`).
 - Открытие/сохранение в редакторе: `Site/logic/js/file-io.js` (Open/Save/New, плейсхолдеры),
   мост `Site/logic/js/sim.js`.
-- Тесты: `npm test` → **84** зелёных (кодек, парсер, сериализация, солверы, мост, оракул,
-  модели, sparse: golden C↔JS и юниты).
+- Тесты: `npm test` → **144** зелёных (кодек, парсер, сериализация, солверы, мост, оракул,
+  модели, sparse: golden C↔JS и юниты, CKT: `ckt.test.mjs` (30), NI: `ni.test.mjs` (19),
+  устройства: `devices.test.mjs` (12)).
 - Инструменты: `tools/ewb2txt.mjs` (`--info`, `--dir`), `tools/pe-exports.mjs`,
-  `tools/models-parse.mjs`, `tools/oracle/`, `tools/sparse-golden/`.
+  `tools/models-parse.mjs`, `tools/gen-spice-catalog.mjs`, `tools/oracle/`,
+  `tools/sparse-golden/`.
 - Референс-данные: `EWB512/`, `extracted_assets/`, `Site/img/` (read-only, не в git).
 - Планы: `docs/engine/PLAN.md`, `docs/engine/PLAN-CLONE.md`, `docs/engine/plans/*`.
 - Правила: комментарии русские, идентификаторы английские, ESM, 0 зависимостей,

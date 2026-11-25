@@ -9,12 +9,15 @@
 // как их видит маршрутизатор проводов (wires.js).
 
 import { loadWireSettings } from './wire-settings.js';
+import V from './viewport.js';
 
 const DebugTool = (() => {
     const DEBUG = /[?&]debug=1/.test(window.location ? window.location.search : '');
     const main = document.getElementById('main-windows');
     if (!DEBUG || !main) return { start() {}, stop() {} };
 
+    // Оверлей живёт на бесконечном поле и рисуется в мировых координатах.
+    const world = V.world || main;
     const NS = 'http://www.w3.org/2000/svg';
     const history = [];
     let layer = null;
@@ -24,9 +27,7 @@ const DebugTool = (() => {
         if (layer) return layer;
         layer = document.createElementNS(NS, 'svg');
         layer.classList.add('debug-overlay');
-        layer.setAttribute('width', '100%');
-        layer.setAttribute('height', '100%');
-        main.appendChild(layer);
+        world.appendChild(layer);
         return layer;
     }
 
@@ -47,40 +48,56 @@ const DebugTool = (() => {
         ensureLayer();
         while (layer.firstChild) layer.removeChild(layer.firstChild);
 
-        const mRect = main.getBoundingClientRect();
-        const cOff = { x: mRect.left, y: mRect.top };
         const SET = loadWireSettings();
         const G = Math.max(2, SET.gridSize);
         const pad = SET.pad;
 
-        // сетка
-        for (let x = 0; x <= mRect.width; x += G) {
-            layer.appendChild(el('line', { x1: x, y1: 0, x2: x, y2: mRect.height, stroke: '#d9d9d9', 'stroke-width': 0.5 }));
+        // Границы содержимого в мировых координатах (плюс видимая область).
+        let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
+        const grow = (x, y) => {
+            if (x < x0) x0 = x;
+            if (y < y0) y0 = y;
+            if (x > x1) x1 = x;
+            if (y > y1) y1 = y;
+        };
+        world.querySelectorAll('.component-svg').forEach(n => {
+            grow(n.offsetLeft, n.offsetTop);
+            grow(n.offsetLeft + n.offsetWidth, n.offsetTop + n.offsetHeight);
+        });
+        const tl = V.screenToWorld(main.getBoundingClientRect().left, main.getBoundingClientRect().top);
+        const br = V.screenToWorld(main.getBoundingClientRect().right, main.getBoundingClientRect().bottom);
+        grow(tl.x, tl.y); grow(br.x, br.y);
+        if (!Number.isFinite(x0)) { x0 = 0; y0 = 0; x1 = 640; y1 = 480; }
+
+        const gx0 = Math.floor(x0 / G) * G, gy0 = Math.floor(y0 / G) * G;
+        for (let x = gx0; x <= x1; x += G) {
+            layer.appendChild(el('line', { x1: x, y1: y0, x2: x, y2: y1, stroke: '#d9d9d9', 'stroke-width': 0.5 / V.getState().scale }));
         }
-        for (let y = 0; y <= mRect.height; y += G) {
-            layer.appendChild(el('line', { x1: 0, y1: y, x2: mRect.width, y2: y, stroke: '#d9d9d9', 'stroke-width': 0.5 }));
+        for (let y = gy0; y <= y1; y += G) {
+            layer.appendChild(el('line', { x1: x0, y1: y, x2: x1, y2: y, stroke: '#d9d9d9', 'stroke-width': 0.5 / V.getState().scale }));
         }
 
         // компоненты: рамка + отступ (pad)
-        main.querySelectorAll('.component-svg').forEach(n => {
-            const r = n.getBoundingClientRect();
-            const x0 = r.left - cOff.x, y0 = r.top - cOff.y;
-            const x1 = r.right - cOff.x, y1 = r.bottom - cOff.y;
+        world.querySelectorAll('.component-svg').forEach(n => {
+            const x0c = n.offsetLeft, y0c = n.offsetTop;
+            const x1c = x0c + n.offsetWidth, y1c = y0c + n.offsetHeight;
             layer.appendChild(el('rect', {
-                x: x0 + 0.5, y: y0 + 0.5, width: Math.max(0, x1 - x0 - 1), height: Math.max(0, y1 - y0 - 1),
+                x: x0c + 0.5, y: y0c + 0.5, width: Math.max(0, x1c - x0c - 1), height: Math.max(0, y1c - y0c - 1),
                 fill: 'rgba(200,0,0,.06)', stroke: '#c00', 'stroke-width': 1, 'stroke-dasharray': '6 3'
             }));
             layer.appendChild(el('rect', {
-                x: x0 - pad + 0.5, y: y0 - pad + 0.5,
-                width: Math.max(0, (x1 - x0) + 2 * pad - 1), height: Math.max(0, (y1 - y0) + 2 * pad - 1),
+                x: x0c - pad + 0.5, y: y0c - pad + 0.5,
+                width: Math.max(0, (x1c - x0c) + 2 * pad - 1), height: Math.max(0, (y1c - y0c) + 2 * pad - 1),
                 fill: 'none', stroke: '#f80', 'stroke-width': 1, 'stroke-dasharray': '2 3'
             }));
         });
 
         // порты
-        main.querySelectorAll('.port').forEach(p => {
-            const r = p.getBoundingClientRect();
-            const cx = r.left + r.width / 2 - cOff.x, cy = r.top + r.height / 2 - cOff.y;
+        world.querySelectorAll('.port').forEach(p => {
+            const node = p.closest('.component-svg');
+            if (!node) return;
+            const cx = node.offsetLeft + node.offsetWidth * (parseFloat(p.style.left) || 0) / 100;
+            const cy = node.offsetTop + node.offsetHeight * (parseFloat(p.style.top) || 0) / 100;
             layer.appendChild(el('circle', { cx, cy, r: 3, fill: '#a06ad8' }));
             layer.appendChild(el('text', { x: cx + 5, y: cy - 4, 'font-size': 9, fill: '#a06ad8' }, p.dataset.dir || 'auto'));
         });
@@ -100,7 +117,7 @@ const DebugTool = (() => {
         }
 
         // итоговые линии проводов
-        main.querySelectorAll('.wire-path').forEach(pol => {
+        world.querySelectorAll('.wire-path').forEach(pol => {
             const pts = String(pol.getAttribute('points') || '').trim(l)
                 .split(/[\s]+/).filter(Boolean)
                 .map(s => { const [x, y] = s.split(',').map(Number); return { x, y }; });
@@ -145,7 +162,7 @@ const DebugTool = (() => {
             if (timer) clearTimeout(timer);
             timer = setTimeout(() => snapshot('change'), 150);
         });
-        obs.observe(main, { childList: true, subtree: true, attributes: true, attributeFilter: ['style'] });
+        obs.observe(world, { childList: true, subtree: true, attributes: true, attributeFilter: ['style'] });
 
         window.__ewrDebugDump = (label) => snapshot(label || 'manual');
         window.__ewrDebugCopy = copySnapshot;

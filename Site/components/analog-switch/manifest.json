@@ -1,0 +1,55 @@
+{
+    "id": "analog-switch",
+    "name": "Аналоговый ключ",
+    "category": "component",
+    "description": "Аналоговый ключ (Analog Switch); источник EWB: ewb-3002-19",
+    "source": "ewb-3002-19",
+    "status": "placeholder",
+    "size": {
+        "w": 100,
+        "h": 40
+    },
+    "symbol": "symbol.svg",
+    "parameters": {},
+    "ports": [
+        {
+            "id": "p1",
+            "label": "",
+            "role": "inout",
+            "dir": "left",
+            "x": 0,
+            "y": 20
+        },
+        {
+            "id": "p2",
+            "label": "",
+            "role": "inout",
+            "dir": "right",
+            "x": 100,
+            "y": 20
+        },
+        {
+            "id": "p3",
+            "label": "",
+            "role": "inout",
+            "dir": "down",
+            "x": 33.333333333333336,
+            "y": 40
+        },
+        {
+            "id": "p4",
+            "label": "",
+            "role": "inout",
+            "dir": "down",
+            "x": 66.66666666666667,
+            "y": 40
+        }
+    ],
+    "ewb": {
+        "partNum": null,
+        "ext": "analogsw",
+        "model": "asw.par",
+        "device": "unknown",
+        "confidence": "inferred"
+    }
+}

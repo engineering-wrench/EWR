@@ -1,0 +1,87 @@
+{
+    "id": "pll",
+    "name": "ФАПЧ",
+    "category": "component",
+    "description": "ФАПЧ (Phase-Locked Loop); источник EWB: ewb-3005-06",
+    "source": "ewb-3005-06",
+    "status": "placeholder",
+    "size": {
+        "w": 100,
+        "h": 40
+    },
+    "symbol": "symbol.svg",
+    "parameters": {},
+    "ports": [
+        {
+            "id": "p1",
+            "label": "",
+            "role": "inout",
+            "dir": "left",
+            "x": 0,
+            "y": 20
+        },
+        {
+            "id": "p2",
+            "label": "",
+            "role": "inout",
+            "dir": "right",
+            "x": 100,
+            "y": 20
+        },
+        {
+            "id": "p3",
+            "label": "",
+            "role": "inout",
+            "dir": "down",
+            "x": 14.285714285714286,
+            "y": 40
+        },
+        {
+            "id": "p4",
+            "label": "",
+            "role": "inout",
+            "dir": "down",
+            "x": 28.571428571428573,
+            "y": 40
+        },
+        {
+            "id": "p5",
+            "label": "",
+            "role": "inout",
+            "dir": "down",
+            "x": 42.857142857142854,
+            "y": 40
+        },
+        {
+            "id": "p6",
+            "label": "",
+            "role": "inout",
+            "dir": "down",
+            "x": 57.142857142857146,
+            "y": 40
+        },
+        {
+            "id": "p7",
+            "label": "",
+            "role": "inout",
+            "dir": "down",
+            "x": 71.42857142857143,
+            "y": 40
+        },
+        {
+            "id": "p8",
+            "label": "",
+            "role": "inout",
+            "dir": "down",
+            "x": 85.71428571428571,
+            "y": 40
+        }
+    ],
+    "ewb": {
+        "partNum": null,
+        "ext": "pll",
+        "model": "pll.par",
+        "device": "unknown",
+        "confidence": "inferred"
+    }
+}

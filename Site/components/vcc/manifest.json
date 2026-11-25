@@ -1,0 +1,31 @@
+{
+    "id": "vcc",
+    "name": "Напряжение питания Vcc",
+    "category": "component",
+    "description": "Напряжение питания Vcc (Vcc); источник EWB: ewb-3001-10",
+    "source": "ewb-3001-10",
+    "status": "placeholder",
+    "size": {
+        "w": 100,
+        "h": 40
+    },
+    "symbol": "symbol.svg",
+    "parameters": {},
+    "ports": [
+        {
+            "id": "p1",
+            "label": "",
+            "role": "inout",
+            "dir": "left",
+            "x": 0,
+            "y": 20
+        }
+    ],
+    "ewb": {
+        "partNum": null,
+        "ext": "Volt",
+        "model": "volt.par",
+        "device": "unknown",
+        "confidence": "confirmed"
+    }
+}
