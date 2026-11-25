@@ -1,0 +1,22 @@
+{
+    "id": "text-box",
+    "name": "Текст",
+    "category": "component",
+    "description": "Текст (Text Box); источник EWB: ewb-3012-12",
+    "source": "ewb-3012-12",
+    "status": "placeholder",
+    "size": {
+        "w": 100,
+        "h": 40
+    },
+    "symbol": "symbol.svg",
+    "parameters": {},
+    "ports": [],
+    "ewb": {
+        "partNum": null,
+        "ext": "textbox",
+        "model": "textb.par",
+        "device": "unknown",
+        "confidence": "confirmed"
+    }
+}

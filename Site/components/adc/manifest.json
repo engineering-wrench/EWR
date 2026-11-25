@@ -1,0 +1,71 @@
+{
+    "id": "adc",
+    "name": "АЦП",
+    "category": "component",
+    "description": "АЦП (A/D Converter); источник EWB: ewb-3006-01",
+    "source": "ewb-3006-01",
+    "status": "placeholder",
+    "size": {
+        "w": 100,
+        "h": 40
+    },
+    "symbol": "symbol.svg",
+    "parameters": {},
+    "ports": [
+        {
+            "id": "p1",
+            "label": "",
+            "role": "inout",
+            "dir": "left",
+            "x": 0,
+            "y": 20
+        },
+        {
+            "id": "p2",
+            "label": "",
+            "role": "inout",
+            "dir": "right",
+            "x": 100,
+            "y": 20
+        },
+        {
+            "id": "p3",
+            "label": "",
+            "role": "inout",
+            "dir": "down",
+            "x": 20,
+            "y": 40
+        },
+        {
+            "id": "p4",
+            "label": "",
+            "role": "inout",
+            "dir": "down",
+            "x": 40,
+            "y": 40
+        },
+        {
+            "id": "p5",
+            "label": "",
+            "role": "inout",
+            "dir": "down",
+            "x": 60,
+            "y": 40
+        },
+        {
+            "id": "p6",
+            "label": "",
+            "role": "inout",
+            "dir": "down",
+            "x": 80,
+            "y": 40
+        }
+    ],
+    "ewb": {
+        "partNum": null,
+        "ext": "AD",
+        "model": "ad.par",
+        "device": "unknown",
+        "confidence": "inferred"
+    }
+}

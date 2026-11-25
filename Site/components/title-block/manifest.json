@@ -1,0 +1,22 @@
+{
+    "id": "title-block",
+    "name": "Основная надпись",
+    "category": "component",
+    "description": "Основная надпись (Title Block); источник EWB: ewb-3012-13",
+    "source": "ewb-3012-13",
+    "status": "placeholder",
+    "size": {
+        "w": 100,
+        "h": 40
+    },
+    "symbol": "symbol.svg",
+    "parameters": {},
+    "ports": [],
+    "ewb": {
+        "partNum": null,
+        "ext": "titleblk",
+        "model": "title.par",
+        "device": "unknown",
+        "confidence": "confirmed"
+    }
+}

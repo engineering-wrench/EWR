@@ -1,0 +1,15 @@
+{
+  "_comment": "BJT NPN (Gummel-Poon), каскад: V1 (collector) через R1 (emitter) к земле. OP.",
+  "elements": [
+    { "name": "V1", "dev": "Vsource", "nodes": ["c", "0"], "params": { "dc": 12 } },
+    { "name": "R1", "dev": "Resistor", "nodes": ["e", "0"], "params": { "resistance": 1000 } },
+    {
+      "name": "Q1",
+      "dev": "BJT",
+      "nodes": ["c", "b", "e", "0"],
+      "modelParams": { "npn": true, "bf": 100, "is": 1e-14, "nf": 1 },
+      "params": { "off": false }
+    }
+  ],
+  "analyses": [{ "type": "OP", "name": "op1" }]
+}

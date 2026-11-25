@@ -1,0 +1,95 @@
+{
+    "id": "opamp-9t",
+    "name": "Операционный усилитель, 9 выводов",
+    "category": "component",
+    "description": "Операционный усилитель, 9 выводов (9-Terminal Opamp); источник EWB: ewb-3005-04",
+    "source": "ewb-3005-04",
+    "status": "placeholder",
+    "size": {
+        "w": 100,
+        "h": 40
+    },
+    "symbol": "symbol.svg",
+    "parameters": {},
+    "ports": [
+        {
+            "id": "p1",
+            "label": "",
+            "role": "inout",
+            "dir": "left",
+            "x": 0,
+            "y": 20
+        },
+        {
+            "id": "p2",
+            "label": "",
+            "role": "inout",
+            "dir": "right",
+            "x": 100,
+            "y": 20
+        },
+        {
+            "id": "p3",
+            "label": "",
+            "role": "inout",
+            "dir": "down",
+            "x": 12.5,
+            "y": 40
+        },
+        {
+            "id": "p4",
+            "label": "",
+            "role": "inout",
+            "dir": "down",
+            "x": 25,
+            "y": 40
+        },
+        {
+            "id": "p5",
+            "label": "",
+            "role": "inout",
+            "dir": "down",
+            "x": 37.5,
+            "y": 40
+        },
+        {
+            "id": "p6",
+            "label": "",
+            "role": "inout",
+            "dir": "down",
+            "x": 50,
+            "y": 40
+        },
+        {
+            "id": "p7",
+            "label": "",
+            "role": "inout",
+            "dir": "down",
+            "x": 62.5,
+            "y": 40
+        },
+        {
+            "id": "p8",
+            "label": "",
+            "role": "inout",
+            "dir": "down",
+            "x": 75,
+            "y": 40
+        },
+        {
+            "id": "p9",
+            "label": "",
+            "role": "inout",
+            "dir": "down",
+            "x": 87.5,
+            "y": 40
+        }
+    ],
+    "ewb": {
+        "partNum": null,
+        "ext": "9oamp",
+        "model": "9oamp.par",
+        "device": "unknown",
+        "confidence": "confirmed"
+    }
+}

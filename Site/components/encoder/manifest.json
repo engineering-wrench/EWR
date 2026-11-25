@@ -1,0 +1,47 @@
+{
+    "id": "encoder",
+    "name": "Шифратор",
+    "category": "component",
+    "description": "Шифратор (Encoder); источник EWB: ewb-3009-10",
+    "source": "ewb-3009-10",
+    "status": "placeholder",
+    "size": {
+        "w": 100,
+        "h": 40
+    },
+    "symbol": "symbol.svg",
+    "parameters": {},
+    "ports": [
+        {
+            "id": "p1",
+            "label": "",
+            "role": "inout",
+            "dir": "left",
+            "x": 0,
+            "y": 20
+        },
+        {
+            "id": "p2",
+            "label": "",
+            "role": "inout",
+            "dir": "right",
+            "x": 100,
+            "y": 20
+        },
+        {
+            "id": "p3",
+            "label": "",
+            "role": "inout",
+            "dir": "down",
+            "x": 50,
+            "y": 40
+        }
+    ],
+    "ewb": {
+        "partNum": null,
+        "ext": "TemplateEnc",
+        "model": "tpl15.par",
+        "device": "unknown",
+        "confidence": "confirmed"
+    }
+}

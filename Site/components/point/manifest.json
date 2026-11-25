@@ -1,0 +1,39 @@
+{
+    "id": "point",
+    "name": "Соединитель",
+    "category": "component",
+    "description": "Соединитель (Connector); источник EWB: ewb-3002-01",
+    "source": "ewb-3002-01",
+    "status": "placeholder",
+    "size": {
+        "w": 100,
+        "h": 40
+    },
+    "symbol": "symbol.svg",
+    "parameters": {},
+    "ports": [
+        {
+            "id": "p1",
+            "label": "",
+            "role": "inout",
+            "dir": "left",
+            "x": 0,
+            "y": 20
+        },
+        {
+            "id": "p2",
+            "label": "",
+            "role": "inout",
+            "dir": "right",
+            "x": 100,
+            "y": 20
+        }
+    ],
+    "ewb": {
+        "partNum": 9,
+        "ext": null,
+        "model": null,
+        "device": "connector",
+        "confidence": "confirmed"
+    }
+}

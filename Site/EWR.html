@@ -20,7 +20,13 @@
             <div class = "switch" id="switch"></div>
         </div>
     </div>
-    <div class="main-window" id="main-windows"></div>
+    <div class="main-window" id="main-windows">
+        <div class="zoom-controls" id="zoom-controls" title="Масштаб: − / + / сброс (100 %)">
+            <button type="button" data-zoom="out" title="Уменьшить (колесо мыши от себя)">−</button>
+            <button type="button" data-zoom="reset" data-zoom-label title="Сбросить масштаб и панораму">100%</button>
+            <button type="button" data-zoom="in" title="Увеличить (колесо мыши на себя)">+</button>
+        </div>
+    </div>
     <div id="component-menu">
         <div class="component-menu__title">Компонент</div>
         <div class="component-menu__body"></div>
@@ -30,6 +36,7 @@
             <p id="status"> None</p>
         </div>
     </div>
+    <script type="module" src="logic/js/viewport.js"></script>
     <script type="module" src="logic/js/interface.js"></script>
     <script type="module" src="logic/js/utilit.js"></script>
     <script type="module" src="logic/js/wire-settings.js"></script>

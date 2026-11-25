@@ -1,0 +1,22 @@
+{
+    "id": "ic-74xx",
+    "name": "ИС серии 74xx",
+    "category": "component",
+    "description": "ИС серии 74xx (74xx Series); источник EWB: ewb-3007-01",
+    "source": "ewb-3007-01",
+    "status": "placeholder",
+    "size": {
+        "w": 100,
+        "h": 40
+    },
+    "symbol": "symbol.svg",
+    "parameters": {},
+    "ports": [],
+    "ewb": {
+        "partNum": null,
+        "ext": "Template740",
+        "model": "tpl70.par",
+        "device": "unknown",
+        "confidence": "confirmed"
+    }
+}

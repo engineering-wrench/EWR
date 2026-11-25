@@ -1,0 +1,22 @@
+{
+    "id": "ic-4xxx",
+    "name": "ИС серии 4xxx",
+    "category": "component",
+    "description": "ИС серии 4xxx (4xxx Series); источник EWB: ewb-3007-06",
+    "source": "ewb-3007-06",
+    "status": "placeholder",
+    "size": {
+        "w": 100,
+        "h": 40
+    },
+    "symbol": "symbol.svg",
+    "parameters": {},
+    "ports": [],
+    "ewb": {
+        "partNum": null,
+        "ext": "Template4",
+        "model": "tpl4x.par",
+        "device": "unknown",
+        "confidence": "confirmed"
+    }
+}

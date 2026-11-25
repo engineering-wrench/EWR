@@ -33,12 +33,26 @@ body {
     overflow: hidden;
 }
 
-/* Главное окно для drag-and-drop элементов */
+/* Главное окно — вьюпорт бесконечного поля: элементы живут в .canvas-world */
 .main-window {
     background-color: var(--neutral);
     height: 77vh;
     position: relative;
-    overflow: visible;
+    overflow: hidden;
+    cursor: default;
+}
+
+.main-window.is-panning {
+    cursor: grabbing;
+}
+
+/* Бесконечная плоскость: мировые координаты + transform (pan/zoom) */
+.canvas-world {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform-origin: 0 0;
+    will-change: transform;
 }
 
 /* Нижнее окно */
@@ -182,6 +196,10 @@ body {
 }
 
 /* Размещённый компонент: обёртка из SVG + точки подключения */
+.canvas-world .component-svg {
+    position: absolute;
+}
+
 .component-svg {
     position: relative;
     display: block;
@@ -204,7 +222,9 @@ body {
     border-radius: 50%;
     background-color: #ffffff;
     border: 2px solid var(--accent-color);
-    transform: translate(-50%, -50%);
+    /* Центр порта остаётся в геометрической точке; обратный масштаб
+       (--ewr-port-scale из viewport.js) держит размер читаемым при zoom. */
+    transform: translate(-50%, -50%) scale(var(--ewr-port-scale, 1));
     z-index: 5;
     cursor: crosshair;
 }
@@ -212,6 +232,22 @@ body {
 .component-svg .port:hover {
     background-color: var(--accent-color);
     box-shadow: 0 0 6px rgba(0, 0, 131, 0.6);
+}
+
+/* Показание прибора после Run (когда у символа нет слота value) */
+.component-svg .sim-readout {
+    position: absolute;
+    left: 50%;
+    bottom: -18px;
+    transform: translateX(-50%);
+    padding: 1px 6px;
+    border-radius: 3px;
+    background: rgba(0, 0, 131, 0.85);
+    color: #fff;
+    font: 11px/1.4 monospace;
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 20;
 }
 
 /* Контекстное меню компонента */
@@ -284,13 +320,14 @@ body {
     border: 2px dashed var(--accent-color);
 }
 
-/* Слой и линии соединений (провода) */
+/* Слой и линии соединений (провода) — внутри .canvas-world, мировые px.
+   Большой канвас + overflow: visible: координаты могут быть любыми (поле бесконечно). */
 .wire-layer {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 200000px;
+    height: 200000px;
     overflow: visible;
     pointer-events: none;
 }
@@ -300,6 +337,8 @@ body {
     stroke: var(--accent-color);
     stroke-width: 2;
     stroke-linejoin: round;
+    stroke-linecap: round;
+    vector-effect: non-scaling-stroke;
     pointer-events: stroke;
     cursor: pointer;
 }
@@ -320,16 +359,18 @@ body {
     stroke: var(--accent-color);
     stroke-width: 2;
     stroke-dasharray: 8 5;
+    vector-effect: non-scaling-stroke;
     pointer-events: none;
     opacity: 0.75;
 }
 
-/* Диагностический оверлей (debug.js, ?debug=1) */
+/* Диагностический оверлей (debug.js, ?debug=1) — в мировых координатах */
 .debug-overlay {
     position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
+    top: 0;
+    left: 0;
+    width: 200000px;
+    height: 200000px;
     overflow: visible;
     pointer-events: none;
     z-index: 900;
@@ -358,6 +399,44 @@ body {
     background-color: rgba(0, 0, 131, 0.08);
     z-index: 950;
     pointer-events: none;
+}
+
+/* Панель масштаба поверх вьюпорта */
+.zoom-controls {
+    position: absolute;
+    right: 14px;
+    bottom: 14px;
+    z-index: 1200;
+    display: flex;
+    align-items: stretch;
+    gap: 2px;
+    background: rgba(197, 194, 197, 0.9);
+    border: 2px solid var(--color2);
+    border-radius: 4px;
+    padding: 2px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.zoom-controls button {
+    min-width: 34px;
+    height: 28px;
+    padding: 0 8px;
+    border: none;
+    border-radius: 3px;
+    background: var(--neutral);
+    color: var(--accent-color);
+    font: bold 15px/1 monospace;
+    cursor: pointer;
+}
+
+.zoom-controls button:hover {
+    background: var(--accent-color);
+    color: var(--neutral);
+}
+
+.zoom-controls button[data-zoom="reset"] {
+    font-size: 12px;
+    font-weight: normal;
 }
 
 /* Кнопка перетрассировки связей удалена; ручные сегменты проводов сохраняются. */

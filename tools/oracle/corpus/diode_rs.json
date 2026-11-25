@@ -1,0 +1,14 @@
+{
+  "_comment": "Диод с rs!=0: OP. Проверяет внутренний узел D1#internal (CKTmkVolt).",
+  "elements": [
+    { "name": "V1", "dev": "Vsource", "nodes": ["in", "0"], "params": { "dc": 1 } },
+    { "name": "R1", "dev": "Resistor", "nodes": ["in", "a"], "params": { "resistance": 100 } },
+    {
+      "name": "D1",
+      "dev": "Diode",
+      "nodes": ["a", "0"],
+      "modelParams": { "is": 1e-14, "n": 1.5, "rs": 10 }
+    }
+  ],
+  "analyses": [{ "type": "OP", "name": "op1" }]
+}

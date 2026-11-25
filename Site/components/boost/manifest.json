@@ -1,0 +1,47 @@
+{
+    "id": "boost",
+    "name": "Повышающий преобразователь",
+    "category": "component",
+    "description": "Повышающий преобразователь (Boost Converter); источник EWB: ewb-3012-09",
+    "source": "ewb-3012-09",
+    "status": "placeholder",
+    "size": {
+        "w": 100,
+        "h": 40
+    },
+    "symbol": "symbol.svg",
+    "parameters": {},
+    "ports": [
+        {
+            "id": "p1",
+            "label": "",
+            "role": "inout",
+            "dir": "left",
+            "x": 0,
+            "y": 20
+        },
+        {
+            "id": "p2",
+            "label": "",
+            "role": "inout",
+            "dir": "right",
+            "x": 100,
+            "y": 20
+        },
+        {
+            "id": "p3",
+            "label": "",
+            "role": "inout",
+            "dir": "down",
+            "x": 50,
+            "y": 40
+        }
+    ],
+    "ewb": {
+        "partNum": null,
+        "ext": "boost",
+        "model": "boost.par",
+        "device": "unknown",
+        "confidence": "confirmed"
+    }
+}

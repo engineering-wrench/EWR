@@ -1,0 +1,22 @@
+{
+    "id": "ic-742xx",
+    "name": "ИС серии 742xx",
+    "category": "component",
+    "description": "ИС серии 742xx (742xx Series); источник EWB: ewb-3007-03",
+    "source": "ewb-3007-03",
+    "status": "placeholder",
+    "size": {
+        "w": 100,
+        "h": 40
+    },
+    "symbol": "symbol.svg",
+    "parameters": {},
+    "ports": [],
+    "ewb": {
+        "partNum": null,
+        "ext": "Template742",
+        "model": "tpl72.par",
+        "device": "unknown",
+        "confidence": "confirmed"
+    }
+}

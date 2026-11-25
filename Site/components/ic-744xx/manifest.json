@@ -1,0 +1,22 @@
+{
+    "id": "ic-744xx",
+    "name": "ИС серии 744xx",
+    "category": "component",
+    "description": "ИС серии 744xx (744xx Series); источник EWB: ewb-3007-05",
+    "source": "ewb-3007-05",
+    "status": "placeholder",
+    "size": {
+        "w": 100,
+        "h": 40
+    },
+    "symbol": "symbol.svg",
+    "parameters": {},
+    "ports": [],
+    "ewb": {
+        "partNum": null,
+        "ext": "Template744",
+        "model": "tpl74.par",
+        "device": "unknown",
+        "confidence": "confirmed"
+    }
+}

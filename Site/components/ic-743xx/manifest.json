@@ -1,0 +1,22 @@
+{
+    "id": "ic-743xx",
+    "name": "ИС серии 743xx",
+    "category": "component",
+    "description": "ИС серии 743xx (743xx Series); источник EWB: ewb-3007-04",
+    "source": "ewb-3007-04",
+    "status": "placeholder",
+    "size": {
+        "w": 100,
+        "h": 40
+    },
+    "symbol": "symbol.svg",
+    "parameters": {},
+    "ports": [],
+    "ewb": {
+        "partNum": null,
+        "ext": "Template743",
+        "model": "tpl73.par",
+        "device": "unknown",
+        "confidence": "confirmed"
+    }
+}

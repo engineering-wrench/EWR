@@ -1,0 +1,47 @@
+{
+    "id": "pull-up",
+    "name": "Подтягивающий резистор",
+    "category": "component",
+    "description": "Подтягивающий резистор (Pull-Up Resistor); источник EWB: ewb-3002-11",
+    "source": "ewb-3002-11",
+    "status": "placeholder",
+    "size": {
+        "w": 100,
+        "h": 40
+    },
+    "symbol": "symbol.svg",
+    "parameters": {},
+    "ports": [
+        {
+            "id": "p1",
+            "label": "",
+            "role": "inout",
+            "dir": "left",
+            "x": 0,
+            "y": 20
+        },
+        {
+            "id": "p2",
+            "label": "",
+            "role": "inout",
+            "dir": "right",
+            "x": 100,
+            "y": 20
+        },
+        {
+            "id": "p3",
+            "label": "",
+            "role": "inout",
+            "dir": "down",
+            "x": 50,
+            "y": 40
+        }
+    ],
+    "ewb": {
+        "partNum": null,
+        "ext": "Pull",
+        "model": "pull.par",
+        "device": "unknown",
+        "confidence": "inferred"
+    }
+}

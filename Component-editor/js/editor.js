@@ -11,7 +11,8 @@ window.App = (function () {
         selectedType: null,
         drag: null,
         ports: [],
-        bg: { el: null, naturalW: 0, naturalH: 0 }
+        bg: { el: null, naturalW: 0, naturalH: 0 },
+        meta: { elementId: '', source: '', description: '', photo: null }
     };
 
     const refs = {};
@@ -138,6 +139,8 @@ window.App = (function () {
             e.preventDefault();
         } else if (state.tool === 'text') {
             App.tools.startText(pt);
+        } else if (state.tool === 'slot') {
+            App.tools.startSlotText(pt);
         } else {
             App.tools.startDraw(state.tool, pt);
         }
@@ -171,7 +174,7 @@ window.App = (function () {
         const tag = (e.target.tagName || '').toLowerCase();
         if (tag === 'input' || tag === 'textarea' || tag === 'select') return;
 
-        const map = { v: 'select', l: 'line', r: 'rect', c: 'circle', t: 'text', p: 'port' };
+        const map = { v: 'select', l: 'line', r: 'rect', c: 'circle', t: 'text', n: 'slot', p: 'port' };
         if (map[e.key.toLowerCase()]) {
             setTool(map[e.key.toLowerCase()]);
             return;
@@ -214,7 +217,11 @@ window.App = (function () {
             const slot = makeField('data-slot (пусто = нет)', 'text', el.getAttribute('data-slot') || '', v => {
                 if (v) el.setAttribute('data-slot', v); else el.removeAttribute('data-slot');
             });
-            rows.push(['text', content], ['fontsize', fontSize], ['slot', slot]);
+            const def = makeField('Значение по умолчанию', 'text', el.getAttribute('data-default') || el.textContent || '', v => {
+                el.setAttribute('data-default', v);
+                if (el.getAttribute('data-slot')) el.textContent = v;
+            });
+            rows.push(['text', content], ['fontsize', fontSize], ['slot', slot], ['default', def]);
         } else {
             const fill = makeField('Заливка', 'color', el.getAttribute('fill') || 'none', v => el.setAttribute('fill', v || 'none'));
             const stroke = makeField('Обводка', 'color', el.getAttribute('stroke') || '#111111', v => el.setAttribute('stroke', v));
@@ -239,7 +246,7 @@ window.App = (function () {
     }
 
     function labelText(key) {
-        return { fill: 'Заливка', stroke: 'Обводка', width: 'Толщина', text: 'Текст', fontsize: 'Размер шрифта', slot: 'data-slot' }[key] || key;
+        return { fill: 'Заливка', stroke: 'Обводка', width: 'Толщина', text: 'Текст', fontsize: 'Размер шрифта', slot: 'data-slot', 'default': 'Значение по умолчанию' }[key] || key;
     }
 
     function makeField(label, type, value, apply) {
@@ -262,6 +269,10 @@ window.App = (function () {
             'Размер шрифта': v => state.selected.setAttribute('font-size', v),
             'data-slot': v => {
                 if (v) state.selected.setAttribute('data-slot', v); else state.selected.removeAttribute('data-slot');
+            },
+            'Значение по умолчанию': v => {
+                state.selected.setAttribute('data-default', v);
+                if (state.selected.getAttribute('data-slot')) state.selected.textContent = v;
             }
         };
         container.querySelectorAll('[data-apply]').forEach(inp => {
@@ -278,6 +289,7 @@ window.App = (function () {
         document.querySelectorAll('.sp-tab').forEach(t => t.classList.toggle('active', t.dataset.tab === tab));
         document.querySelectorAll('.sp-section').forEach(s => s.classList.toggle('active', s.id === 'tab-' + tab));
         if (tab === 'export') App.export.refresh();
+        if (tab === 'merge') App.merge.refresh();
     }
 
     // ---------- инициализация ----------
@@ -311,6 +323,8 @@ window.App = (function () {
         App.ports.init();
         App.background.init();
         App.crop.init();
+        App.gallery.init();
+        App.merge.init();
         App.export.init();
 
         setStatus('Готово · холст 1000×1000 · область обрезки 800×800 в центре');

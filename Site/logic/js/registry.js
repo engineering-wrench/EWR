@@ -4,6 +4,12 @@
 
 const COMPONENTS_ROOT = 'components/';
 
+// Размер символа на бесконечном поле — фиксированные мировые единицы.
+// Один и тот же компонент всегда одного размера независимо от размера окна;
+// масштаб меняется всем полем сразу (см. viewport.js), поэтому пропорции
+// символа и позиции портов не искажаются.
+const WORLD_SYMBOL_MAX = 100;
+
 const manifestCache = new Map();
 const symbolCache = new Map();
 
@@ -99,6 +105,43 @@ function fillSlots(svg, values) {
     });
 }
 
+// Размер размещаемого компонента под площадь рабочей области.
+// `size` — натуральный размер/viewBox, `viewport` — {w,h} контейнера.
+// Возвращает размер с той же пропорцией и площадью ≈ fraction от viewport.
+// Оставлено для совместимости/тестов; на бесконечном поле используется
+// worldSymbolSize() — фиксированный мировой размер.
+function fitSizeToViewport(size, viewport, fraction = 0.175) {
+    const sw = Number(size && size.w);
+    const sh = Number(size && size.h);
+    if (!(sw > 0 && sh > 0)) return { w: 80, h: 40 };
+
+    const vw = Number(viewport && viewport.w);
+    const vh = Number(viewport && viewport.h);
+    const f = Number(fraction);
+    if (!(vw > 0 && vh > 0) || !(f > 0)) return { w: sw, h: sh };
+
+    const aspect = sw / sh;
+    let w = Math.sqrt(vw * vh * f * aspect);
+    let h = w / aspect;
+    // На случай экстремальных пропорций не выпускаем компонент за пределы холста.
+    const k = Math.min(1, vw / w, vh / h);
+    w *= k;
+    h *= k;
+    return { w: Math.max(1, Math.round(w)), h: Math.max(1, Math.round(h)) };
+}
+
+// Фиксированный мировой размер символа: сохраняет пропорции viewBox,
+// максимальная сторона = max (по умолчанию 100 мировых px).
+function worldSymbolSize(size, max = WORLD_SYMBOL_MAX) {
+    const sw = Number(size && size.w);
+    const sh = Number(size && size.h);
+    const m = Number(max);
+    if (!(sw > 0 && sh > 0)) return { w: 80, h: 40 };
+    if (!(m > 0)) return { w: sw, h: sh };
+    const k = m / Math.max(sw, sh);
+    return { w: sw * k, h: sh * k };
+}
+
 function defaultValues(manifest) {
     const values = {};
     if (!manifest.parameters) return values;
@@ -132,19 +175,22 @@ async function buildComponentNode(id, values) {
         await loadSymbol(id).catch(() => null);
     }
     const size = manifest.size || { w: 80, h: 40 };
+    const svg = buildSvgNode(id);
+    const vb = svgViewBoxSize(svg);
+    const spanW = vb ? vb.w : size.w;
+    const spanH = vb ? vb.h : size.h;
+    // Мировой размер не зависит от окна: масштабируется всё поле целиком.
+    const layout = worldSymbolSize({ w: spanW, h: spanH });
+
     const wrapper = document.createElement('div');
     wrapper.className = 'component-svg';
     wrapper.dataset.component = id;
     wrapper.dataset.inst = nextInstanceId();
-    wrapper.style.width = size.w + 'px';
-    wrapper.style.height = size.h + 'px';
-
-    const svg = buildSvgNode(id);
+    wrapper.style.width = layout.w + 'px';
+    wrapper.style.height = layout.h + 'px';
+    wrapper.dataset.natW = String(spanW);
+    wrapper.dataset.natH = String(spanH);
     wrapper.appendChild(svg);
-
-    const vb = svgViewBoxSize(svg);
-    const spanW = vb ? vb.w : size.w;
-    const spanH = vb ? vb.h : size.h;
 
     if (Array.isArray(manifest.ports)) {
         for (const port of manifest.ports) {
@@ -172,10 +218,12 @@ function buildDragCursor(id) {
     if (!svg) return null;
     const manifest = manifestCache.get(id);
     const size = manifest.size || { w: 80, h: 40 };
+    const vb = svgViewBoxSize(svg) || size;
+    const cursorSize = worldSymbolSize({ w: vb.w, h: vb.h }, 80);
     const wrapper = document.createElement('div');
     wrapper.className = 'drag-clone';
-    wrapper.style.width = Math.min(size.w, 80) + 'px';
-    wrapper.style.height = Math.min(size.h, 48) + 'px';
+    wrapper.style.width = cursorSize.w + 'px';
+    wrapper.style.height = cursorSize.h + 'px';
     svg.setAttribute('width', '100%');
     svg.setAttribute('height', '100%');
     wrapper.appendChild(svg);
@@ -265,5 +313,8 @@ export {
     buildPlaceholderNode,
     buildDragCursor,
     setComponentValue,
-    preload
+    preload,
+    fitSizeToViewport,
+    worldSymbolSize,
+    WORLD_SYMBOL_MAX
 };

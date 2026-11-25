@@ -1,0 +1,47 @@
+{
+    "id": "bode-plotter",
+    "name": "Измеритель АЧХ",
+    "category": "component",
+    "description": "Измеритель АЧХ (Bode Plotter); источник EWB: ewb-3013-06",
+    "source": "ewb-3013-06",
+    "status": "placeholder",
+    "size": {
+        "w": 100,
+        "h": 40
+    },
+    "symbol": "symbol.svg",
+    "parameters": {},
+    "ports": [
+        {
+            "id": "p1",
+            "label": "",
+            "role": "inout",
+            "dir": "left",
+            "x": 0,
+            "y": 20
+        },
+        {
+            "id": "p2",
+            "label": "",
+            "role": "inout",
+            "dir": "right",
+            "x": 100,
+            "y": 20
+        },
+        {
+            "id": "p3",
+            "label": "",
+            "role": "inout",
+            "dir": "down",
+            "x": 50,
+            "y": 40
+        }
+    ],
+    "ewb": {
+        "partNum": null,
+        "ext": null,
+        "model": null,
+        "device": "unknown",
+        "confidence": "confirmed"
+    }
+}

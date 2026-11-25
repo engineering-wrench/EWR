@@ -1,0 +1,47 @@
+{
+    "id": "tri-state",
+    "name": "Трёхстабильный буфер",
+    "category": "component",
+    "description": "Трёхстабильный буфер (Tri-state Buffer); источник EWB: ewb-3008-08",
+    "source": "ewb-3008-08",
+    "status": "placeholder",
+    "size": {
+        "w": 100,
+        "h": 40
+    },
+    "symbol": "symbol.svg",
+    "parameters": {},
+    "ports": [
+        {
+            "id": "p1",
+            "label": "",
+            "role": "inout",
+            "dir": "left",
+            "x": 0,
+            "y": 20
+        },
+        {
+            "id": "p2",
+            "label": "",
+            "role": "inout",
+            "dir": "right",
+            "x": 100,
+            "y": 20
+        },
+        {
+            "id": "p3",
+            "label": "",
+            "role": "inout",
+            "dir": "down",
+            "x": 50,
+            "y": 40
+        }
+    ],
+    "ewb": {
+        "partNum": null,
+        "ext": "Tri",
+        "model": "tri.par",
+        "device": "unknown",
+        "confidence": "confirmed"
+    }
+}

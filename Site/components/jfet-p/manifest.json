@@ -1,0 +1,47 @@
+{
+    "id": "jfet-p",
+    "name": "Полевой транзистор с p-каналом",
+    "category": "component",
+    "description": "Полевой транзистор с p-каналом (P-Channel JFET); источник EWB: ewb-3004-04",
+    "source": "ewb-3004-04",
+    "status": "placeholder",
+    "size": {
+        "w": 100,
+        "h": 40
+    },
+    "symbol": "symbol.svg",
+    "parameters": {},
+    "ports": [
+        {
+            "id": "p1",
+            "label": "",
+            "role": "inout",
+            "dir": "left",
+            "x": 0,
+            "y": 20
+        },
+        {
+            "id": "p2",
+            "label": "",
+            "role": "inout",
+            "dir": "right",
+            "x": 100,
+            "y": 20
+        },
+        {
+            "id": "p3",
+            "label": "",
+            "role": "inout",
+            "dir": "down",
+            "x": 50,
+            "y": 40
+        }
+    ],
+    "ewb": {
+        "partNum": 23,
+        "ext": null,
+        "model": null,
+        "device": "unknown",
+        "confidence": "confirmed"
+    }
+}
